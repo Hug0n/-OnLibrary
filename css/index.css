@@ -1,0 +1,52 @@
+.color-nav {
+	background-color: #F7D358;
+}
+
+.back-color{
+	background-color: #FBE2A6;
+}
+
+.img-logo {
+	height: 60px;
+	width: 60px;
+	display: block; /* O <span> é "inline" por padrão */
+
+	background: url('imagens/img-logo.png') no-repeat;
+
+	background-size: contain; 
+	color: transparent; /* Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
+}
+
+.titulo {
+	display: inline;
+	text-align: center;
+
+}
+
+.centro {
+	align-items: center;
+	text-align: center;
+
+}
+
+.back-teste {
+	background: red;
+	color: green;
+}
+.back-teste2 {
+	background: green;
+	color: yellow;
+}
+
+.ajustar-tamanho{
+	height: 450px;
+	margin-top: 20px;
+	padding-top: 25px;
+}
+
+.albuns-tamanho {
+padding: 10px;
+width: 400px;
+float: right;
+margin-right:15%;  /* Alternativa que achei para "centralizar" as imagens dos álbuns  */   
+}

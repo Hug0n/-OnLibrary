@@ -1,0 +1,123 @@
+.color-nav {
+	background-color: #F7D358;
+}
+
+.back-color{
+	background-color: #FBE2A6;
+}
+
+.img-logo {
+	height: 60px;
+	width: 60px;
+	display: block; /* O <span> é "inline" por padrão */
+
+	background: url('../imagens/livro-aberto1.png') no-repeat;
+
+	background-size: contain; 
+	color: transparent; /* Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
+}
+
+/* Imagens do container */
+	/*Definir tamanho das imagens*/
+
+.img_capas {
+	padding: 10px;
+ 	max-width: 300px;
+    max-height: 200px;
+    display: inline-block;
+}
+
+/* imagem - Container */
+
+/* INÍCIO - Formatação Links */
+
+
+a { /* 	Formata o link em todos os estados */
+
+	text-decoration: none;	/* 	Retira o underline dos links */		} 
+
+a:link {
+	color: black;
+}
+
+
+a:visited {
+	color: orange;
+}
+
+a:hover {
+	color: white;
+	background: black;
+}
+
+a:active { /* ao clicar */
+	color: orange;
+}
+}
+
+		
+/* FIM - Formatação Links */
+
+
+
+.titulo {
+	display: inline-block;
+	text-align: right;
+
+}
+
+.centro {
+	align-items: center;
+	text-align: center;
+}
+
+.padding-left {
+	margin-left: 40px;
+}
+
+.padding-left-menor {
+	margin-left: 30px;
+}
+
+hr {
+	color: yellow;
+	background-color: red;
+	background: red;
+}
+
+/* Container */
+.container-visual {
+	border: 1px solid #f9c76c;
+	border-radius: 25px;
+	background: #fef2dd;
+	/*Se definir largura, ele fica fixo quando diminui de tela -> width: 1000px;*/
+}
+
+/* FIM - Container */
+
+
+/*MEU PERFIL - INÍCIO*/
+
+.meu_perfil {
+	display: inline-block;
+	text-align: center;
+}
+/*MEU PERFI - FIML*/
+
+
+hr { /*Linha*/
+	border-color: #f9c76c;
+}
+/* fim ROW  */
+
+.back-teste2 {
+	background: blue;
+	color: yellow;
+
+}
+
+.back-teste {
+	background: red;
+	color: green;
+}
+
