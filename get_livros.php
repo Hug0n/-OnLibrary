@@ -1,5 +1,5 @@
 <?php
-
+    //get dos livros exibidos na pag-principal.php
     session_start();
     
     if(!isset($_SESSION['email'])){

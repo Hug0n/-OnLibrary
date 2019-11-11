@@ -38,6 +38,7 @@ if (!isset($_SESSION['email'])) { //Se o indíce do SESSION não existir(ou seja
     <nav class="navbar navbar-default navbar-static-top color-nav">
         <div class="container">
             <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar" method="post">
                     <span class="sr-only">Toggle navigation</span>
@@ -70,13 +71,13 @@ if (!isset($_SESSION['email'])) { //Se o indíce do SESSION não existir(ou seja
                     <hr>
 
                     <div>
-                        ADICIONAR AOS FAVORITOS +
+                    <button type="button" class="btn btn-warning btn-block" id="btn_favorito">ADICIONAR AOS FAVORITOS +</button>           
                     </div>
                     <div>
-                        POSTS
+                    <button type="button" class="btn btn-success btn-block">ALUGAR</button>
                     </div>
                     <div>
-                        POSTS
+                    <button type="button" class="btn btn-info btn-block">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -136,7 +137,7 @@ if (!isset($_SESSION['email'])) { //Se o indíce do SESSION não existir(ou seja
                     <form id="form_post" class="input-group">
                         <input type="text" id="texto_post" name="texto_post" class="form-control"
                             placeholder="Compartilhe sua opinião sobre o livro, <?= $_SESSION['nome'] ?>!"
-                            maxlength="140" name="tweet">
+                            maxlength="5000" name="tweet">
                         <span class="input-group-btn ">
                             <button class="btn btn-default container-visual" id="btn_post"
                                 type="button">COMENTAR!</button>
@@ -146,7 +147,7 @@ if (!isset($_SESSION['email'])) { //Se o indíce do SESSION não existir(ou seja
             </div>
 
             <div id="posts" class="list-group">
-
+                <!-- Inserção dos comentários aqui !-->
             </div>
 
         </div>
@@ -154,9 +155,9 @@ if (!isset($_SESSION['email'])) { //Se o indíce do SESSION não existir(ou seja
         <div class="col-md-3">
             <div class="panel panel-default container-visual">
                 <div class="panel-body">
-                    <h4><a href="pag-principal.php"> Explorar livros </h4>
+                    <h4><a href="pag-principal.php"> <button type="button" class="btn btn-info btn-block">Explorar livros </button></h4>
                     <hr hr-size-caixa-1>
-                    <h4><a href="Procurar_pessoas.php">Procurar por pessoas</h4>
+                    <h4><a href="Procurar_pessoas.php"> <button type="button" class="btn btn-info btn-block">Procurar por pessoas </button></h4>
                 </div>
             </div>
         </div>

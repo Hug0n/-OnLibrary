@@ -111,10 +111,30 @@ if ($resultado_id) {
 					url: 'get_post.php',
 					success: function(data) {
 						$('#posts').html(data);
+
+						//Excluir Post
+						$('.btn_excluir').click(function() {
+							var id_post = $(this).data('id_post');
+
+							$.ajax({
+								url: 'excluir_post.php',
+								method: 'post',
+								data: {
+									id_post: id_post
+								},
+								success: function(data) {
+									alert("Post excluído");
+									atualizaPost();
+
+								}
+							});
+						});
 					}
 				});
 			}
 			atualizaPost();
+
+
 		});
 		//Colocar como vazio o campo input, após submeter as informações.
 
@@ -195,14 +215,11 @@ if ($resultado_id) {
 		<div class="col-md-3">
 			<div class="panel panel-default container-visual">
 				<div class="panel-body">
-					<h4><a href="pag-principal.php"> Explorar livros </h4>
+					<h4><a href="pag-principal.php"> <button type="button" class="btn btn-info btn-block">Explorar livros </button></h4>
 					<hr hr-size-caixa-1>
-					<h4><a href="Procurar_pessoas.php">Procurar por pessoas</h4>
+					<h4><a href="Procurar_pessoas.php"> <button type="button" class="btn btn-info btn-block">Procurar por pessoas </button></h4>
 				</div>
 			</div>
-
-
-
 		</div>
 
 

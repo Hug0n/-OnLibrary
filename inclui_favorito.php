@@ -8,20 +8,19 @@
 
     require_once('class.db.php');
 
-    $id_livro = $_POST['id_livro'];
-    $texto_post = $_POST['texto_post'];
-    $id_usuario = $_SESSION['id_usuario'];
+    $idLivro = $_POST['id_livro'];
+    $idUsuario = $_SESSION['id_usuario'];
     
-        if($texto_post == '' || $id_usuario == '') {
+        if($idLivro == '' || $idUsuario == '') {
              die(); 
             //Lógica que impede continuar o registro caso uma das variáveis estejam vazias.
         }
         
-    var_dump($id_livro);
+    var_dump($idLivro);
     $objDb = new db();
     $link = $objDb -> conecta_mysql();
     
-    $sql = "INSERT INTO COMENTARIO_LIVRO(ID_LIVRO_COMENTADO, ID_USUARIO_COMENTOU, COMENTARIO) values ($id_livro,$id_usuario, '$texto_post')";
+    $sql = "INSERT INTO livro_favorito(id_livro_favorito, id_usuario_favorito) values ($idLivro , $idUsuario )";
     
     mysqli_query($link, $sql);
 

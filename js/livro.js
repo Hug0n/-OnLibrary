@@ -11,7 +11,7 @@ $(document).ready(function () { //Verifica se o documento foi carregado. Caso si
 $('#btn_post').click(function () {
     //validar se o campo de texto possui pelo menos 1 caractere:
     if ($('#texto_post').val().length > 0) { //condição para analisar se o post está vazio na hora da submissão. Caso sim, não posta!
-        alert($('#texto_post').val());
+        // alert($('#texto_post').val());
 
 
         var data = $('#form_post').serializeArray();
@@ -28,11 +28,65 @@ $('#btn_post').click(function () {
             success: function (data) {
                 $('#texto_post').val('');
                 atualizaPost(); //(atualizar os) posts assim que forem inseridos (Assíncrono)
-                alert(data);
-                console.log(data);
+                // console.log(data);
             }
         });
     }
+});
+
+//Adicionar Livros aos favoritos
+$('#btn_favorito').click(function () {
+    //validar se o campo de texto possui pelo menos 1 caractere:
+    alert(id_livro);
+
+    $.ajax({
+        url: 'inclui_favorito.php',
+        method: 'post',
+        data: {id_livro: id_livro},
+        success: function (data) {
+            // Aqui posso mudar a estrutura do botão selecionando-o pela classe
+            
+            // // ADICIONAR AOS FAVORITOS
+            // $('.btn_add_fav').click(function() {
+            //     var id_usuario = $(this).data('id_usuario');
+
+            //     $('#btn_seguir_' + id_usuario).hide();
+            //     $('#btn_deixar_seguir_' + id_usuario).show();
+
+            //     $.ajax({
+            //         url: 'seguir.php',
+            //         method: 'post',
+            //         data: {
+            //             seguir_id_usuario: id_usuario
+            //         },
+            //         success: function(data) {
+            //             alert(data);
+            //         }
+            //     });
+            // });
+            
+            // // REMOVER DOS FAVORITOS
+            // $('.btn_remov_fav').click(function() {
+            //     var id_usuario = $(this).data('id_usuario');
+
+            //     $('#btn_seguir_' + id_usuario).show();
+            //     $('#btn_deixar_seguir_' + id_usuario).hide();
+
+            //     $.ajax({
+            //         url: 'deixar_seguir.php',
+            //         method: 'post',
+            //         data: {
+            //             deixar_seguir_id_usuario: id_usuario
+            //         },
+            //         success: function(data) {
+            //             alert('Registro removido com sucesso!');
+            //         }
+
+            //     });
+            // });
+
+        }
+    });
 });
 
 function getInfoLivro() { //credo
@@ -55,8 +109,8 @@ function getInfoLivro() { //credo
                 $('#fdl').html(`Fora de linha: ${livro.foraDeLinha}`);
                 $('#year').html(`Ano da edição: ${livro.ano}`);
                 $('#pgNumber').html(`Número de Páginas: ${livro.quantidadePaginas}`);
-                $('#edNumber').html(`Número da edição: ${livro.quantidadePaginas}`);
-                $('#category').html(`Categoria: ${livro.quantidadePaginas}`);
+                $('#edNumber').html(`Número da edição: ${livro.numEeroEdicao}`);
+                $('#category').html(`Categoria: ${livro.categoria}`);
 
             } else {
                 alert(response.msg);
@@ -75,6 +129,23 @@ function atualizaPost() {
         data: { id_livro: id_livro },
         success: function (data) {
             $('#posts').html(data);
+
+            //Excluir Post
+            $('.btn_excluir_coment').click(function () {
+                var cod_coment = $(this).data('cod_comentario');
+                // alert(cod_coment);
+                $.ajax({
+                    url: '../excluir_coment.php',
+                    method: 'post',
+                    data: {
+                        cod_coment: cod_coment
+                    },
+                    success: function (data) {
+                        alert("Comentário excluído");
+                        atualizaPost();
+                    }
+                });
+            });
         }
     });
 }

@@ -114,7 +114,6 @@ if ($resultado_id) {
 										seguir_id_usuario: id_usuario
 									},
 									success: function(data) {
-										alert(data);
 									}
 								});
 							});
@@ -203,14 +202,15 @@ if ($resultado_id) {
 				</div>
 			</div>
 
-			<div id="pessoas" class="list-group"></div>
+			<div id="pessoas" class="list-group">
+				<!-- Resultado das buscas de procurar pessoas ficam aqui -->
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="panel panel-default container-visual">
 				<div class="panel-body">
 					<h4>
-						<a href="pag-principal.php">Explorar livros </a>
-
+						<h4><a href="pag-principal.php"> <button type="button" class="btn btn-info btn-block">Explorar livros </button></h4>
 					</h4>
 				</div>
 			</div>

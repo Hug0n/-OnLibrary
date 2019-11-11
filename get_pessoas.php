@@ -35,18 +35,15 @@ if ($resultado_id) {
      while ($registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC )) {
 
 
-        echo '<a href="#" class="list-group-item">';
+        echo '<a href="#" class="list-group-item" style= border-radius:15px;margin:1px>';
             echo '<strong> '.$registro['nome'].' </strong> <small> -  '.$registro['email'].'  </small>';
             echo '<p class="list-group-item-text pull-right">';
              
             $sql2 = "SELECT *  FROM usuario_seguidores WHERE id_usuario = $id_usuario AND id_usuario_que_sigo =".$registro['id_usuario'];
-            // $esta_seguindo_usuario_sn = isset($registro['id_usuario_que_sigo']) && !empty($registro['id_usuario_que_sigo']) ? 'S' : 'N';
+
 
             $esta_seguindo_usuario_tf = mysqli_query($link, $sql2);
             $registro2 = mysqli_fetch_array($esta_seguindo_usuario_tf, MYSQLI_ASSOC);
-
-
-            // var_dump($registro2);
 
 
             $btn_seguir_display = 'block';
@@ -57,11 +54,10 @@ if ($resultado_id) {
 
             } else {
                 $btn_seguir_display = 'none';
-
             }
+            
             echo '<button type="button" id="btn_seguir_'.$registro['id_usuario'].'" style="display: '.$btn_seguir_display.'" class="btn btn-default btn_seguir" data-id_usuario="'.$registro['id_usuario'].'"> Seguir </button>';
             echo '<button type="button" id="btn_deixar_seguir_'.$registro['id_usuario'].'" style="display: '.$btn_deixar_seguir_display.'" class="btn btn-primary btn_deixar_seguir" data-id_usuario="'.$registro['id_usuario'].'"> Deixar de Seguir </button>';
-
 
 
 
@@ -74,35 +70,5 @@ if ($resultado_id) {
     echo 'Erro na consulta dos usuários no banco de dados. Por favor, tente novamente!!!';
 }
 
-    
-//    / while ($registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)) {
-//         echo '<a href="#" class="list-group-item">';
-//         echo '<strong>' . $registro['nome'] . '</strong>  <small> - ' . $registro['email'] . '</small> <small> - ' . $registro['id_usuario'] . '</small>';
-//         echo '<p class="list-group-item-text pull-right">';
-
-//         $esta_seguindo_usuario_sn = isset($registro['cod_usuario_seguidor']) && !empty($registro['cod_usuario_seguidor']) ? 'S' : 'N';
-//         // Com Base no valor dessa variável, decidimos se exibimos ou não os campos. 'S' caso passe nas validações e 'N' Caso não passe.
-
-//         $btn_seguir_display = 'block';
-//         $btn_deixar_seguir_display = 'block';
-
-//         // Se a variavél for igual a N o usuário da sessão NÃO está seguindo a pessoa -> Ocultar o botão deixar de seguir
-//         // Se a variavél for igual a S o usuário da sessão ESTÁ está seguindo a pessoa -> Ocultar o botão de seguir
-
-//         echo $esta_seguindo_usuario_sn;
-
-//         if ($esta_seguindo_usuario_sn == 'N') {
-//             $btn_deixar_seguir_display = 'none';
-//         } else {
-//             $btn_seguir_display = 'none';
-//         }
-
-//         echo '<button type="button" id="btn_seguir_'.$registro['id_usuario'].'" style="display: '.$btn_seguir_display.'" class="btn btn-default btn_seguir" data-id_usuario="'.$registro['id_usuario'].'">Seguir</button>';
-//         echo '<button type="button" id="btn_deixar_seguir_'.$registro['id_usuario'].'" style="display: '.$btn_deixar_seguir_display.'" class="btn btn-primary btn_deixar_seguir" data-id_usuario="'.$registro['id_usuario'].'">Deixar de Seguir</button>';
-        
-//         echo '<div class="clearfix"></div>';
-
-//         echo '</a>';
-//         echo '</p>';
   
 ?>
