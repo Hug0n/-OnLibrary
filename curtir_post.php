@@ -8,10 +8,10 @@ if(!isset($_SESSION['email'])){
 
 require_once('class.db.php');
 
-$id_usuario = $_SESSION['id_usuario'];
-$seguir_id_usuario = $_POST['seguir_id_usuario'];
+$idUsuario = $_SESSION['id_usuario'];
+$idPost = $_POST['id_post'];
 
-if($seguir_id_usuario == '' || $id_usuario == '') {
+if($idPost == '' || $idUsuario == '') {
     die();
     //Lógica que impede continuar o registro caso uma das variáveis estejam vazias.
 }
@@ -19,7 +19,7 @@ if($seguir_id_usuario == '' || $id_usuario == '') {
 $objDb = new db();
 $link = $objDb -> conecta_mysql();
 
-$sql = "INSERT INTO usuario_seguidores(id_usuario, id_usuario_que_sigo) values ('$id_usuario', '$seguir_id_usuario')";
+$sql = "INSERT INTO curtir_post(id_curtir_post, id_usuario_que_curtiu) values ($idPost, $idUsuario )";
 
 echo $sql;
 mysqli_query($link, $sql);

@@ -125,6 +125,40 @@ if ($resultado_id) {
 								success: function(data) {
 									alert("Post excluído");
 									atualizaPost();
+								}
+							});
+						});
+
+						//Curtir Post
+						$('.btn_curtir').click(function() {
+							var id_post = $(this).data('id_post');
+
+							$.ajax({
+								url: 'curtir_post.php',
+								method: 'post',
+								data: {
+									id_post: id_post
+								},
+								success: function(data) {
+									// alert("Curtida incluída");
+									atualizaPost();
+
+								}
+							});
+						});
+						//DESCurtir Post
+						$('.btn_descurtir').click(function() {
+							var id_post = $(this).data('id_post');
+
+							$.ajax({
+								url: 'excluir_curtida.php',
+								method: 'post',
+								data: {
+									id_post: id_post
+								},
+								success: function(data) {
+									alert("Post descurtido!");
+									atualizaPost();
 
 								}
 							});
