@@ -41,10 +41,10 @@
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="pag-inscrevase.php">Inscrever-se</a></li>
-	            <li class="<?= $erro == 1 ? 'open' : ''?>"> <!-- É aplicado a classe open automaticamente poelo bootstrap, quando o botão é clicado! -->
+	            <li><h4 style="margin-right: 20px 30px;"><a href="pag-inscrevase.php" type="button" class="btn btn-primary">Inscrever-se</a></h4></li>
+	            <li class="<?= $erro == 1 ? 'open' : ''?>"> <!-- É aplicado a classe open automaticamente pelo bootstrap, quando o botão é clicado! -->
 
-	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
+	            	<button style="margin:10px" type="button" class="btn btn-primary" id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</button>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
 						<div class="col-md-12">
 				    		<p>Você já possui uma conta?</h3>
@@ -60,8 +60,7 @@
 								
 								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 
-								<br />
-								
+								<br/>	
 							</form>
 							<?php
 

@@ -109,7 +109,7 @@ function getInfoLivro() { //credo
                 $('#fdl').html(`Fora de linha: ${livro.foraDeLinha}`);
                 $('#year').html(`Ano da edição: ${livro.ano}`);
                 $('#pgNumber').html(`Número de Páginas: ${livro.quantidadePaginas}`);
-                $('#edNumber').html(`Número da edição: ${livro.numEeroEdicao}`);
+                $('#edNumber').html(`Número da edição: ${livro.numeroEdicao}`);
                 $('#category').html(`Categoria: ${livro.categoria}`);
 
             } else {

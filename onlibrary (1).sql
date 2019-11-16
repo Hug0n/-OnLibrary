@@ -412,7 +412,7 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `usuario_seguidores`
   MODIFY `cod_usuario_seguidor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
-
+  
 --
 -- Constraints for dumped tables
 --

@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['email'])) { 
+    header('Location: index.php?erro=1');
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 
@@ -72,48 +82,34 @@
 	<div class="container container-visual">
 		<!-- INÍCIO CONTAINER !-->
 		<br />
-		<form method="POST" action="registra_user.php" id="formCadastrarse">
 
-			<div class="row" style="background: blue">
-				<!-- ROW 1 - 1° coluna - Início !-->
-				<div class="col-md-8 form-group" style="background: green">
-					<h3 class="centro"> Títulos disponíveis </h3>
-					<hr>
-					<div id="div-livros" class="back-teste">
-						ff
-					</div>
-				</div>
+		<div class="row">
+			<!-- ROW 1 - 1° coluna - Início !-->
+			<div class="col-md-8 form-group">
+				<h3 class="centro"> Títulos </h3>
+				<hr>
+				<div id="div-livros">
+					Informações do Livro serão colocadas aqui </div>
+			</div>
 
-				<div class="col-md-4" class="meu_perfil centro">
-					<!-- INCÍCIO - 2° Segunda coluna - ROW 1 -->
-					<h3 class="centro"> Olá, "Nome" </h3>
-					<hr>
-					<button type="button" id="btn_ver_meus_livros" class="btn-default">
-						<h4><span>Meus livros</span></h4>
-					</button>
-					</br></br>
-					<button type="button" class="btn-default">
-						<h4><span>Configurações</span></h4>
-					</button>
-					</br>
-				</div> <!-- FIM - 2° Segunda coluna - ROW 1 -->
-
-
-			</div> <!-- ROW 1 - 1° coluna - FIM !-->
-
-
-			<div class="row">
-				<!-- ROW 2 - 1° coluna - Início !-->
-
-
-			</div><!-- ROW 2 - 1° coluna - FIM !-->
-
-
-			<!-- 		</br>
-				<button type="submit" class="btn btn-primary foorm-control-1 ">Cadastrar</button>
+			<div class="col-md-4" class="meu_perfil centro">
+				<!-- INCÍCIO - 2° Segunda coluna - ROW 1 -->
+				<h3 class="centro"><?= $_SESSION['nome'] ?> </h3>
+				<hr>
+				<a href="#" type="button" id="btn_#" class="btn btn-info btn-block">
+					<h4><span>Meus livros</span></h4>
+				</a>
+				<a href="pag-favoritos.php" type="button" id="btn_ver_meus_favoritos" class="btn btn-warning btn-block">
+					<h4><span>Meus favoritos</span></h4>
+				</a>
+				<a href="#" type="button" id="btn_##" class="btn btn-success btn-block">
+					<h4><span>Configurações</span></h4>
+				</a>
 				</br>
-				</br> -->
-		</form>
+			</div> <!-- FIM - 2° Segunda coluna - ROW 1 -->
+
+		</div> <!-- ROW 1 - 1° coluna - FIM !-->
+
 	</div>
 	<!--CONTAINER - FIM! !-->
 	</div>

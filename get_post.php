@@ -41,9 +41,12 @@
            echo '<a href="#" class="list-group-item" style= border-radius:5px;background-color=blue>';
 
            if($id_usuario === $registro['id_usuario']){
-            echo '<button type="button"  id="btn_excluir_'.$registro['id_post'].'" class="btn btn-default btn_excluir pull-right" data-id_post="'.$registro['id_post'].'"> Excluir '.$registro['id_post'] .'</button>';
+            echo '<button type="button"  id="btn_excluir_'.$registro['id_post'].'" class="btn btn-danger btn_excluir pull-right" data-id_post="'.$registro['id_post'].'"> Excluir '.$registro['id_post'] .'</button>';
+           }else{
+            echo '<button type="button"  id="btn_curtir_'.$registro['id_post'].'" class="btn btn-success btn_curtir pull-right" data-id_post="'.$registro['id_post'].'"> Curtir '.$registro['id_post'] .'</button>';
+            
            }
-            echo '<h4 class="list-group-item-heading"> '.$registro['nome'].' <small> - '.$registro['data_inclusao_formatada'].' - </small> </h4>';
+            echo '<h4 class="list-group-item-heading"> '.$registro['nome'].' <small> - '.$registro['data_inclusao_formatada'].' </small> </h4>';
             echo '<p class = list-group-item-text>'.$registro['post'].'</p>';
            echo '</a>';
 

@@ -3,7 +3,7 @@ session_start();
 // É fundamental que inicializarmos a session no documento se formos usarmos ela
 
 if (!isset($_SESSION['email'])) { // Se o indíce do SESSION não existir(ou seja, caso o usuário NÃO passe pelo processo de autenticação no if da linha 37 do validar_acesso.php), será encaminhado para a página inicial de erro.
-	header('Location: indexx.php?erro=1');
+	header('Location: index.php?erro=1');
 }
 
 require_once('class.db.php');
