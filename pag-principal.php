@@ -102,8 +102,8 @@ if (!isset($_SESSION['email'])) {
 				<a href="pag-favoritos.php" type="button" id="btn_ver_meus_favoritos" class="btn btn-warning btn-block">
 					<h4><span>Meus favoritos</span></h4>
 				</a>
-				<a href="#" type="button" id="btn_##" class="btn btn-success btn-block">
-					<h4><span>Configurações</span></h4>
+				<a href="pag-editarPerfil.php" type="button" id="btn_editar_perfil" class="btn btn-success btn-block">
+					<h4><span>Editar Perfil</span></h4>
 				</a>
 				</br>
 			</div> <!-- FIM - 2° Segunda coluna - ROW 1 -->

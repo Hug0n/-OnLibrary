@@ -6,6 +6,12 @@
     	
     	$erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
 
+		// if ($erro_cadastro == 0) {
+
+		// 	// header('Location: index.php');
+		// }
+		
+
     	
     ?>	
 	
@@ -245,6 +251,7 @@
 					if($erro_cadastro == 1){
 								echo '<font style="color:#FF0000"> Cadastro não foi salvo com sucesso! Tente novamente. </font>';
 					}else if ($erro_cadastro == 0) {
+
 					    echo '<font style="color:#FF0000"> Cadastro salvo com sucesso! </font>';
 					}
 					else {
