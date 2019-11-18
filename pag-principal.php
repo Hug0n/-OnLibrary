@@ -2,8 +2,8 @@
 
 session_start();
 
-if (!isset($_SESSION['email'])) { 
-    header('Location: index.php?erro=1');
+if (!isset($_SESSION['email'])) {
+	header('Location: index.php?erro=1');
 }
 
 ?>
@@ -35,7 +35,7 @@ if (!isset($_SESSION['email'])) {
 
 			function atualizaPost() {
 				//carregar (atualizar os) posts assim que forem inseridos (Assíncrono)
-
+				
 				$.ajax({
 					url: 'get_livros.php',
 					success: function(data) {
@@ -89,7 +89,8 @@ if (!isset($_SESSION['email'])) {
 				<h3 class="centro"> Títulos </h3>
 				<hr>
 				<div id="div-livros">
-					Informações do Livro serão colocadas aqui </div>
+					<!--Informações do Livro serão colocadas aqui!-->
+				</div>
 			</div>
 
 			<div class="col-md-4" class="meu_perfil centro">
@@ -106,6 +107,9 @@ if (!isset($_SESSION['email'])) {
 					<h4><span>Editar Perfil</span></h4>
 				</a>
 				</br>
+				<a href="pag-sugestao.php" type="button" id="btn_sugestao" class="btn btn-primary btn-block">
+					<h4><span>Sugestão</span></h4>
+				</a>
 			</div> <!-- FIM - 2° Segunda coluna - ROW 1 -->
 
 		</div> <!-- ROW 1 - 1° coluna - FIM !-->

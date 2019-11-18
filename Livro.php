@@ -74,6 +74,9 @@ if (!isset($_SESSION['email'])) { //Se o indíce do SESSION não existir(ou seja
                     <button type="button" class="btn btn-warning btn-block" id="btn_favorito">ADICIONAR AOS FAVORITOS +</button>           
                     </div>
                     <div>
+                    <button type="button" class="btn btn-danger btn-block" id="btn_favorito">REMOVER DOS FAVORITOS -</button>           
+                    </div>
+                    <div>
                     <button type="button" class="btn btn-success btn-block">ALUGAR</button>
                     </div>
                     <div>

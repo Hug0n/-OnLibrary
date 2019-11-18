@@ -14,7 +14,7 @@ $objDb = new db();
 $link = $objDb->conecta_mysql();
 
 
-$sql = " SELECT * FROM livro_favorito INNER JOIN usuario     ON id_usuario_favorito = usuario.id_usuario WHERE ID_LIVRO_favorito = 8 ORDER BY data_favorito DESC";
+$sql = " SELECT * FROM livro_favorito INNER JOIN usuario ON id_usuario_favorito = usuario.id_usuario WHERE ID_LIVRO_favorito = 8 ORDER BY data_favorito DESC";
 
 
 $resultado_id = mysqli_query($link, $sql);

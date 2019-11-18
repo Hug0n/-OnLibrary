@@ -46,44 +46,44 @@ $('#btn_favorito').click(function () {
         success: function (data) {
             // Aqui posso mudar a estrutura do botão selecionando-o pela classe
             
-            // // ADICIONAR AOS FAVORITOS
-            // $('.btn_add_fav').click(function() {
-            //     var id_usuario = $(this).data('id_usuario');
+            // ADICIONAR AOS FAVORITOS
+            $('.btn_add_fav').click(function() {
+                var id_usuario = $(this).data('id_usuario');
 
-            //     $('#btn_seguir_' + id_usuario).hide();
-            //     $('#btn_deixar_seguir_' + id_usuario).show();
+                $('#btn_seguir_' + id_usuario).hide();
+                $('#btn_deixar_seguir_' + id_usuario).show();
 
-            //     $.ajax({
-            //         url: 'seguir.php',
-            //         method: 'post',
-            //         data: {
-            //             seguir_id_usuario: id_usuario
-            //         },
-            //         success: function(data) {
-            //             alert(data);
-            //         }
-            //     });
-            // });
+                $.ajax({
+                    url: 'seguir.php',
+                    method: 'post',
+                    data: {
+                        seguir_id_usuario: id_usuario
+                    },
+                    success: function(data) {
+                        alert(data);
+                    }
+                });
+            });
             
-            // // REMOVER DOS FAVORITOS
-            // $('.btn_remov_fav').click(function() {
-            //     var id_usuario = $(this).data('id_usuario');
+            // REMOVER DOS FAVORITOS
+            $('.btn_remov_fav').click(function() {
+                var id_usuario = $(this).data('id_usuario');
 
-            //     $('#btn_seguir_' + id_usuario).show();
-            //     $('#btn_deixar_seguir_' + id_usuario).hide();
+                $('#btn_seguir_' + id_usuario).show();
+                $('#btn_deixar_seguir_' + id_usuario).hide();
 
-            //     $.ajax({
-            //         url: 'deixar_seguir.php',
-            //         method: 'post',
-            //         data: {
-            //             deixar_seguir_id_usuario: id_usuario
-            //         },
-            //         success: function(data) {
-            //             alert('Registro removido com sucesso!');
-            //         }
+                $.ajax({
+                    url: 'deixar_seguir.php',
+                    method: 'post',
+                    data: {
+                        deixar_seguir_id_usuario: id_usuario
+                    },
+                    success: function(data) {
+                        alert('Registro removido com sucesso!');
+                    }
 
-            //     });
-            // });
+                });
+            });
 
         }
     });

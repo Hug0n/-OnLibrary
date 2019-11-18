@@ -16,7 +16,7 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
 <head>
     <meta charset="UTF-8">
 
-    <title>Inscreva-se</title>
+    <title>Editar Perfil</title>
 
     <!-- ícone da aba -->
     <link rel="icon" href="imagens/contato.png">
@@ -157,6 +157,7 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
                 if ($('#telefone').val() == '') {
                     $('#telefone').css({
                         'border-color': '#A94442'
+                        // 'border-radius': '10px';
                     });
                     campo_vazio = true;
                 } else {
@@ -228,7 +229,7 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
                 <div class="col-md-10 form-group">
                     <h3> Pessoal </h3>
                     <hr>
-                    <span class="span-test">Nome* </br> <input type="text" class="form-control foorm-control-1" name="nome" id="nome"></span>
+                    <span class="span-test" >Nome* </br> <input type="text" class="form-control foorm-control-1" display="border-width: 10px" name="nome" id="nome"></span>
                     <span class="padding-left span-test"> Sobrenome*</br> <input type="text" class="form-control foorm-control-1" name="sobrenome" id="sobrenome"></span>
                     </p>
                     <span class="span-test"> Data de Nascimento* </br><input type="date" class="form-control foorm-control-0-1" name="nascimento" id="nascimento"></span>
@@ -290,7 +291,7 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
 
             </div>
             </br>
-            <button type="submit" class="btn btn-primary foorm-control-1 " id="btn-cadastrar">Cadastrar</button>
+            <button type="submit" class="btn btn-primary foorm-control-1 " id="btn-cadastrar">Salvar</button>
             </br>
             <?php
             //echo $erro_cadastro;

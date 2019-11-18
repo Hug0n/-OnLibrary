@@ -60,7 +60,7 @@ if ($resultado_id) {
             echo '<span class="pull-right" style="margin-right: 15px"> <input type=image src="imagens/like_heart1.jpg" width="15" height="15" > ' . $qtd_curtidas . '</span>';
             
             ////Botão Excluir
-            echo '<input type=image src="imagens/remove_post.png" width="18" height="18"  id="btn_excluir_' . $registro['id_post'] . '" class="btn_excluir pull-right" style="margin-right: 25px" data-id_post="' . $registro['id_post'] . '"></input>';
+            echo '<input type=image src="imagens/remove_post.png" width="18" height="18"  id="btn_excluir_' . $registro['id_post'] . '" class="btn_excluir pull-right" style="margin-right: 270px" data-id_post="' . $registro['id_post'] . '"></input>';
 
 
         } else { //exibição do botão curtir/descurtir -> Caso o usuário seja diferente do user da sessão (outros posts):
@@ -83,7 +83,7 @@ if ($resultado_id) {
             echo '<button type="button" id="btn_curtir_' . $registro['id_post'] . '" style="display: ' . $btn_curtir_display . '" class="btn btn-secondary btn_curtir pull-right" data-id_post="' . $registro['id_post'] . '"> <input type=image src="imagens/like_heart1.jpg" width="20" height="20"> ' . $qtd_curtidas . ' </button>';
             echo '<button type="button" id="btn_descurtir_' . $registro['id_post'] . '" style="display: ' . $btn_descurtir_display . '" class="btn btn-success btn_descurtir pull-right" data-id_post="' . $registro['id_post'] . '"> <input type=image src="imagens/like_heart1.jpg" width="20" height="20"> ' . $qtd_curtidas . ' </button>';
         } //Nome - Data do Post e Post em si
-        echo '<h4 class="list-group-item-heading"> ' . $registro['nome'] . ' <small> - ' . $registro['data_inclusao_formatada'] . ' </small> </h4>';
+        echo '<h4 class="list-group-item-heading"> ' . $registro['nome'] . ' <small> <br> ' . $registro['data_inclusao_formatada'] . ' </small> </h4>';
         echo '<p class = list-group-item-text>' . $registro['post'] . '</p>';
         echo '</a>';
     }
