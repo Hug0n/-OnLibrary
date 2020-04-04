@@ -31,7 +31,7 @@ if ($resultado_id) {
             echo '<button type="button"  id="btn_excluir_coment_'.$registro['COD_COMENTARIO'].'" class="btn btn-default btn_excluir_coment pull-right" data-cod_comentario="'.$registro['COD_COMENTARIO'].'"> Excluir </button>';
         }
 
-        echo '<h4 class="list-group-item-heading"> ' . $registro['nome'] . ' <small> - ' . date('d/m/Y H:i:s', strtotime($registro['DATA_COMENTARIO']))  . '</small> </h4>';
+        echo '<h4 class="list-group-item-heading"> ' . $registro['nome'] . ' <small> - ' . date('d \d\e M \d\e Y', strtotime($registro['DATA_COMENTARIO']))  . '</small> </h4>';
         echo '<p class = list-group-item-text>' . $registro['COMENTARIO'] . '</p>';
         echo '</a>';
     }

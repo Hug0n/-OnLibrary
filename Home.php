@@ -44,7 +44,7 @@ if ($resultado_id) {
 
 	$qtd_seguidores = $registro['qtd_seguidores'];
 } else {
-	echo 'Erro ao executar a Query qtd_seguidores';
+	echo 'Erro ao executar a Query qtd_seguidoress';
 }
 
 //--qtd de seguidores

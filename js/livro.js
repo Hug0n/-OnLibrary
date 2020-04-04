@@ -1,9 +1,14 @@
 
 var id_livro = 0;
 
+alert ("ready");
+
+
 $(document).ready(function () { //Verifica se o documento foi carregado. Caso sim, executa as funções abaixo:
     getInfoLivro();
     atualizaPost();
+
+    alert ("ready");
 });
 
 
@@ -93,6 +98,12 @@ function getInfoLivro() { //credo
     var id_livro_local = window.location.search.substring(1).split("=")[1]; //credo
     id_livro = id_livro_local; //credo
 
+    alert ("ready livro");
+     alert ( id_livro_local);
+    alert ( id_livro);
+
+
+
     $.ajax({
         url: '../server/controls/getLivro.php',
         method: 'post',
@@ -101,9 +112,9 @@ function getInfoLivro() { //credo
             let response = JSON.parse(data);
             if (response.success === 1) {
                 let livro = response.livro;
-                $('#nomeLivro').html(livro.nomeLivro);
-                $('#autorTitulo').html(livro.autor);
-                $('#descricao').html(livro.descricao);
+                // $('#nomeLivro').html(livro.nomeLivro);
+                // $('#autorTitulo').html(livro.autor);
+                // $('#descricao').html(livro.descricao);
                 $('#author').html(`Autor: ${livro.autor}`);
                 $('#lang').html(`Idioma: ${livro.idioma}`);
                 $('#fdl').html(`Fora de linha: ${livro.foraDeLinha}`);
@@ -113,7 +124,8 @@ function getInfoLivro() { //credo
                 $('#category').html(`Categoria: ${livro.categoria}`);
 
             } else {
-                alert(response.msg);
+               // alert(response.msg);
+               alert("erro ao recuperar");
             }
         }
     });

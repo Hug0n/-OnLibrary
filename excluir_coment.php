@@ -13,7 +13,7 @@ $idUsuario = $_SESSION['id_usuario'];
 $codComentario = $_POST['cod_coment'];
 
 if($codComentario == '' || $idUsuario == '') {
-    alert("die");
+    //alert("die");
     die();
     //Lógica que impede continuar o registro caso uma das variáveis estejam vazias.
 }

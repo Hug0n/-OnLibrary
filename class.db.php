@@ -6,7 +6,7 @@ class db{
 
 	private $usuario = 'root';
 
-	private $senha ='';
+	private $senha ='123';
 
 	//DB
 	private $database = 'onlibrary';

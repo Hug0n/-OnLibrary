@@ -45,9 +45,9 @@ hr {
 	background: #fef2dd;
 }
 
-.container {
+/* .container {
 	width: 1300px;
-}
+} */
 
 .container-caixa-1 { /*Regula o tamanho do primeiro container, para caber o "MEUS LIVROS" e ficar tranquilo*/
 	width: 420px;
@@ -74,7 +74,7 @@ hr {
 	width: 320px;
 	background: yellow;	
 	color: red;
-	border-radius: 
+	border-radius: 10px;
 }
 
 .albuns-tamanho {

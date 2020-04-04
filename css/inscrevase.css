@@ -2,20 +2,29 @@
 	background-color: #F7D358;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: green;
+	position: relative;
+}
+.direita {
+
+	
+}
+
 .back-color{
 	background-color: #FBE2A6;
 }
 
 .img-logo {
-	height: 60px;
-	width: 60px;
+	height: 50px;
+	width: 50px;
 	display: block; /* O <span> é "inline" por padrão */
 
-	background: url('../imagens/livro-aberto1.png') no-repeat;
+	 background: url('../imagens/livro-aberto1.png') no-repeat;
 
 	background-size: contain; 
-	color: transparent; /* Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
-}
+	color: transparent; /*Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
+ }  
 
 .titulo {
 	display: inline;
@@ -43,6 +52,12 @@ hr {
 }
 
 /* Container */
+
+.container {
+	width: 60%;
+	display: block;
+}
+
 .container-visual {
 	border: 1px solid #f9c76c;
 	border-radius: 25px;
@@ -56,25 +71,26 @@ hr {
 /* inicio ROW 1 */
 
 .foorm-control-0 {
-  width: 100px;
+  width: 80%;
    display: inline-block;
 }
+ 
 .foorm-control-0-1 {
-  width: 200px;
-   display: inline-block;
+	width: 90%;
+	display: inline-block;
 }
 
 .foorm-control-1 {
-  width: 300px;
+  width: 80%;
    display: inline-block;
 }
 
 .foorm-control-2 {
-  width: 500px;
+  width: 85%;
    display: inline-block;
 }
 
-hr { /*Linha*/
+hr { /*Linha*/	
 	border-color: #f9c76c;
 }
 /* fim ROW  */
@@ -90,9 +106,6 @@ hr { /*Linha*/
 	color: green;
 }
 
-.span-test {
-	display: inline-block;
-}
 .span-test {
 	display: inline-block;
 }

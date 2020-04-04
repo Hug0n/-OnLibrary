@@ -12,7 +12,7 @@ $id_usuario = $_SESSION['id_usuario'];
 $deixar_seguir_id_usuario = $_POST['deixar_seguir_id_usuario'];
 
 if($deixar_seguir_id_usuario == '' || $id_usuario == '') {
-    alert("die");
+    //alert("die");
     die();
     //Lógica que impede continuar o registro caso uma das variáveis estejam vazias.
 }
