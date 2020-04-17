@@ -112,9 +112,9 @@ function getInfoLivro() { //credo
             let response = JSON.parse(data);
             if (response.success === 1) {
                 let livro = response.livro;
-                // $('#nomeLivro').html(livro.nomeLivro);
-                // $('#autorTitulo').html(livro.autor);
-                // $('#descricao').html(livro.descricao);
+                $('#nomeLivro').html(livro.nomeLivro);
+                $('#autorTitulo').html(livro.autor);
+                $('#descricao').html(livro.descricao);
                 $('#author').html(`Autor: ${livro.autor}`);
                 $('#lang').html(`Idioma: ${livro.idioma}`);
                 $('#fdl').html(`Fora de linha: ${livro.foraDeLinha}`);
