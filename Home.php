@@ -200,7 +200,7 @@ if ($resultado_id) {
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="sair.php">Sair</a></li>
+					<li><a href="sair.php">Sairrrrr</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
