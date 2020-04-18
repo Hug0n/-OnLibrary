@@ -1,0 +1,111 @@
+.color-nav {
+	background-color: #F7D358;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: green;
+	position: relative;
+}
+.direita {
+
+	
+}
+
+.back-color{
+	background-color: #FBE2A6;
+}
+
+.img-logo {
+	height: 50px;
+	width: 50px;
+	display: block; /* O <span> é "inline" por padrão */
+
+	 background: url('../imagens/livro-aberto1.png') no-repeat;
+
+	background-size: contain; 
+	color: transparent; /*Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
+ }  
+
+.titulo {
+	display: inline;
+	text-align: center;
+
+}
+
+.centro {
+	align-items: center;
+	text-align: center;
+}
+
+.padding-left {
+	margin-left: 40px;
+}
+
+.padding-left-menor {
+	margin-left: 30px;
+}
+
+hr {
+	color: red;
+	background-color: red;
+	background: red;
+}
+
+/* Container */
+
+.container {
+	width: 60%;
+	display: block;
+}
+
+.container-visual {
+	border: 1px solid #f9c76c;
+	border-radius: 25px;
+	background: #fef2dd;
+	/*Se definir largura, ele fica fixo quando diminui de telawidth: 1000px;*/
+}
+
+/* FIM - Container */
+
+
+/* inicio ROW 1 */
+
+.foorm-control-0 {
+  width: 80%;
+   display: inline-block;
+}
+ 
+.foorm-control-0-1 {
+	width: 90%;
+	display: inline-block;
+}
+
+.foorm-control-1 {
+  width: 80%;
+   display: inline-block;
+}
+
+.foorm-control-2 {
+  width: 85%;
+   display: inline-block;
+}
+
+hr { /*Linha*/	
+	border-color: #f9c76c;
+}
+/* fim ROW  */
+
+.back-teste2 {
+	background: blue;
+	color: yellow;
+
+}
+
+.back-teste {
+	background: yellow;
+	color: green;
+}
+
+.span-test {
+	display: inline-block;
+}

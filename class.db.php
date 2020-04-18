@@ -2,7 +2,7 @@
 
 class db{
 	
-	private $host = 'localhost';
+	private $host = '127.0.0.11';
 
 	private $usuario = 'root';
 

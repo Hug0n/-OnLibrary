@@ -1,0 +1,85 @@
+.color-nav {
+	background-color: #F7D358;
+}
+
+.back-color{
+	background-color: #FBE2A6;
+}
+
+.img-logo {
+	height: 55px;
+	width: 55px;
+	display: block; /* O <span> é "inline" por padrão */
+
+	background: url('imagens/img-logo.png') no-repeat;
+
+	background-size: contain; 
+	color: transparent; /* Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
+}
+
+.titulo {
+	display: inline;
+	text-align: center;
+
+}
+
+.centro {
+	align-items: center;
+	text-align: center;
+
+}
+
+.container-black {
+	color: black;
+}
+
+hr {
+	border-color: #F4A460;
+}
+
+/*------------------------------*/
+
+.container-visual {
+	border: 1px solid #f9c76c;
+	border-radius: 25px;
+	background: #fef2dd;
+}
+
+/* .container {
+	width: 1300px;
+} */
+
+.container-caixa-1 { /*Regula o tamanho do primeiro container, para caber o "MEUS LIVROS" e ficar tranquilo*/
+	width: 420px;
+	
+}
+	
+/*------------------------------*/
+
+.back-teste {
+	background: red;
+	color: green;
+}
+.back-teste2 {
+	background: green;
+	color: yellow;
+}
+
+.caixa-meus-livros{
+	width: 130px;
+
+}
+
+.hr-size-caixa-1 {
+	width: 320px;
+	background: yellow;	
+	color: red;
+	border-radius: 10px;
+}
+
+.albuns-tamanho {
+padding: 10px;
+width: 400px;
+float: right;
+margin-right:15%;  /* Alternativa que achei para "centralizar" as imagens dos álbuns  */   
+}
