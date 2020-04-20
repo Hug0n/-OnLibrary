@@ -18,4 +18,16 @@ class Database {
 
         return $connDB;
     }
+
+    //consulta dos dados
+    public static function getResultFromQuery($sql)
+    {
+        $conn = self::getConnection();
+        $result = $conn->query($sql);
+        $conn->close();
+
+        return $result;
+    }
+
+
 }
