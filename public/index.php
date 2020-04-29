@@ -1,9 +1,37 @@
 <?php
 require_once(dirname(__FILE__, 2) . '/src/config/config.php');
-require_once(dirname(__FILE__, 2) . '/src/models/usuario.php');
+// require_once(CONTROLLER_PATH . '/login.php');
+
+$uri = urldecode(
+    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+);
+
+if($uri === '/' || $uri === '' || $uri === '/index.php' ){
+    $uri = '/login.php';
+}
+
+require_once(CONTROLLER_PATH . "/{$uri}");
+
+// 250:
+
+// loadView('login', ['texto' => 'abc123']);
+
+// 249:
+
+// require_once(MODEL_PATH . '/Login.php');
+
+// $login = new Login([
+//     'email' => 'bruno@hot.com',
+//     'senha' => '4321'
+// ]);
 
 
-
+// try {
+//     $login->checkLogin();
+//     echo 'Deu Certo!!!!!';
+// } catch (Exception $e) {
+//     echo 'Problema no login :P';
+// }
 
 
 // // Aula 247: Testando o banco:

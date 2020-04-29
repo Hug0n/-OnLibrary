@@ -7,17 +7,19 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
-
 		<title class="titulo">OnLibrary</title>
 
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-	
+		<link rel="stylesheet" href="assets/css/comum.css">
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css.">
+		<link rel="stylesheet" href="assets/css/icofonto.min.css">
+		<link rel="stylesheet" href="assets/css/login.css">
+
 		<script>
 			
 		</script>
@@ -25,6 +27,8 @@
 
 	<body class="back-color">
 
+
+		<!-- ---------------------------------------->
 		<!-- Static navbar -->
 	    <nav class="navbar navbar-default navbar-static-top color-nav">
 	      <div class="container">

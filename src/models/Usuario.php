@@ -1,6 +1,5 @@
 <?php
 
-require_once(realpath(MODEL_PATH . '/Model.php'));
 
 class Usuario extends Model
 {
