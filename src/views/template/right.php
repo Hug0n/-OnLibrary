@@ -1,26 +1,22 @@
-<aside class="sidebar">
+<aside class="sidebar-right">
     <nav class="menu mt-3">
-    <div class="imagem-perfil">
-        <img src="assets/css/imagens/foto-perfil.jpg">
-    </div>
-
         <ul class="nav-list">
             <li class="nav-item">
                 <a href="day_records.php">
                     <i class="icofont-ui-check mr-2"></i>  
-                    Meus Favoritos
+                    Registrar Ponto!
                 </a>   
             </li>
             <li class="nav-item">
                 <a href="day_records.php">
                     <i class="icofont-ui-calendar mr-2"></i>  
-                    Meus Livros
+                    Relatório Mensal!
                 </a>   
             </li>
             <li class="nav-item">
                 <a href=".php">
                     <i class="icofont-chart-histogram mr-2"></i>  
-                    Meus aluguéis
+                    Relatório Gerencial!
                 </a>   
             </li>
             <li class="nav-item">
@@ -32,7 +28,7 @@
         </ul>
     </nav>
 
-    <!-- <div class="sidebar-widgets">
+    <div class="sidebar-widgets">
         <div class="sidebar-widget">
             <i class="icon icofont-hour-glass text-primary"></i>
             <div class="info">
@@ -52,5 +48,5 @@
                 <span class="label text-muted">Hora de Saída</span>
             </div>
         </div>
-    </d iv> -->
+    </div>
 </aside>
