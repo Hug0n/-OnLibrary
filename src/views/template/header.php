@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/template.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="assets/css/home.css">
     <!-- <script src="assets/js/app.js"></script> -->
 
     <title>In N' Out</title>

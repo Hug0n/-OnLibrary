@@ -2,84 +2,61 @@
 	background-color: #F7D358;
 }
 
-.back-color{
-	background-color: #FBE2A6;
-}
-
-.img-logo {
-	height: 55px;
-	width: 55px;
-	display: block; /* O <span> é "inline" por padrão */
-
-	background: url('imagens/img-logo.png') no-repeat;
-
-	background-size: contain; 
-	color: transparent; /* Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
-}
-
-.titulo {
-	display: inline;
-	text-align: center;
-
-}
-
-.centro {
-	align-items: center;
-	text-align: center;
-
-}
-
-.container-black {
-	color: black;
+.back-color {
+	background-color: rgb(235, 46, 46);
 }
 
 hr {
 	border-color: #F4A460;
+	width: 92%;
 }
 
 /*------------------------------*/
 
-.container-visual {
+.coluna-posts {
 	border: 1px solid #f9c76c;
-	border-radius: 25px;
+	border-radius: 10px;
 	background: #fef2dd;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 4px 0px rgba(0, 0, 0, .14), 0 1px 10px 0px rgba(0, 0, 0, .12);
+	margin: 15px 15px 20px 20px;
+	padding: 15px 10px 20px 20px;
+	align-items: center;
+	align-content: center;
+	text-align: center;
+
 }
 
-/* .container {
-	width: 1300px;
-} */
-
-.container-caixa-1 { /*Regula o tamanho do primeiro container, para caber o "MEUS LIVROS" e ficar tranquilo*/
-	width: 420px;
-	
+.coluna-seguidor {
+	align-items: center;
+	align-content: center;
+	text-align: center;
+	border: 1px solid #f9c76c;
+	border-radius: 10px;
+	background: #fef2dd;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 4px 0px rgba(0, 0, 0, .14), 0 1px 10px 0px rgba(0, 0, 0, .12);
+	margin: 15px 15px 20px 20px;
+	padding: 15px 10px 10px 5px;
 }
-	
+
+.coluna-seguidor-btn {
+	text-align: center;
+	margin: 0px 10px 10px 10px;
+	padding: 0px;
+}
+
 /*------------------------------*/
 
 .back-teste {
 	background: red;
 	color: green;
 }
+
 .back-teste2 {
 	background: green;
 	color: yellow;
 }
 
-.caixa-meus-livros{
-	width: 130px;
-
-}
-
 .hr-size-caixa-1 {
-	width: 320px;
-	background: yellow;	
-	color: red;
+	width: 100px;
 	border-radius: 10px;
-}
-
-.albuns-tamanho {
-padding: 10px;
-width: 400px;
-float: right;
-margin-right:15%;  /* Alternativa que achei para "centralizar" as imagens dos álbuns  */   
 }

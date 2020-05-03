@@ -1,9 +1,9 @@
 <aside class="sidebar">
     <nav class="menu mt-3">
     <div class="imagem-perfil">
-        <img src="assets/css/imagens/foto-perfil.jpg">
+        <img src="assets/css/imagens/livro-aberto4.png">
     </div>
-
+        <hr>
         <ul class="nav-list">
             <li class="nav-item">
                 <a href="day_records.php">

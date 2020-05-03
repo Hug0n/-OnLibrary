@@ -14,6 +14,30 @@ body {
     background-color: #DDD;
 }
 
+.ajustar-tamanho {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0px;
+    padding: 30px;
+    flex-basis: 300px;
+}
+
+.imagem-login{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-login img{
+    width: 99%;
+    height: 99%;
+    max-width: 10rem;
+    max-height: 20rem;
+}
+
 .form-login {
     flex-basis: 450px;
 }
@@ -23,9 +47,11 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.8rem;
+    padding: 22px 0px 22px 0px;
 }
 
 .login-card .card-footer {
     display: flex;
     justify-content: center;
+    padding: 20px;
 }

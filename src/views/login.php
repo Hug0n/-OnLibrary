@@ -33,12 +33,11 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 				<!-- Main component for a primary marketing message or call to action -->
 				<div class="jumbotron ajustar-tamanho">
 					<h2>Bem vindo ao OnLibrary! </h2>
-					<br />
-					<p>Aqui você pode agendar e alugar os seus livros favoritos.</p>
-
-					<div>
-						<img src="../../../public/assets/imagens/livros.png" class="albuns-tamanho">
-						<br />
+					
+					<p>Aqui você pode alugar, comentar e discutir sobre os seus livros favoritos com outros leitores.</p>
+					<div class="imagem-login">
+						<img src="assets/css/imagens/livros.png" class="albuns-tamanho">
+						<br/>
 					</div>
 
 				</div>
@@ -65,8 +64,7 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 							<?php include(TEMPLATE_PATH . '/messages.php') ?>
 							<div class="form-group">
 								<label for="email">E-mail</label>
-								<input type="email" id="email" name="email" 
-								class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>" value="<?= isset($_POST['email']) ? $_POST['email'] : "Informe o seu e-mail" ?>" ; placeholder="Informe o seu e-mail" autofocus>
+								<input type="email" id="email" name="email" class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>" value="<?= isset($_POST['email']) ? $_POST['email'] : "Informe o seu e-mail" ?>" ; placeholder="Informe o seu e-mail" autofocus>
 								<div class="invalid-feedback">
 									<?= $errors['email'] ?>
 								</div>
