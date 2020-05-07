@@ -1,19 +1,17 @@
 <?php
 // O controller é o local que o model e a view interagem, mesmo que indiretamente:
 loadModel('Login');
-
+session_start();
 // loadView('Login');
-// SESSION_START();
  $exception = null;
 
 if(count($_POST) > 0) { //significa que acabei de submeter uma requisição do tipo post
     $login = new Login($_POST);
     try{
         $user = $login->checkLogin(); //se ele se logou corretamente, o metódo checLogin() retorna o $user
-        echo "Usuário {$user->nome} logado =)";
+        $_SESSION['usuario'] = $user;
         header("Location: home.php");
 
-        // $_SESSION['user'] = $user;
     } catch(AppException $e) {
         $exception = $e;
     }

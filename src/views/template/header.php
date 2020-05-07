@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/template.css">
     <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/home.posts.css">
+
     <!-- <script src="assets/js/app.js"></script> -->
 
     <title>In N' Out</title>
@@ -32,8 +34,10 @@
         <div class="spacer"></div>
         <div class="dropdown">
             <div class="dropdown-button">
-                <img class="avatar" />
-                <span>Usuário Teste</span>
+                <img class="avatar" src="<?= "http://www.gravatar.com/avatar.php?gravatar_id=" . md5(strtolower((trim($_SESSION['usuario']->email)))) ?>" alt="user">
+                <span>
+                    <?= $_SESSION['usuario']->nome ?>
+                </span>
                 <i class="icofont-simple-down mx-2"></i>
             </div>
             <div class="dropdown-content">

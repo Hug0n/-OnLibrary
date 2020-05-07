@@ -1,7 +1,7 @@
 <?php
 // Login n tem uma ligação direta com o BD como user tem. Recebe atributos direto da View
 
-loadModel('Usuario');
+// loadModel('Usuario');
 
 class Login extends Model
 {

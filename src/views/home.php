@@ -3,14 +3,18 @@
         <div class="col-md-7 coluna-posts ">
             <!-- tamanho da 1° coluna -->
             <form id="form_post" class="input-group">
-                <input type="text" id="texto_post" name="texto_post" class="form-control" placeholder="O que está acontecendo agora, <?= $_SESSION['nome'] ?>?" maxlength="140" name="tweet">
+                <input type="text" id="texto_post" name="texto_post" class="form-control" placeholder="O que está acontecendo agora, <?= $_SESSION['usuario']->nome ?>?" maxlength="140" name="tweet">
                 <span class="input-group-btn ">
                     <button class="btn btn-default container-visual" id="btn_post" type="button">POSTAR!</button>
                 </span>
             </form>
 
             <div id="posts" class="list-group">
-                Posts aqui no list-group
+                <?php                
+
+                require_once(realpath(VIEW_PATH . '/home.post.php'));
+                
+                ?>
             </div>
             Coluna 1
         </div>

@@ -13,9 +13,13 @@ class Model {
     protected static $columns = []; //colunas do BD relacionados "aquele modelo"
     protected $values = []; //série de valores que serão passados no array abaixo ($arr)
 
-    function __construct($arr) {
-        $this->loadFromArray($arr);
+    function __construct() {
+        
     }
+
+    // function __construct($arr) {
+    //     $this->loadFromArray($arr);
+    // }
 
     //aula 244:
     public function loadFromArray($arr){
@@ -70,6 +74,24 @@ class Model {
         } else {
             return $result;
         }
+    }
+
+    //aula 274:
+    //metódo pra inserir dados no BD
+    //"implode()" transforma um array em string. Definimos um separador, que nesse caso é a vírgula
+    public function insert() {
+        $sql = "INSERT INTO " . static::$tableName . " ("
+            . implode(",", static::$columns) . ") VALUES (";
+        foreach(static::$columns as $col) {
+            //como esse metódo (insert()) n é estático e sim acessado através de uma instância (ex.: user ou working hours) deverá ser feito conforme abaixo (em parenteses); para termos o valor exato da coluna do objeto precisa ser com o "$this". Foreach precisa ser na mesma ordem das colunas
+            $sql .= static::getFormatedValue($this->$col) . ",";
+        }
+        //No último foreach, haverá uma vírgula, mas o parenteses precisa ser fechado. O metódo abaixo remove a vírgula e coloca um parantêses no final da string.
+        $sql[strlen($sql) - 1] = ')';
+        $id = Database::executeSQL($sql); //metódo estático. Passo o $SQL gerado do insert
+        echo "$id";
+        $this->id = $id; //seta no objeto que chamou o metódo o atributo $id, que acabamos de receber no executeSQL
+       
     }
 
     // aula 246:
