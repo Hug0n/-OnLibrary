@@ -92,7 +92,7 @@ if ($resultado_id) {
 				//validar se o campo de texto possui pelo menos 1 caractere:
 				if ($('#texto_post').val().length > 0) { //condição para analisar se o post está vazio na hora da submissão. Caso sim, não posta!
 					//alert($('#texto_post').val());
-					$.ajax({
+					$.ajax({	
 						url: 'inclui_post.php',
 						method: 'post',
 						data: $('#form_post').serialize(),

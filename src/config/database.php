@@ -31,7 +31,7 @@ class Database {
         //Aula 274:
         //metódo que auxilia a executar o SQL e inserir dados no BD
         //Podemos usar diretamente a partir do database.php (estático)
-        public static function executeSQL($sql)
+        public static function validarSQL($sql)
         {
             $conn = self::getConnection(); //se houver um id, retorna esse id. Caso não, retorna um outro sem problema.
             if (!mysqli_query($conn, $sql)) {//se houver algum prob na execução (n for true), lança uma excessão

@@ -5,12 +5,13 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
 
 
 //Constantes das Pastas
+define('CONTROLLER_PATH', realpath(dirname(__FILE__) . '/../controllers'));
+
 define('MODEL_PATH', realpath(dirname(__FILE__) . '/../models'));
 define('VIEW_PATH', realpath(dirname(__FILE__) . '/../views'));
 // ;
 define('TEMPLATE_PATH', realpath(dirname(__FILE__) . '/../views/template'));
 
-define('CONTROLLER_PATH', realpath(dirname(__FILE__) . '/../controllers'));
 define('EXCEPTION_PATH', realpath(dirname(__FILE__) . '/../exceptions'));
 
 //Arquivos que quero importar logo no início

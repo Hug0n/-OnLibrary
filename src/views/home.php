@@ -1,5 +1,11 @@
+<link rel="stylesheet" href="assets/css/home.css">
+<link rel="stylesheet" href="assets/css/home.posts.css">
+<script src="/js/home.post.js"></script>
+<!-- <script src="assets/js/app.js"></script> -->
+
+
 <div class="container ">
-    <div class="row ">  
+    <div class="row ">
         <div class="col-md-7 coluna-posts ">
             <!-- tamanho da 1° coluna -->
             <form id="form_post" class="input-group">
@@ -10,10 +16,10 @@
             </form>
 
             <div id="posts" class="list-group">
-                <?php                
+                <?php
 
-                require_once(realpath(VIEW_PATH . '/home.post.php'));
-                
+                // require_once(realpath(VIEW_PATH . '/home.post.php'));
+
                 ?>
             </div>
             Coluna 1

@@ -10,7 +10,10 @@ if($uri === '/' || $uri === '' || $uri === '/index.php' ){
     $uri = '/home.php';
 }
 
-require_once(CONTROLLER_PATH . "/{$uri}");
+require_once(realpath(CONTROLLER_PATH  . "/{$uri}"));
+
+
+// require_once(realpath(VIEW_PATH . '/home.post.php'));
 
 // 250:
 
