@@ -14,6 +14,21 @@ body {
     background-color: #DDD;
 }
 
+
+.button_link a {
+    text-decoration: none;
+    color: white;
+    padding: 0px;
+}
+
+.button_link a:hover {
+    text-decoration: none;
+    background: none;
+    padding: 0px;
+}
+
+/* ////////////// */
+
 .ajustar-tamanho {
     justify-content: center;
     align-items: center;

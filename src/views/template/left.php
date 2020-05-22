@@ -26,7 +26,7 @@
             <li class="nav-item">
                 <a href=".php">
                     <i class="icofont-users mr-2"></i>  
-                    Usuários
+                    Editar perfil
                 </a>   
             </li>
         </ul>

@@ -39,6 +39,6 @@ class Login extends Model
             return $user;
 
         }
-        throw new AppException('Usuário e Senha inválidos!');
+        throw new AppException('Usuário ou Senha inválidos!');
     }
 }

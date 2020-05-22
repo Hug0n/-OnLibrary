@@ -15,3 +15,23 @@ a:hover{
 p {
     font-size: 1.1rem;
 }
+
+/* --------------------------- */
+/* Procurar Pessoas */
+
+.imagem-procurar-pessoas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.imagem-procurar-pessoas img {
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 99%;
+    max-width: 6rem;
+    max-height: 17rem;
+    border-radius: 8px;
+}

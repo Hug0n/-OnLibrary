@@ -8,10 +8,24 @@ body {
     background-color: #FBE2Add6;
 }
 
+.logo a {
+    text-decoration: none;
+    color: black;
+    padding: 0px;
+}
+
+.logo a:hover {
+    text-decoration: none;
+    color: black;
+    background: none;
+    padding: 0px;
+}
+
+/* 
 body.hide-sidebar {
     grid-template-columns: 1fr;
     grid-template-areas: "header" "content" "footer";
-}
+} */
 
 header.header {
     grid-area: header;
@@ -138,9 +152,9 @@ aside.sidebar .menu li.nav-item:hover {
     background-color: rgba(255, 198, 40, 0.288);
 }
 
-body.hide-sidebar aside.sidebar {
+/* body.hide-sidebar aside.sidebar {
     display: none;
-}
+} */
 
 .imagem-perfil {
     display: flex;

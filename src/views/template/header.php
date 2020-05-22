@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
 
 
@@ -15,19 +15,21 @@
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/template.css">
 
-    <!-- <script src="assets/js/app.js"></script> -->
+    <link rel="stylesheet" href="assets/css/home.css">
 
-    <title>In N' Out</title>
+
+    <title>OnLibrary</title>
 </head>
 
-<body class="">
+<body class="hide-sidebar">
     <!-- class="hide-sidebar": Pra esconder a barra lateral -->
     <header class="header">
         <div class="logo">
-            <i class="icofont-book mr-2"></i>
-            <span class="font-weight-bold">ON</span>
-            <span class="font-weight-light mx-2">Library</span>
-
+            <a href="home.php">
+                <i class="icofont-book mr-2"></i>
+                <span class="font-weight-bold">ON</span>
+                <span class="font-weight-light mx-2">Library</span>
+            </a>
         </div>
         <!-- //esconder o botão -->
         <div class="menu-toggle mx-3">

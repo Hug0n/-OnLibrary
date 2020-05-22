@@ -1,0 +1,9 @@
+
+body.hide-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "content" "footer";
+}
+
+body.hide-sidebar aside.sidebar {
+    display: none;
+}

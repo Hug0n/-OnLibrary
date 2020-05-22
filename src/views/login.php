@@ -10,20 +10,19 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 	<meta charset="UTF-8">
 	<title class="titulo">OnLibrary</title>
 
-	<!-- jquery - link cdn -->
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-
-	<!-- bootstrap - link cdn -->
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-
+	
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="assets/css/comum.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css.">
 	<link rel="stylesheet" href="assets/css/icofonto.min.css">
 	<link rel="stylesheet" href="assets/css/login.css">
 
-	<script>
-	</script>
+	<!-- <script src="/js/login.js"></script> -->
+
+
 </head>
+
+
 
 <body class="back-color">
 
@@ -78,8 +77,8 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 							</div>
 						</div>
 						<div class="card-footer">
-							<button class="btn btn-lg btn-primary ml-2" href="pag-inscrevase.php">Inscreva-se</button>
-							<button class="btn btn-lg btn-primary mx-1">Entrar</button>
+							<button id="btn_inscrevase" class="btn btn-lg btn-primary ml-2 button_link" ><a href="pag-inscrevase.php" >Inscreva-se</a></button>
+							<button class="btn btn-lg btn-primary mx-1" href="login.php"> Entrar</button>
 						</div>
 					</div>
 				</form>

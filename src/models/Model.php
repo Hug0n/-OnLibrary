@@ -71,10 +71,16 @@ class Model
         return $objects;
     }
 
-    public static function getResultSetFromSelect($filters = [], $columns = '*')
+    public static function getResultSetFromSelect($filters = [], $columns = '*', $table = '')
     {
+        if ($table == '') {
+            $tableName = static::$tableName;
+        } else {
+            $tableName = $table;
+        }
+
         $sql = "SELECT ${columns} FROM "
-            . static::$tableName
+            . $tableName
             . static::getFilters($filters);
         $result = Database::getResultFromQuery($sql);
         if ($result->num_rows === 0) {
@@ -105,12 +111,13 @@ class Model
         //No último foreach, haverá uma vírgula, mas o parenteses precisa ser fechado. O metódo abaixo remove a vírgula e coloca um parantêses no final da string.
         $sql[strlen($sql) - 1] = ')';
 
-        // echo $sql;
+        // echo $sql;  
         Database::executarSQL($sql);
     }
 
     public function delete($tableName, $filters = [])
     {
+
         $sql = "DELETE FROM " . $tableName
             . static::getFilters($filters);
         
@@ -135,7 +142,7 @@ class Model
     // $value retornará o valor formatado de acordo com o tipo que eu passar:
     // Valor vazio: retornará null
     // String: coloca entre aspas
-    private static function getFormatedValue($value)
+    public static function getFormatedValue($value)
     {
         if (is_null($value)) {
             return "null";

@@ -85,7 +85,7 @@ $(document).ready(function () { //Verifica se o documento foi carregado. Caso si
             }
         });
     }
-    atualizaPost();
+    atualizaPost(   );
 
 
 });

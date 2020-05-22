@@ -161,7 +161,7 @@ if ($resultado_id) {
                 <div class="panel-body">
                     <h4><a href="pag-principal.php"> <button type="button" class="btn btn-info btn-block">Explorar livros </button></h4>
                     <hr hr-size-caixa-1>
-                    <h4><a href="Procurar_pessoas.php"> <button type="button" class="btn btn-info btn-block">Procurar por pessoas </button></h4>
+                    <h4><a href="home.procurar-pessoas.php"> <button type="button" class="btn btn-info btn-block">Procurar por pessoas </button></h4>
                 </div>
             </div>
         </div>

@@ -1,48 +1,30 @@
 <?php
 session_start();
+loadModel('Usuario');
 
-if (!isset($_SESSION['email'])) {
-    header('Location: index.php?erro=1');
-}
-
-require_once ('class.db.php');
 
 $nome_pessoa = $_POST['nome_pessoa']; // recupera o parametro inserido no formulário de procurar pessoas. "nome_pessoa" é o ID do campo.
-$id_usuario = $_SESSION['id_usuario'];
+$id_usuario = $_SESSION['usuario']->id_usuario;
 
-$objDb = new db();
-$link = $objDb->conecta_mysql();
+$Usuario = new Usuario([]);
 
+$resultadoGetPessoas = $Usuario->getPessoas($id_usuario, $nome_pessoa);
 
-// $sql = " SELECT u.*, us.* FROM usuario AS u LEFT JOIN usuario_seguidores AS us ON (us.id_usuario = $id_usuario AND u.id_usuario = us.id_usuario_que_sigo ) WHERE u.nome LIkE '%$nome_pessoa%' AND u.id_usuario <> $id_usuario ";
+// $sql = "SELECT *  FROM usuario WHERE id_usuario != $id_usuario AND nome LIKE '%$nome_pessoa%'";
 
+if ($resultadoGetPessoas) {
 
-$sql = "SELECT *  FROM usuario WHERE id_usuario != $id_usuario AND nome LIKE '%$nome_pessoa%'";
-
-// $sql = " SELECT u.*, us.* ";
-// $sql.= " FROM usuario AS u ";
-// $sql.= " LEFT JOIN usuario_seguidores AS us ";
-// $sql.= " ON (us.id_usuario = $id_usuario AND u.id_usuario =  us.id_usuario_que_sigo) ";
-// $sql.= " WHERE u.nome like '%$nome_pessoa%' AND u.id_usuario <> $id_usuario ";
-
-// echo $sql;
-
-$resultado_id = mysqli_query($link, $sql);
-
-
-if ($resultado_id) {
-
-     while ($registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC )) {
-
+     while ($registro = mysqli_fetch_array($resultadoGetPessoas, MYSQLI_ASSOC )) {
 
         echo '<a href="#" class="list-group-item" style= border-radius:15px;margin:1px>';
             echo '<strong> '.$registro['nome'].' </strong> <small> -  '.$registro['email'].'  </small>';
             echo '<p class="list-group-item-text pull-right">';
              
-            $sql2 = "SELECT *  FROM usuario_seguidores WHERE id_usuario = $id_usuario AND id_usuario_que_sigo =".$registro['id_usuario'];
 
+            $esta_seguindo_usuario_tf = $Usuario->getPessoasBotao($id_usuario, $registro['id_usuario']);
+            
+            // $sql2 = "SELECT *  FROM usuario_seguidores WHERE id_usuario = $id_usuario AND id_usuario_que_sigo =".$registro['id_usuario'];
 
-            $esta_seguindo_usuario_tf = mysqli_query($link, $sql2);
             $registro2 = mysqli_fetch_array($esta_seguindo_usuario_tf, MYSQLI_ASSOC);
 
 
@@ -69,6 +51,3 @@ if ($resultado_id) {
 } else {
     echo 'Erro na consulta dos usuários no banco de dados. Por favor, tente novamente!!!';
 }
-
-  
-?>

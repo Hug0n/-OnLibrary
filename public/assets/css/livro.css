@@ -1,0 +1,13 @@
+.centralizar {
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.fonte-descricao-livro {
+    font-size: 1.3rem;
+    
+}
+
+.info-livro {
+    padding: 20px 45px 35px 35px;
+}

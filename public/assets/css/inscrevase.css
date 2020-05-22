@@ -2,110 +2,99 @@
 	background-color: #F7D358;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-	background-color: green;
-	position: relative;
-}
-.direita {
-
-	
+.back-color {
+	background-color: rgb(235, 46, 46);
 }
 
-.back-color{
-	background-color: #FBE2A6;
+hr {
+	border-color: #F4A460;
+	width: 92%;
 }
 
-.img-logo {
-	height: 50px;
-	width: 50px;
-	display: block; /* O <span> é "inline" por padrão */
-
-	 background: url('../imagens/livro-aberto1.png') no-repeat;
-
-	background-size: contain; 
-	color: transparent; /*Ocultar o texto. É interessante isso, ao invés de apagar paraacaso a página não carregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
- }  
-
-.titulo {
-	display: inline;
+.coluna-posts {
+	display: block;
+	border: 1px solid #f9c76c;
+	border-radius: 10px;
+	background: #fef2dd;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 4px 0px rgba(0, 0, 0, .14), 0 1px 10px 0px rgba(0, 0, 0, .12);
+	margin: auto;
+	padding: 15px 10px 20px 20px;
+	align-items: center;
+	align-content: center;
 	text-align: center;
-
 }
+
+/*------------------------------*/
 
 .centro {
 	align-items: center;
 	text-align: center;
 }
 
-.padding-left {
-	margin-left: 40px;
-}
-
-.padding-left-menor {
-	margin-left: 30px;
-}
-
-hr {
-	color: red;
-	background-color: red;
-	background: red;
-}
-
-/* Container */
-
-.container {
-	width: 60%;
-	display: block;
-}
-
-.container-visual {
-	border: 1px solid #f9c76c;
-	border-radius: 25px;
-	background: #fef2dd;
-	/*Se definir largura, ele fica fixo quando diminui de telawidth: 1000px;*/
-}
-
-/* FIM - Container */
-
-
 /* inicio ROW 1 */
 
-.foorm-control-0 {
-  width: 80%;
-   display: inline-block;
+.form-tam-muito-pequeno {
+	width: 10%;
+	display: inline-block;
 }
- 
-.foorm-control-0-1 {
+
+.form-tam-pequeno {
+	width: 18%;
+	display: inline-block;
+}
+
+.form-tam-intermed {
+	width: 32%;
+	display: inline-block;
+}
+
+.form-tam-medio {
+	width: 50%;
+	display: inline-block;
+}
+
+.form-tam-grande {
 	width: 90%;
 	display: inline-block;
+	background-color: springgreen;
 }
 
-.foorm-control-1 {
-  width: 80%;
-   display: inline-block;
+/* /////////////////////////////////////TEMPLATE.CSS///////////////// */
+
+body {
+	margin: 0;
+	background-color: #FBE2Add6;
 }
 
-.foorm-control-2 {
-  width: 85%;
-   display: inline-block;
+.logo a {
+	text-decoration: none;
+	color: black;
+	padding: 0px;
 }
 
-hr { /*Linha*/	
-	border-color: #f9c76c;
-}
-/* fim ROW  */
-
-.back-teste2 {
-	background: blue;
-	color: yellow;
-
+.logo a:hover {
+	text-decoration: none;
+	color: black;
+	background: none;
+	padding: 0px;
 }
 
-.back-teste {
-	background: yellow;
-	color: green;
+header.header {
+	height: 60px;
+	grid-area: header;
+	display: flex;
+	background-color: #F7D358;
+	align-items: center;
+	z-index: 10;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 4px 0px rgba(0, 0, 0, .14), 0 1px 10px 0px rgba(0, 0, 0, .12);
 }
 
-.span-test {
-	display: inline-block;
+header.header .logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgba(0, 0, 0, 0.822);
+	font-size: 2rem;
+	flex-basis: 250px;
+	height: 100%;
 }

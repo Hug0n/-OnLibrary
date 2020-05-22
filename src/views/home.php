@@ -1,10 +1,15 @@
 <link rel="stylesheet" href="assets/css/home.css">
 <link rel="stylesheet" href="assets/css/home.posts.css">
+<!-- <link rel="stylesheet" href="assets/css/hide-sidebar.css"> -->
+
+
 <script src="/js/home.post.js"></script>
-<!-- <script src="assets/js/app.js"></script> -->
 
+<?php
+require_once(realpath(CONTROLLER_PATH . '/QtdPosts.php'));
+?>
 
-<div class="container ">
+<div class="container">
     <div class="row ">
         <div class="col-md-7 coluna-posts ">
             <!-- tamanho da 1° coluna -->
@@ -30,27 +35,27 @@
                 <!-- Início (row) da 2° coluna -->
                 <div class="col-md-4">
                     POSTS <br>
-                    4
+                    <?php echo $qtd_posts ?>
                 </div>
                 <div class="col-md-4">
                     SEGUIDORES <br>
-                    5
+                    <?php echo $qtd_seguidores ?>
                 </div>
                 <div class="col-md-4">
                     SEGUINDO <br>
-                    6
+                    <?php echo $qtd_seguindo ?>
                 </div>
             </div> <!-- Fim (row) da 2° coluna -->
             <hr hr-size-caixa-1>
 
             <div class="row coluna-seguidor-btn ">
                 <div class="col-md-12 ">
-                    <h4><a href="pag-principal.php"> <button type="button" class="btn btn-info btn-block ">Explorar livros </button></h4>
+                    <h6><a href="pag-livros.php"> <button type="button" class="btn btn-info btn-block ">Explorar Livros</button></h6>
                 </div>
             </div>
             <div class="row coluna-seguidor-btn">
                 <div class="col-md-12 ">
-                    <h4><a href="Procurar_pessoas.php"> <button type="button" class="btn btn-info btn-block ">Procurar por pessoas </button></h4>
+                    <h4><a href="home.procurar-pessoas.php"> <button type="button" class="btn btn-info btn-block ">Procurar Pessoas</button></h4>
                 </div>
 
             </div>

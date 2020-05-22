@@ -8,7 +8,6 @@ class Post extends Model
     public $data_inclusao;
 
 
-
     protected static $tableName = 'post'; //usado pra pegar o nome da tabela no model
     protected static $columns = [
         'id_post',

@@ -1,13 +1,3 @@
-<?php
-
-session_start();
-
-$erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
-
-$erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
-
-
-?>
 
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -142,9 +132,3 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
         </form>
     </div>
     </div>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-</body>
-
-</html>

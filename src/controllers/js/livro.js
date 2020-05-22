@@ -1,0 +1,182 @@
+
+var id_livro = 0;
+
+// alert("livro.js ready");
+
+
+$(document).ready(function () {
+
+    var livro; //objeto livro
+
+    getInfoLivro();
+    atualizaComent();
+
+
+    //associar o evento de clique
+    $('#btn_post').click(function () {
+
+        if ($('#texto_post').val().length > 0) { //condição para analisar se o post está vazio na hora da submissão. Caso sim, não posta!
+            // alert($('#texto_post').val());
+
+            var data = $('#form_post').serializeArray();
+            data.push({
+                name: "id_livro",
+                value: id_livro
+            });
+
+            $.ajax({
+                url: 'js/livro/inclui_coment.php',
+                method: 'post',
+                data: $.param(data),
+                success: function (data) {
+                    $('#texto_post').val('');
+                    atualizaComent();
+                }
+            });
+        }
+    });
+
+    // getFavoritos aqui, dps chamo os buttons
+
+    function atualizaBotoes() {
+
+        // var livros = JSON.parse(livro);
+        // alert(livros);
+        // alert(Object.values(livros));
+
+        $.ajax({
+            url: '/js/livro/livro-favorito/livro-botoes.php',
+            method: 'post',
+            data: { id_livro: id_livro },
+            success: function (data) {
+                $('#botoes-livro').html(data);
+                // alert(Object.values(livro));
+
+                $('#btn_addfavorito').click(function () {
+
+                    $.ajax({
+
+                        url: '/js/livro/livro-favorito/inclui_favorito.php',
+                        method: 'post',
+                        data: { id_livro: id_livro },
+                        success: function (data) {
+                            // Aqui posso mudar a estrutura do botão selecionando-o pela classe
+
+                            // ADICIONAR AOS FAVORITOS
+                            $('#btn_addfavorito').hide();
+                            $('#btn_removerfavorito').show();
+                        }
+                    });
+                });
+
+                // REMOVER DOS FAVORITOS
+                $('#btn_removerfavorito').click(function () {
+
+                    $.ajax({
+                        url: '/js/livro/livro-favorito/excluir_favorito.php',
+                        method: 'post',
+                        data: { id_livro: id_livro },
+                        success: function (data) {
+                            // Aqui posso mudar a estrutura do botão selecionando-o pela classe
+
+                            // ADICIONAR AOS FAVORITOS
+                            $('#btn_removerfavorito').hide();
+                            $('#btn_addfavorito').show();
+                        }
+                    });
+                });
+            }
+        });
+    }
+
+    function getInfoLivro() { //credo
+        var id_livro_local = window.location.search.substring(1).split("=")[1]; //credo
+        id_livro = id_livro_local; //credo
+
+        // alert ("ready livrooooo");
+        //  alert ( id_livro_local);
+        // alert ( id_livro);
+
+        $.ajax({
+            url: 'js/livro/getLivro.php',
+            method: 'post',
+            data: { id_livro: id_livro }, //credo
+            success: function (data) {
+                // alert(id_livro)
+
+                // var objteste = { fdfdfoo: "bar", baz: 42 };
+                // console.log(Object.values(objteste));
+
+                var response = JSON.parse(data);
+                // alert(Object.values(data));
+
+                // var response = $.parseJSON(data);
+                // alert(Object.values(response));
+                // console.log(Object.values(response));
+
+
+                if (response.success == 1) {
+                    // alert("entrou aqui NO LIVROwwwwwwwwwwwwwwww!!!!")
+
+                    livro = response.livro;
+
+
+
+                    $('#nomeLivro').html(livro.nomeLivro);
+                    $('#autorTitulo').html(livro.autor);
+                    $('#descricao').html(livro.descricao);
+                    $('#author').html(`Autor: ${livro.autor}`);
+                    $('#lang').html(`Idioma: ${livro.idioma}`);
+                    $('#fdl').html(`Fora de linha: ${livro.foraDeLinha}`);
+                    $('#year').html(`Ano da edição: ${livro.ano}`);
+                    $('#pgNumber').html(`Número de Páginas: ${livro.quantidadePaginas}`);
+                    $('#edNumber').html(`Número da edição: ${livro.numeroEdicao}`);
+                    $('#category').html(`Categoria: ${livro.categoria}`);
+
+                    atualizaBotoes();
+
+                } else {
+                    alert(response.msg);
+                }
+            }
+        });
+
+    }
+
+
+    function atualizaComent() {
+
+        $.ajax({
+            url: 'js/livro/get_coment.php',
+            method: 'post',
+            data: { id_livro: id_livro },
+            success: function (data) {
+                $('#posts').html(data);
+
+                // Excluir Post
+                $('.btn_excluir_coment').click(function () {
+                    var cod_coment = $(this).data('cod_comentario');
+
+                    $.ajax({
+                        url: 'js/livro/excluir_coment.php',
+                        method: 'post',
+                        data: {
+                            cod_coment: cod_coment
+                        },
+                        success: function (data) {
+                            atualizaComent();
+                            alert("Comentário excluído");
+
+                        }
+                    });
+                });
+            }
+        });
+
+        // alert("livro.js ready fim do arquivo");
+
+    }
+
+
+});
+
