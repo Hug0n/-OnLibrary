@@ -70,3 +70,7 @@ body {
     justify-content: center;
     padding: 20px;
 }
+
+.bordercolor {
+    border: 2px solid rgba(247, 202, 117, 0.788);
+}

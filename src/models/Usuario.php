@@ -69,6 +69,8 @@ class Usuario extends Pessoa
 
         if ($idResult) {
             return $conn;
+        } else {
+            return true;
         }
     }
 

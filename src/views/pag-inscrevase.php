@@ -27,12 +27,11 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/inscrevase.css">
 
-    <!-- <script src="/js/cadastro.js"></script> -->
+    <script src="/js/cadastro.js"></script>
 
 
     <title>OnLibrary</title>
 </head>
-
 
 <header class="header">
     <div class="logo">
@@ -55,7 +54,7 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
 
         <!-- ////////////////////////////// -->
 
-        <form method="POST" action="" id="formCadastro">
+        <form method="POST" action="cadastrar-user.php" id="formCadastro">
 
             <!-- ROW 1 - 1° coluna - Início !-->
             <div class="form-group ">
@@ -67,19 +66,21 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
                 <span class="form-tam-pequeno"> Data de Nascimento* </br><input type="date" class="form-control " name="nascimento" id="nascimento"></span>
 
 
-                <span class="form-tam-pequeno"> Sexo* <br /><input type="radio" name="genero" value="M"> Homem
-                    <span><input type="radio" name="genero" value="F"> Mulher </span></span>
+                <span class="form-tam-pequeno" id="genero"> Sexo* <br />
+                <input type="radio" name="genero" value="M" id="genero-H"> Homem
+                <input type="radio" name="genero" value="F" id="genero-F"> Mulher </span>
 
                 </p>
                 <span class="form-tam-intermed "> E-mail* </br><input type="email" class="form-control " name="email" id="email">
                     <?php
                     if ($erro_email) {
-                        echo '<font style="color:#FF0000"> E-mail já existe! </font>';
+                        echo '<font style="color:#FF0000; font-size: 0.89rem"> Esse endereço de e-mail já está associado a uma conta!  </font>';
                         $erro_cadastro = 3;
                     }
                     ?>
                 </span>
-
+                <br>
+                <br>
                 <span class="form-tam-pequeno"> Senha*</br><input type="password" class="form-control" name="senha" id="senha"></span>
             </div>
 
@@ -110,22 +111,10 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
             </p>
 
 
-            </br><a href="cadastrar-user.php">
-            <button type="submit" class="btn btn-primary " id="btn-cadastrar">Cadastrar</button>
-            </a>
             </br>
-            <?php
-            //echo $erro_cadastro;
-            // if ($erro_cadastro == 1) {
-            //     echo '<font style="color:#FF0000"> Cadastro não foi salvo com sucesso! Tente novamente. </font>';
-            // } else if ($erro_cadastro == 0) {
+            <button type="submit" class="btn btn-primary " id="btn-cadastrar">Cadastrar</button>
+            </br>
 
-            //     echo '<font style="color:#FF0000"> Cadastro salvo com sucesso! </font>';
-            // } else {
-            //     echo '<font style="color:#FF0000"> </font>';
-            // }
-            // $erro_cadastro = 3;
-            ?>
         </form>
 
 

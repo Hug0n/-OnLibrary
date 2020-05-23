@@ -10,8 +10,8 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 	<meta charset="UTF-8">
 	<title class="titulo">OnLibrary</title>
 
-	
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="assets/css/comum.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css.">
 	<link rel="stylesheet" href="assets/css/icofonto.min.css">
@@ -26,17 +26,17 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 
 <body class="back-color">
 
-	<div class="container">
+	<div class="container ">
 		<div class="row">
 			<div class="col-md-6 ">
 				<!-- Main component for a primary marketing message or call to action -->
-				<div class="jumbotron ajustar-tamanho">
+				<div class="jumbotron ajustar-tamanho bordercolor">
 					<h2>Bem vindo ao OnLibrary! </h2>
-					
+
 					<p>Aqui você pode alugar, comentar e discutir sobre os seus livros favoritos com outros leitores.</p>
 					<div class="imagem-login">
 						<img src="assets/css/imagens/livros.png" class="albuns-tamanho">
-						<br/>
+						<br />
 					</div>
 
 				</div>
@@ -49,7 +49,7 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 
 			<div class="col-md-6 ">
 				<form class="form-login" action="#" method="post">
-					<div class="login-card card">
+					<div class="login-card card bordercolor">
 						<div class="card-header">
 							<i class="icofont-travelling mr-2"></i>
 							<span class="font-weight-light">O</span>
@@ -77,9 +77,13 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 							</div>
 						</div>
 						<div class="card-footer">
-							<button id="btn_inscrevase" class="btn btn-lg btn-primary ml-2 button_link" ><a href="pag-inscrevase.php" >Inscreva-se</a></button>
+							<a href="pag-inscrevase.php" type="button" id="btn_sugestao" class="btn btn-lg btn-primary ml-2 button_link">
+								<span>Inscreva-se</span>
+							</a>
+
 							<button class="btn btn-lg btn-primary mx-1" href="login.php"> Entrar</button>
 						</div>
+
 					</div>
 				</form>
 			</div>
