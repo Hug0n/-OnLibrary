@@ -25,43 +25,39 @@ if ($resultadoFavoritados) {
 }
 
 
-echo '<div class="row coluna-seguidor-btn">
+
+echo '<div class="coluna-seguidor-btn">
             <div class="col-md-12 ">
                 <button type="button" style="display: ' . $btn_excluir_favorito . '" class="btn btn-danger btn-block" id="btn_removerfavorito">REMOVER DOS FAVORITOS -</button>
+
+                <button type="button" style="display: ' . $btn_favorito . '" class="btn btn-warning btn-block" id="btn_addfavorito">ADICIONAR AOS FAVORITOS +</button>
             </div>
           </div>';
+          
+// echo '<div class="row coluna-seguidor-btn ">
+//         <div class="col-md-12 ">
+//             <button type="button" class="btn btn-success btn-block">ALUGAR</button>
+//         </div>
+//       </div>';
 
 echo '<div class="row coluna-seguidor-btn ">
-          <div class="col-md-12 ">
-              <button type="button" style="display: ' . $btn_favorito . '" class="btn btn-warning btn-block" id="btn_addfavorito">ADICIONAR AOS FAVORITOS +</button>
-          </div>
-      </div>';
-
-echo '<div class="row coluna-seguidor-btn ">
-        <div class="col-md-12 ">
-            <button type="button" class="btn btn-success btn-block">ALUGAR</button>
-        </div>
-      </div>';
-
-echo '<div class="row coluna-seguidor-btn ">
-        <div class="col-md-12 ">
+        <div class="col-md-12" >
             <button type="button" class="btn btn-info btn-block">COMPRAR</button>
         </div>
       </div>';
 
-
 echo '<hr>
             <div class="row">
 				<!-- Início (row) da 2° coluna -->
-				<div class="col-md-6">
+				<div class="col-md-4">
 					LERAM <br>10
                     <?php  ?>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					LENDO <br> 2
                     <?php ?>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					QUEREM LER <br> 6
                     <?php  ?>
                 </div>
@@ -69,7 +65,7 @@ echo '<hr>
 					FAVORITARAM <br> 10
                     <?php  ?>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
 					RESENHAS <br>2
                     <?php  ?>
                 </div>

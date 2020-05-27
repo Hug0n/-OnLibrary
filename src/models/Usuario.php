@@ -35,6 +35,15 @@ class Usuario extends Pessoa
         'cadastro_fim_data',
         'is_admin'
     ];
+
+    function getDiretorioImagemUser(){
+        
+        $diretorio = 'assets/css/imagens/upload/userProfile/';
+        return $diretorio;
+    }
+
+
+
     // CADASTRO
     //Polimorfismo do metódo de Model:
     //ao invés de passar $table como último parâmetro, passo o $ID (que deve ser valor 1 pra retornar o $conn. Se for outro valor, provavelmente será o nome da tabela  ).

@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="assets/css/home.css">
 
 
+    <!-- Imagens do livro -->
+    <link rel="stylesheet" href="assets/css/img-livros.css">
+
+
+
     <title>OnLibrary</title>
 </head>
 

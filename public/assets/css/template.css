@@ -7,10 +7,23 @@ body {
     margin: 0;
     background-color: #FBE2Add6;
 }
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* //coloca os elementos pra direita */
+.pull-right {
+    float: right;
+    text-align: center;
+}
 
 .logo a {
     text-decoration: none;
-    color: black;
+    color: rgba(0, 0, 0, 0.897);
     padding: 0px;
 }
 

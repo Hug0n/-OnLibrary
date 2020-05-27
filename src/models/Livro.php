@@ -12,6 +12,7 @@ class Livro extends Model
     public $idioma;
     public $numeroEdicao;
     public $quantidadePaginas;
+    public $imagemLivro;
 
 
     protected static $tableName = 'livro'; //usado pra pegar o nome da tabela no model
@@ -27,7 +28,29 @@ class Livro extends Model
         'idioma',
         'numero_edicao',
         'quantidade_paginas',
+        'imagemLLivro'
     ];
+
+    function getDiretorioImagemLivro()
+    {
+        $diretorio = 'assets/css/imagens/upload/capasLivros/';
+        return $diretorio;
+    }
+
+
+    function getLivrosFavoritos($id_usuario)
+    {
+        $sql = " SELECT * FROM livro_favorito INNER JOIN livro ON id_livro_favorito = livro.id_livro WHERE id_usuario_favorito = $id_usuario ORDER BY data_favorito DESC ";
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $resultado_comments = mysqli_query($conn, $sql);
+            return $resultado_comments;
+        } else {
+            echo "erro no query da classe Livro (getComent())!";
+        }
+    }
 
 
 
@@ -43,6 +66,5 @@ class Livro extends Model
         } else {
             echo "erro no query da classe Livro (getComent())!";
         }
-
     }
 }

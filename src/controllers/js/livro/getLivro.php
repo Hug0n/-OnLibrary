@@ -18,6 +18,7 @@ $id_livro = $_POST['id_livro'];
 $Livro = new Livro([]);
 $resultado_id = $Livro->getResultSetFromSelect(['id_livro' => $id_livro]);
 
+$diretorio = $Livro->getDiretorioImagemLivro();
 //--Atributos
 
 if ($resultado_id) {
@@ -33,7 +34,8 @@ if ($resultado_id) {
         'foraDeLinha' => $registro['fora_de_linha'],
         'idioma' => $registro['idioma'],
         'numeroEdicao' => $registro['numero_edicao'],
-        'quantidadePaginas' => $registro['quantidade_paginas']
+        'quantidadePaginas' => $registro['quantidade_paginas'],
+        'imagemLivro' => $diretorio . $registro['imagem_livro']
     ]);
     // print_r($livro);
     // echo $livro->nomeLivro;

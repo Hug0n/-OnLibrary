@@ -7,6 +7,7 @@ var id_livro = 0;
 $(document).ready(function () {
 
     var livro; //objeto livro
+    var imagemLivro;
 
     getInfoLivro();
     atualizaComent();
@@ -120,8 +121,6 @@ $(document).ready(function () {
 
                     livro = response.livro;
 
-
-
                     $('#nomeLivro').html(livro.nomeLivro);
                     $('#autorTitulo').html(livro.autor);
                     $('#descricao').html(livro.descricao);
@@ -133,7 +132,22 @@ $(document).ready(function () {
                     $('#edNumber').html(`Número da edição: ${livro.numeroEdicao}`);
                     $('#category').html(`Categoria: ${livro.categoria}`);
 
+                    imagemLivro = livro.imagemLivro;
+
                     atualizaBotoes();
+
+
+                    $.ajax({
+
+                        url: 'js/livro/imagem-livro.php',
+                        method: 'post',
+                        data: { imagemLivro: imagemLivro }, //credo
+                        success: function (data) {
+                            $('#imagemLivro').html(data);
+                        }
+
+                    });
+
 
                 } else {
                     alert(response.msg);

@@ -6,7 +6,7 @@
         <hr>
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="day_records.php">
+                <a href="pag-favoritos.php?idUsuario=<?=$_SESSION['usuario']->id_usuario?>">
                     <i class="icofont-ui-check mr-2"></i>  
                     Meus Favoritos
                 </a>   

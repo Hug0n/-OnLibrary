@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="assets/css/hide-sidebar.css">
 <link rel="stylesheet" href="assets/css/livro.css">
 
+
 <script src="/js/livro.js"></script>
 
 <div class="container">
@@ -10,7 +11,11 @@
             <div class="row">
                 <!-- Início (row) da 2° coluna -->
                 <div class="col-md-12">
-                    <h1> Imagem livro</h1>
+                    <div id="imagemLivro" class="imagem-livro">
+
+                        <!-- Imagem do livro -->
+
+                    </div>
                 </div>
 
             </div> <!-- Fim (row) da 2° coluna -->
@@ -98,4 +103,4 @@
         </div>
 
     </div> <!-- Fim da linha (row) -->
-</div> <!-- Fim container -->
+    </div> <!-- Fim container -->

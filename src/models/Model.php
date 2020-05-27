@@ -71,7 +71,7 @@ class Model
         return $objects;
     }
 
-    public static function getResultSetFromSelect($filters = [], $columns = '*', $table = '')
+    public static function  getResultSetFromSelect($filters = [], $columns = '*', $table = '')
     {
         if ($table == '') {
             $tableName = static::$tableName;
@@ -86,6 +86,7 @@ class Model
         if ($result->num_rows === 0) {
             return null;
         } else {
+            // return $sql;
             return $result;
         }
     }
@@ -108,12 +109,38 @@ class Model
             echo "$value[$i] <br>";
             $sql .= static::getFormatedValue($value[$i]) . ",";
         }
+
         //No último foreach, haverá uma vírgula, mas o parenteses precisa ser fechado. O metódo abaixo remove a vírgula e coloca um parantêses no final da string.
         $sql[strlen($sql) - 1] = ')';
 
         // echo $sql;  
         Database::executarSQL($sql);
     }
+
+    public function insertWhere($columns, $value, $table = '', $filters = [])
+    {
+        // por padrão, a tabela é vazia e será a definida na classe (static::$tableName).
+        if ($table == '') {
+            $tableName = static::$tableName;
+        } else {
+            $tableName = $table;
+        }
+
+        $sql = "INSERT INTO " . $tableName . " ("
+            . implode(",", $columns) . ") VALUES ("; ///"implode()" transforma um array em string. Definimos um separador, que nesse caso é a vírgula
+        for ($i = 0; $i < count($columns); $i++) {
+            echo "$value[$i] <br>";
+            $sql .= static::getFormatedValue($value[$i]) . ",";
+        }
+        $sql .= static::getFilters($filters);
+        //No último foreach, haverá uma vírgula, mas o parenteses precisa ser fechado. O metódo abaixo remove a vírgula e coloca um parantêses no final da string.
+        $sql[strlen($sql) - 1] = ')';
+
+        echo $sql;  
+        // Database::executarSQL($sql);
+    }
+
+
 
     public function delete($tableName, $filters = [])
     {
