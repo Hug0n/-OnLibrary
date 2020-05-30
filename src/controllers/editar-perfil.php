@@ -1,6 +1,7 @@
 <?php
 
 // loadModel('Model');
+session_start();
 
 // $id_usuario = $_SESSION['usuario']->usuario;
 
@@ -14,7 +15,7 @@
 
 $Usuario = new Usuario([]);
 
-$Usuario->id_usuario = 201;
+$Usuario->id_usuario = $_SESSION['usuario']->id_usuario;
 
 $nome = $_POST['nome'];
 $sobrenome = $_POST['sobrenome'];
@@ -100,19 +101,20 @@ $resultadoEmailJaExiste = $Usuario->getResultSetFromSelect(['email' => $Usuario-
 $usuario_existe = false;
 $email_existe = false;
 
-if ($resultadoEmailJaExiste) {
-    $dados_usuario_email = mysqli_fetch_array($resultadoEmailJaExiste);
-    if (isset($dados_usuario_email['email'])) {
-        $email_existe = true;
-        echo "existe";
+if ($dados_usuario['email'] != $Usuario->email) {
+
+    if ($resultadoEmailJaExiste) {
+        $dados_usuario_email = mysqli_fetch_array($resultadoEmailJaExiste);
+        if (isset($dados_usuario_email['email'])) {
+            $email_existe = true;
+            echo "<br> EXISTE <br>";
+        }
     }
 }
-
 
 if ($email_existe) {
 
     $retorno_get_cadastro = '';
-
 
     $retorno_get_cadastro .= "erro_email=1&";
 
@@ -124,7 +126,7 @@ if ($email_existe) {
 
 ///////// FIM VALIDAR E-MAIL /////////
 
-echo 'valores:<br>';
+echo 'valores TESTE:<br>';
 
 echo $Usuario->id_usuario . '<br>';
 
@@ -191,7 +193,7 @@ echo $Usuario->id_usuario . '<br>';
 
 echo $Usuario->cidade . '<br>';
 
-echo $Usuario->uf . '<br>'; 
+echo $Usuario->uf . '<br>';
 
 echo $Usuario->rua . '<br>';
 
@@ -234,7 +236,7 @@ echo $Usuario->id_usuario . '<br>';
 
 echo $Usuario->cidade . '<br>';
 
-echo $Usuario->uf . '<br>'; 
+echo $Usuario->uf . '<br>';
 
 echo $Usuario->rua . '<br>';
 
