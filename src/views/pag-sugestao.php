@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="assets/css/hide-sidebar.css">
+
+
 <div class="container">
     <div class="row ">
         <div class="col-md-7 coluna-posts ">
@@ -58,7 +61,7 @@
             </div>
             <div class="row coluna-seguidor-btn">
                 <div class="col-md-12 ">
-                    <h4><a href="home.procurar-pessoas.php"> <button type="button" class="btn btn-info btn-block ">Procurar por pessoas </button></h4>
+                    <h4><a href="home.procurar-pessoas.php"> <button type="button" class="btn btn-info btn-block ">Procurar pessoas </button></h4>
                 </div>
 
             </div>

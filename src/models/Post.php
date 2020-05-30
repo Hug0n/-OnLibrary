@@ -24,7 +24,7 @@ class Post extends Model
     static function getUserPosts($id_usuario)
     {
 
-        $sql = " SELECT p.data_inclusao, p.post, p.id_post, u.nome, u.id_usuario ";
+        $sql = " SELECT p.data_inclusao, p.post, p.id_post, u.nome, u.id_usuario, u.imagem_usuario ";
         $sql .= " FROM post AS p JOIN usuario AS u ON (p.id_usuario_post = u.id_usuario) ";
         $sql .= "WHERE id_usuario_post = {$id_usuario}";
         $sql .= " OR id_usuario_post IN (select id_usuario_que_sigo FROM usuario_seguidores WHERE id_usuario = {$id_usuario}) ";
@@ -35,6 +35,8 @@ class Post extends Model
         if ($conn) {
             $resultado_posts = mysqli_query($conn, $sql);
             return $resultado_posts;
+            // return $sql;
+
         } else {
             echo "erro no query da classe Posts (getUserPosts())!";
         }

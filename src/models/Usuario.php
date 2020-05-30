@@ -4,6 +4,7 @@ loadModel('Pessoa');
 
 class Usuario extends Pessoa
 {
+    private $id_usuario;
 
     private $nome;
     private $sobrenome;
@@ -11,6 +12,7 @@ class Usuario extends Pessoa
     private $genero;
     private $email;
     private $senha;
+    // private $imagem_usuario;
 
     private $cidade;
     private $uf;
@@ -33,16 +35,68 @@ class Usuario extends Pessoa
         'sobrenome',
         'cadastro_data',
         'cadastro_fim_data',
-        'is_admin'
+        'is_admin',
+        'imagem_usuario'
     ];
 
-    function getDiretorioImagemUser(){
-        
+    function getDiretorioImagemUser()
+    {
+
         $diretorio = 'assets/css/imagens/upload/userProfile/';
         return $diretorio;
     }
 
+    //Editar Perfil
 
+    //***************PESSOAL***************
+
+    function updatePessoal($id_usuario, $nome, $sobrenome, $email, $senha, $data_nasc, $genero)
+    {
+        $sqlUpdatePessoal = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', email= '$email', senha='$senha', data_nasc='$data_nasc', sexo='$genero' WHERE id_usuario = $id_usuario";
+
+        $conn = Database::executarSQL($sqlUpdatePessoal);
+
+        if ($conn) {
+            return $conn;
+        } else {
+            echo "erro no query da classe Usuario (updatePessoal())!";
+        }
+    }
+    //***************FIM - PESSOAL***************
+
+    //***************ENDEREÇO***************
+
+    function updateEndereco($id_usuario, $cidade, $uf, $rua, $bairro, $complemento)
+    {
+        $sqlUpdateEndereco = "UPDATE endereco_usuario SET cidade='$cidade', uf='$uf', rua= '$rua', bairro='$bairro', complemento='$complemento' WHERE id_usuario_end = $id_usuario";
+
+        $conn = Database::executarSQL($sqlUpdateEndereco);
+
+        if ($conn) {
+            return $conn;
+        } else {
+            echo "erro no query da classe Usuario (updateEndereco())!";
+        }
+    }
+
+    //***************FIM - ENDEREÇO***************
+
+    //***************TELEFONE***************
+
+    function updateTelefone($id_usuario, $telefone, $celular)
+    {
+        $sqlUpdateTelefone = "UPDATE telefone_usuario SET telefone1='$telefone', telefone2='$celular' WHERE id_usuario_fone = $id_usuario";
+
+        $conn = Database::executarSQL($sqlUpdateTelefone);
+
+        if ($conn) {
+            return $conn;
+        } else {
+            echo "erro no query da classe Usuario (updateTelefone())!";
+        }
+    }
+
+    //***************FIM - TELEFONE***************
 
     // CADASTRO
     //Polimorfismo do metódo de Model:

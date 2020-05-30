@@ -6,7 +6,9 @@ loadModel('Post');
 
 
 $Post = new Post();
+$Usuario = new Usuario([]);
 
+$diretorio = $Usuario->getDiretorioImagemUser();
 
 //se for necessário instanciar classes, fazer isso aqui
 
@@ -24,7 +26,8 @@ $resultado_posts = $Post->getUserPosts($id_usuario);
 loadView('home.post', [
     'resultado_posts' => $resultado_posts,
     'id_usuario' => $id_usuario,
-    'Post' => $Post
+    'Post' => $Post,
+    'diretorio' => $diretorio
 ]);
 
 // Pra testar:

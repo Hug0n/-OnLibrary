@@ -2,11 +2,10 @@
 session_start();
 loadModel('Livro');
 
-// $idUsuarioSession = $_SESSION['usuario']->id_usuario;
 // //O id recebido pelo post. O dono da página dos favoritos que não necessariamente é quem está logado.
 // $idUsuarioFavorito = $_POST['id_favorito'];
-$idUsuarioSession = 84;
-$idUsuarioFavorito = 84;
+$idUsuarioSession =  $_SESSION['usuario']->id_usuario;
+$idUsuarioFavorito = $_POST['id_favorito'];
 $Livro = new Livro([]);
 $resultado_id = $Livro->getLivrosFavoritos($idUsuarioFavorito);
 // $sql = "SELECT * FROM livro_favorito";

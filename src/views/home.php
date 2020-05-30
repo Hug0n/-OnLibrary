@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="assets/css/home.css">
 <link rel="stylesheet" href="assets/css/home.posts.css">
-<!-- <link rel="stylesheet" href="assets/css/hide-sidebar.css"> -->
+<link rel="stylesheet" href="assets/css/button-ocultar-left.css">
 
+<!-- <link rel="stylesheet" href="assets/css/hide-sidebar.css"> -->
 
 <script src="/js/home.post.js"></script>
 

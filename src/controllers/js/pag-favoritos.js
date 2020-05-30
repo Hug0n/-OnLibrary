@@ -14,7 +14,7 @@ $(document).ready(function () {
             success: function (data) {
                 $('#div-livros').html(data);
 
-
+                
                 // REMOVER DOS FAVORITOS
                 $('.btn_excluir').click(function () {
                     var id_livro = $(this).data('id_livro');

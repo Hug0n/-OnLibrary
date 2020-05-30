@@ -1,34 +1,40 @@
 <aside class="sidebar">
     <nav class="menu mt-3">
-    <div class="imagem-perfil">
-        <img src="assets/css/imagens/livro-aberto4.png">
-    </div>
+        <div class="imagem-user">
+            <img class="avatar" src="<?= "assets/css/imagens/upload/userProfile/". $_SESSION['usuario']->imagem_usuario ?>" alt="user">
+        </div>
         <hr>
         <ul class="nav-list">
-            <li class="nav-item">
-                <a href="pag-favoritos.php?idUsuario=<?=$_SESSION['usuario']->id_usuario?>">
-                    <i class="icofont-ui-check mr-2"></i>  
+            <a href="home.php">
+                <li class="nav-item">
+                    <i class="icofont-chart-histogram mr-2"></i>
+                    Meu Feed
+                </li>
+            </a>
+            <a href="day_records.php">
+                <li class="nav-item">
+                    <i class="icofont-ui-calendar mr-2"></i>
+                    Meu Perfil
+                </li>
+            </a>
+            <a href="pag-favoritos.php?idUsuario=<?= $_SESSION['usuario']->id_usuario ?>">
+                <li class="nav-item">
+                    <i class="icofont-ui-check mr-2"></i>
                     Meus Favoritos
-                </a>   
-            </li>
-            <li class="nav-item">
-                <a href="day_records.php">
-                    <i class="icofont-ui-calendar mr-2"></i>  
-                    Meus Livros
-                </a>   
-            </li>
-            <li class="nav-item">
-                <a href=".php">
-                    <i class="icofont-chart-histogram mr-2"></i>  
-                    Meus aluguéis
-                </a>   
-            </li>
-            <li class="nav-item">
-                <a href=".php">
-                    <i class="icofont-users mr-2"></i>  
+                </li>
+            </a>
+            <a href=".php">
+                <li class="nav-item">
+                    <i class=" icofont-users  mr-2"></i>
+                    Meus seguidores?
+                </li>
+            </a>
+            <a href="C-editar-perfil.php?idUsuario=<?= $_SESSION['usuario']->id_usuario ?>">
+                <li class="nav-item">
+                    <i class="icofont-chart-histogram mr-2"></i>
                     Editar perfil
-                </a>   
-            </li>
+                </li>
+            </a>
         </ul>
     </nav>
 

@@ -155,7 +155,7 @@ aside.sidebar .menu li.nav-item {
     padding: 10px 0px 10px 25px;
 }
 
-aside.sidebar .menu li.nav-item a {
+aside.sidebar .menu a li.nav-item  {
     font-size: 1.2rem;
     color: #555;
     text-decoration: none;
@@ -169,7 +169,7 @@ aside.sidebar .menu li.nav-item:hover {
     display: none;
 } */
 
-.imagem-perfil {
+/* .imagem-perfil {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,7 +185,7 @@ aside.sidebar .menu li.nav-item:hover {
     max-width: 10rem;
     max-height: 20rem;
     border-radius: 8px;
-}
+} */
 
 aside.sidebar .sidebar-widgets {
     position: sticky;

@@ -1,9 +1,6 @@
-
-
-
-
-
 <script src="/js/pag-livros.js"></script>
+<link rel="stylesheet" href="assets/css/button-ocultar-left.css">
+
 
 <title>Home - Livros Disponíveis</title>
 

@@ -1,0 +1,58 @@
+/* /// Página user */
+
+.imagem-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.imagem-user img {
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 99%;
+    max-width: 9rem;
+    max-height: 18rem;
+    border-radius: 8px;
+    border: 3px solid rgba(248, 217, 150, 0.699);
+
+}
+
+/* //Lista While - Pequeno */
+
+.list-group-users {
+    position: relative ;
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+    margin: 0px 20px 0px 0px;
+    background-color: #fff;
+    border: 1px solid rgba(248, 217, 150, 0.568);
+    /* flex-direction: column ; */
+}
+.imagem-user-peq {
+    /* display: block; */
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 1px;
+    background-color: rgba(240, 154, 25, 0.493);
+}
+
+.imagem-user-peq img {
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 99%;
+    max-width: 90px;
+    max-height: 135px;
+    border-radius: 10px ;
+    border: 1px solid rgba(248, 217, 150, 0.836);
+
+    margin-left: 10px;
+    float: left; /* posição da imagem em relação ao texto */
+
+}
+
