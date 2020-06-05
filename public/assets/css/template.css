@@ -15,6 +15,13 @@ a:hover {
     text-decoration: none;
 }
 
+/* fixar os elementos */
+aside.sidebar .sticky{
+    position: sticky;
+    /* background-color: pink; */
+    /* bottom: 10px; */
+}
+
 /* //coloca os elementos pra direita */
 .pull-right {
     float: right;

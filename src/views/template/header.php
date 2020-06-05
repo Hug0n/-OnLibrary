@@ -22,9 +22,18 @@
     <link rel="stylesheet" href="assets/css/img-livros.css">
     <link rel="stylesheet" href="assets/css/img-user.css">
 
+    <!-- Data table -->
 
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/js/responsive.bootstrap.min.js">
 
     <title>OnLibrary</title>
+
 </head>
 
 <body class="hide-sidebar">
@@ -41,11 +50,20 @@
         <div class="menu-toggle mx-3">
             <i class="icofont-navigation-menu"></i>
         </div>
+
+        <!------------------------------>
+        <?php if ($_SESSION['usuario']->is_admin == 1) {
+            require_once(realpath(VIEW_PATH . '/template/header-adm.php'));
+        }
+        ?>
+
+        <!------------------------------>
+
         <div class="spacer"></div>
         <div class="dropdown">
             <div class="dropdown-button">
                 <!-- <img class="avatar" src="<?= "http://www.gravatar.com/avatar.php?gravatar_id=" . md5(strtolower((trim($_SESSION['usuario']->email)))) ?>" alt="user"> -->
-                <img class="avatar" src="<?= "assets/css/imagens/upload/userProfile/". $_SESSION['usuario']->imagem_usuario ?>" alt="user">
+                <img class="avatar" src="<?= "assets/css/imagens/upload/userProfile/" . $_SESSION['usuario']->imagem_usuario ?>" alt="user">
 
                 <span>
                     <?= $_SESSION['usuario']->nome ?>

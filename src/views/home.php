@@ -28,7 +28,7 @@ require_once(realpath(CONTROLLER_PATH . '/QtdPosts.php'));
 
                 ?>
             </div>
-            Coluna 1
+            <!-- Coluna 1 -->
         </div>
         <div class="col-md-4 coluna-seguidor">
             <!-- tamanho da 2° coluna -->

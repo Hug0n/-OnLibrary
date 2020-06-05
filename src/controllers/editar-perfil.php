@@ -1,10 +1,13 @@
 <?php
 
-// loadModel('Model');
+loadModel('Login');
 session_start();
 
 // $id_usuario = $_SESSION['usuario']->usuario;
 
+var_dump($_FILES['img-perfil']);
+echo '<br>';
+var_dump($_FILES['img-perfil']['name']);
 
 // $nome = 'bordinhalands';
 // $sobrenome = 'Landsss 2';
@@ -60,6 +63,7 @@ echo ' email <br>';
 echo '<br><br>FIM valores<br><br>';
 
 
+
 ///////// SELECT PRO USUÁRIO ESPECÍFICO:  /////////
 
 $resultadoSelectUser = $Usuario->getResultSetFromSelect(['id_usuario' => $Usuario->id_usuario], '*', 'usuario');
@@ -87,6 +91,42 @@ $Usuario->genero  = !empty($genero) ? $genero : $dados_usuario['sexo'];
 $Usuario->email = !empty($email) ? $email : $dados_usuario['email'];
 
 $Usuario->senha  = !empty($senha) ? $senha : $dados_usuario['senha'];
+
+////VALIDAÇÃO DA IMAGEM
+
+if (!empty($_FILES['img-perfil']['name'])) {
+    // echo "3 <br>";
+    // qual a extensao do img-perfil?
+    $extensao = strtolower(substr($_FILES['img-perfil']['name'], -4));
+    //pega os ultimos 4 caracteres ()o ponto e a extensão
+    // echo "4 <br>";
+
+    // nome do arquivo. Encriptografa pra o nome ser único
+    $novo_nome = md5(time()) . $extensao;
+    // echo "5 <br>";
+
+    // diretorio onde sera enviado o arq
+    $diretorio = $Usuario->getDiretorioImagemUser();
+    // echo "6 <br>";
+
+    // echo $extensao . "<br>";
+    // echo $novo_nome . "<br>";
+    // echo $diretorio;
+
+    // Quando o PHP recebe um arquivo, esse arquivo é enviao para uma pasta temporaria dentro dos arquivos do PHP. Precisamos acessar essa pasta:
+
+    move_uploaded_file($_FILES['img-perfil']['tmp_name'], $diretorio . $novo_nome);
+    // echo "7 <br>";
+
+    $Usuario->imagem_usuario = $novo_nome;
+
+    // echo "8 <br>";
+} else {
+    $Usuario->imagem_usuario  = $dados_usuario['imagem_usuario'];
+}
+
+
+
 
 
 //////////////FIM DA INSERÇÃO////////////////////
@@ -126,21 +166,21 @@ if ($email_existe) {
 
 ///////// FIM VALIDAR E-MAIL /////////
 
-echo 'valores TESTE:<br>';
+// echo 'valores TESTE:<br>';
 
-echo $Usuario->id_usuario . '<br>';
+// echo $Usuario->id_usuario . '<br>';
 
 
-echo $Usuario->nome . '<br>';
+// echo $Usuario->nome . '<br>';
 
-echo $Usuario->sobrenome . '<br>';
+// echo $Usuario->sobrenome . '<br>';
 
-echo $Usuario->data_nasc . '<br>';
+// echo $Usuario->data_nasc . '<br>';
 
-echo $Usuario->genero . '<br>';
+// echo $Usuario->genero . '<br>';
 
-echo $Usuario->email . '<br>';
-echo '<br><br>FIM valores<br><br>';
+// echo $Usuario->email . '<br>';
+// echo '<br><br>FIM valores<br><br>';
 
 
 ///////////////// 
@@ -150,10 +190,10 @@ echo '<br><br>FIM valores<br><br>';
 // var_dump($Usuario->nome);
 // echo '<br><br>';
 
-echo $Usuario->nome;
+// echo $Usuario->nome;
 
-///////////////////
-var_dump($dados_usuario);
+// ///////////////////
+// var_dump($dados_usuario);
 ///////////////////
 
 ///////// SELECT PRO ENDEREÇO:  /////////
@@ -186,21 +226,21 @@ $Usuario->complemento = !empty($complemento) ? $complemento : $dados_usuario_end
 
 
 
-echo 'valores:<br>';
+// echo 'valores:<br>';
 
-echo $Usuario->id_usuario . '<br>';
+// echo $Usuario->id_usuario . '<br>';
 
 
-echo $Usuario->cidade . '<br>';
+// echo $Usuario->cidade . '<br>';
 
-echo $Usuario->uf . '<br>';
+// echo $Usuario->uf . '<br>';
 
-echo $Usuario->rua . '<br>';
+// echo $Usuario->rua . '<br>';
 
-echo $Usuario->bairro . '<br>';
+// echo $Usuario->bairro . '<br>';
 
-echo $Usuario->complemento . '<br>';
-echo '<br><br>FIM valores<br><br>';
+// echo $Usuario->complemento . '<br>';
+// echo '<br><br>FIM valores<br><br>';
 
 
 ///////////////// 
@@ -229,21 +269,21 @@ $Usuario->celular  = !empty($celular) ? $celular : $dados_usuario_fone['telefone
 
 
 
-echo 'valores:<br>';
+// echo 'valores:<br>';
 
-echo $Usuario->id_usuario . '<br>';
+// echo $Usuario->id_usuario . '<br>';
 
 
-echo $Usuario->cidade . '<br>';
+// echo $Usuario->cidade . '<br>';
 
-echo $Usuario->uf . '<br>';
+// echo $Usuario->uf . '<br>';
 
-echo $Usuario->rua . '<br>';
+// echo $Usuario->rua . '<br>';
 
-echo $Usuario->bairro . '<br>';
+// echo $Usuario->bairro . '<br>';
 
-echo $Usuario->complemento . '<br>';
-echo '<br><br>FIM valores<br><br>';
+// echo $Usuario->complemento . '<br>';
+// echo '<br><br>FIM valores<br><br>';
 
 
 
@@ -254,7 +294,9 @@ $connUpdate = $Usuario->updatePessoal(
     $Usuario->email,
     $Usuario->senha,
     $Usuario->data_nasc,
-    $Usuario->genero
+    $Usuario->genero,
+    $Usuario->imagem_usuario,
+
 );
 
 $connUpdateEnd = $Usuario->updateEndereco(
@@ -281,4 +323,17 @@ if ($connUpdate && $connUpdateEnd) {
     $retorno_get_cadastro .= "erro_cadastro=1&";
 }
 
-header('Location: pag-editar-perfil-sucesso.php?' . $retorno_get_cadastro);
+
+echo "teste";
+var_dump($_POST);
+
+if (count($_POST) > 0) { //significa que acabei de submeter uma requisição do tipo post
+    $login = new Login($_POST);
+    try {
+        $user = $login->checkLogin(); //se ele se logou corretamente, o metódo checLogin() retorna o $user
+        $_SESSION['usuario'] = $user;
+        header('Location: pag-editar-perfil-sucesso.php?' . $retorno_get_cadastro);
+    } catch (AppException $e) {
+        $exception = $e;
+    }
+}

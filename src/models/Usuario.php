@@ -12,7 +12,7 @@ class Usuario extends Pessoa
     private $genero;
     private $email;
     private $senha;
-    // private $imagem_usuario;
+    // private $img_usuario;
 
     private $cidade;
     private $uf;
@@ -50,9 +50,9 @@ class Usuario extends Pessoa
 
     //***************PESSOAL***************
 
-    function updatePessoal($id_usuario, $nome, $sobrenome, $email, $senha, $data_nasc, $genero)
+    function updatePessoal($id_usuario, $nome, $sobrenome, $email, $senha, $data_nasc, $genero, $imagem_usuario)
     {
-        $sqlUpdatePessoal = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', email= '$email', senha='$senha', data_nasc='$data_nasc', sexo='$genero' WHERE id_usuario = $id_usuario";
+        $sqlUpdatePessoal = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', email= '$email', senha='$senha', data_nasc='$data_nasc', sexo='$genero', imagem_usuario='$imagem_usuario' WHERE id_usuario = $id_usuario";
 
         $conn = Database::executarSQL($sqlUpdatePessoal);
 

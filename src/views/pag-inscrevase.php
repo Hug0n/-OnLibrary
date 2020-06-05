@@ -54,7 +54,7 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
 
         <!-- ////////////////////////////// -->
 
-        <form method="POST" action="cadastrar-user.php" id="formCadastro">
+        <form method="POST" action="cadastrar-user.php" enctype="multipart/form-data" id="formCadastro">
 
             <!-- ROW 1 - 1° coluna - Início !-->
             <div class="form-group ">
@@ -71,6 +71,11 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
                 <input type="radio" name="genero" value="F" id="genero-F"> Mulher </span>
 
                 </p>
+                Foto de perfil:<br>
+                <input type="file" name="img-perfil">
+                </p>
+
+
                 <span class="form-tam-intermed "> E-mail* </br><input type="email" class="form-control " name="email" id="email">
                     <?php
                     if ($erro_email) {

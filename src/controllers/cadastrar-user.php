@@ -19,6 +19,10 @@
 	$telefone = $_POST['telefone'];
 	$celular = $_POST['celular'];
 
+	// var_dump($_FILES['img-perfil']);
+	// echo '<br>';
+	// var_dump($_FILES['img-perfil']['name']);
+
 	// $nome = 'testando Pinto';
 	// $sobrenome = 'testando';
 	// $data_nasc = 'testando';
@@ -53,6 +57,40 @@
 	]);
 
 
+	////VALIDAÇÃO DA IMAGEM
+
+	if(!empty($_FILES['img-perfil']['name'])){
+		echo "3 <br>";
+		// qual a extensao do img-perfil?
+		$extensao = strtolower(substr($_FILES['img-perfil']['name'], -4));
+		//pega os ultimos 4 caracteres ()o ponto e a extensão
+		echo "4 <br>";
+	
+		// nome do arquivo. Encriptografa pra o nome ser único
+		$novo_nome = md5(time()). $extensao;
+		echo "5 <br>";
+	
+		// diretorio onde sera enviado o arq
+		$diretorio = $Usuario->getDiretorioImagemUser();
+		echo "6 <br>";
+	
+		echo $extensao . "<br>";
+		echo $novo_nome . "<br>";
+		echo $diretorio;
+	
+		// Quando o PHP recebe um arquivo, esse arquivo é enviao para uma pasta temporaria dentro dos arquivos do PHP. Precisamos acessar essa pasta:
+	
+		move_uploaded_file($_FILES['img-perfil']['tmp_name'], $diretorio.$novo_nome);
+		echo "7 <br>";
+
+		$Usuario->imagem_usuario = $novo_nome;
+
+		echo "8 <br>";
+	}else{
+		$Usuario->imagem_usuario  = 'sem_foto.png';
+	}
+	
+
 	///////////////// Verificar se o e-mail já existe:
 	$resultadoEmailJaExiste = $Usuario->getResultSetFromSelect(['email' => $Usuario->email], '*', 'usuario');
 	$sql = "select * from usuario where email = '$email'";
@@ -66,20 +104,13 @@
 		//Verificar se o retorno é vazio
 		$dados_usuario = mysqli_fetch_array($resultadoEmailJaExiste); // Parametro: referência para o recurso externo do PHP
 
-		//var_dump($dados_usuario);
 
 		if (isset($dados_usuario['email'])) {
 			//echo 'Email já cadastrado!';
 			$email_existe = true;
 			echo "existe";
-		} /*else {
-			echo 'Email não cadastrado. Prossiga com o cadastro. </br>';
-		}*/
-	} 
-	// else {
-	// 	//Se houver erro na execução da consulta:
-	// 	echo 'ERRO ao tentar localizar o registro de e-mail! </br>';
-	// }
+		} 
+	}
 
 
 	//-------------------------------------
@@ -97,8 +128,8 @@
 		die();
 	}
 
-	$columns = ['nome', 'sobrenome', 'email', 'senha', 'data_nasc', 'sexo'];
-	$value = [$Usuario->nome, $Usuario->sobrenome, $Usuario->email, $Usuario->senha, $Usuario->data_nasc, $Usuario->sexo];
+	$columns = ['nome', 'sobrenome', 'email', 'senha', 'data_nasc', 'sexo', 'imagem_usuario'];
+	$value = [$Usuario->nome, $Usuario->sobrenome, $Usuario->email, $Usuario->senha, $Usuario->data_nasc, $Usuario->sexo, $Usuario->imagem_usuario];
 
 	$connInsertUsuario = $Usuario->insert($columns, $value, 1);
 

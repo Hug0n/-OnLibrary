@@ -13,6 +13,9 @@ $Livro = new Livro([]);
 
 $resultadoFavoritados = $Livro->getResultSetFromSelect(['id_usuario_favorito' => $id_usuario, 'id_livro_favorito' => $id_livro], '*', 'livro_favorito');
 
+$link_compra = $Livro->getLinkCompra($id_livro);
+
+
 // $sql = "SELECT *  FROM livro_favorito WHERE id_usuario_favorito = $id_usuario AND id_livro_favorito = $id_livro; 
 
 $btn_favorito = 'block';
@@ -40,9 +43,13 @@ echo '<div class="coluna-seguidor-btn">
 //         </div>
 //       </div>';
 
+// <span>SUGESTÃO</span>
+
 echo '<div class="row coluna-seguidor-btn ">
         <div class="col-md-12" >
-            <button type="button" class="btn btn-info btn-block">COMPRAR</button>
+            <a href="'. $link_compra['link_compra'] .'" type="button" id="btn_sugestao" class="btn btn-info btn-block">
+                COMPRAR
+            </a>
         </div>
       </div>';
 
