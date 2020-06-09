@@ -79,13 +79,63 @@ class Livro extends Model
 
             return $registro_link;
         } else {
-            echo "erro no query da classe Livro (getComent())!";
+            echo "erro no query da classe Livro (getLinkCompra())!";
+        }
+    }
+
+    // Relatórios
+
+    function getSqlRelatorioLivroFavorito()
+    {
+        $sql = "SELECT * FROM livro_favorito INNER JOIN livro, usuario WHERE id_livro_favorito = livro.id_livro AND id_usuario_favorito = usuario.id_usuario";
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $resultadoRelatorioLivroFavorito = mysqli_query($conn, $sql);
+            return $resultadoRelatorioLivroFavorito;
+        } else {
+            echo "erro no query da classe Livro (getSqlRelatorioLivroFavorito())!";
         }
     }
 
 
-    // Relatórios
+    function getSelectRelatorioLivroFavorito()
+    {
+        $sql = "SELECT * FROM livro_favorito INNER JOIN livro, usuario WHERE id_livro_favorito = livro.id_livro AND id_usuario_favorito = usuario.id_usuario";
 
 
-    
+        if ($sql) {
+            return $sql;
+        } else {
+            echo "erro no query da classe Livro (getSelectRelatorioLivroFavorito())!";
+        }
+    }
+
+    function getSqlRelatorioComentarioJoin()
+    {
+        $sql = "SELECT * FROM comentario_livro INNER JOIN livro, usuario WHERE ID_LIVRO_COMENTADO = livro.id_livro AND ID_USUARIO_COMENTOU = id_usuario";
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $getSqlRelatorioComentarioJoin = mysqli_query($conn, $sql);
+            return $getSqlRelatorioComentarioJoin;
+        } else {
+            echo "erro no query da classe Livro (getSqlRelatorioComentarioJoin())!";
+        }
+    }
+
+
+    function getSelectRelatorioComentarioJoin()
+    {
+        $sql = "SELECT * FROM comentario_livro INNER JOIN livro, usuario WHERE ID_LIVRO_COMENTADO = livro.id_livro AND ID_USUARIO_COMENTOU = id_usuario";
+
+
+        if ($sql) {
+            return $sql;
+        } else {
+            echo "erro no query da classe Livro (getSelectRelatorioComentarioJoin())!";
+        }
+    }
 }

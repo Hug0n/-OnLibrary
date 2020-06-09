@@ -39,28 +39,28 @@ $celular = $_POST['celular'];
 
 
 //////////////////////////////////
-echo 'valores:<br>';
+// echo 'valores:<br>';
 
-var_dump($Usuario->id_usuario) . '<br>';
+// var_dump($Usuario->id_usuario) . '<br>';
 
-echo ' nome <br>';
+// echo ' nome <br>';
 
-var_dump($nome) . '<br>';
-echo ' nome <br>';
+// var_dump($nome) . '<br>';
+// echo ' nome <br>';
 
-var_dump($sobrenome) . '<br>';
-echo ' sobrenome <br>';
+// var_dump($sobrenome) . '<br>';
+// echo ' sobrenome <br>';
 
-var_dump($data_nasc) . '<br>';
-echo ' data_nasc <br>';
+// var_dump($data_nasc) . '<br>';
+// echo ' data_nasc <br>';
 
-var_dump($genero) . '<br>';
-echo ' genero <br>';
+// var_dump($genero) . '<br>';
+// echo ' genero <br>';
 
-var_dump($email) . '<br>';
-echo ' email <br>';
+// var_dump($email) . '<br>';
+// echo ' email <br>';
 
-echo '<br><br>FIM valores<br><br>';
+// echo '<br><br>FIM valores<br><br>';
 
 
 
@@ -151,10 +151,10 @@ if ($dados_usuario['email'] != $Usuario->email) {
         }
     }
 }
+$retorno_get_cadastro = '';
 
 if ($email_existe) {
 
-    $retorno_get_cadastro = '';
 
     $retorno_get_cadastro .= "erro_email=1&";
 
@@ -166,21 +166,21 @@ if ($email_existe) {
 
 ///////// FIM VALIDAR E-MAIL /////////
 
-// echo 'valores TESTE:<br>';
+echo 'valores TESTE:<br>';
 
-// echo $Usuario->id_usuario . '<br>';
+echo $Usuario->id_usuario . '<br>';
 
 
-// echo $Usuario->nome . '<br>';
+echo $Usuario->nome . '<br>';
 
-// echo $Usuario->sobrenome . '<br>';
+echo $Usuario->sobrenome . '<br>';
 
-// echo $Usuario->data_nasc . '<br>';
+echo $Usuario->data_nasc . '<br>';
 
-// echo $Usuario->genero . '<br>';
+echo $Usuario->genero . '<br>';
 
-// echo $Usuario->email . '<br>';
-// echo '<br><br>FIM valores<br><br>';
+echo $Usuario->email . '<br>';
+echo '<br><br>FIM valores<br><br>';
 
 
 ///////////////// 
@@ -226,21 +226,21 @@ $Usuario->complemento = !empty($complemento) ? $complemento : $dados_usuario_end
 
 
 
-// echo 'valores:<br>';
+echo 'valores:<br>';
 
-// echo $Usuario->id_usuario . '<br>';
+echo $Usuario->id_usuario . '<br>';
 
 
-// echo $Usuario->cidade . '<br>';
+echo $Usuario->cidade . '<br>';
 
-// echo $Usuario->uf . '<br>';
+echo $Usuario->uf . '<br>';
 
-// echo $Usuario->rua . '<br>';
+echo $Usuario->rua . '<br>';
 
-// echo $Usuario->bairro . '<br>';
+echo $Usuario->bairro . '<br>';
 
-// echo $Usuario->complemento . '<br>';
-// echo '<br><br>FIM valores<br><br>';
+echo $Usuario->complemento . '<br>';
+echo '<br><br>FIM valores<br><br>';
 
 
 ///////////////// 
@@ -319,21 +319,29 @@ $connUpdateEnd = $Usuario->updateTelefone(
 
 if ($connUpdate && $connUpdateEnd) {
     $retorno_get_cadastro .= "erro_cadastro=0&";
+    $sucesso = true;
 } else {
     $retorno_get_cadastro .= "erro_cadastro=1&";
+    $sucesso = false;
+
 }
 
 
-echo "teste";
-var_dump($_POST);
+// echo "<br><br>";
+// var_dump($_POST);
+// echo "<br><br>";
 
-if (count($_POST) > 0) { //significa que acabei de submeter uma requisição do tipo post
-    $login = new Login($_POST);
+// if ($sucesso) { //significa que acabei de submeter uma requisição do tipo post
+    $login = new Login(['email' => $Usuario->email, 'senha' => $Usuario->senha]);
+
     try {
+
         $user = $login->checkLogin(); //se ele se logou corretamente, o metódo checLogin() retorna o $user
+
         $_SESSION['usuario'] = $user;
         header('Location: pag-editar-perfil-sucesso.php?' . $retorno_get_cadastro);
     } catch (AppException $e) {
         $exception = $e;
     }
-}
+// }
+

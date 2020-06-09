@@ -91,6 +91,19 @@ header.header .dropdown-button {
     cursor: pointer;
 }
 
+header.header .dropdown-largura {
+    width: 8%;
+    margin: 10px;
+    /* text-align: center; */
+    /* padding: 10px; */
+}
+
+.menus-adm-header {
+    width: 8%;
+    text-align: center;
+
+}
+
 /* link "sair" */
 
 header.header .dropdown-content {

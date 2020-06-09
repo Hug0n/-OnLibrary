@@ -2,7 +2,7 @@
 
 loadModel('Pessoa');
 
-class Usuario extends Pessoa
+class Administrador extends Pessoa
 {
     private $id_usuario;
 
@@ -12,7 +12,7 @@ class Usuario extends Pessoa
     private $genero;
     private $email;
     private $senha;
-    // private $img_usuario;
+    private $img_usuario;
 
     private $cidade;
     private $uf;
@@ -210,5 +210,30 @@ class Usuario extends Pessoa
             echo "erro no query da classe Posts (getQtdSeguidores())!";
         }
     }
+    // RELATÓRIOS---------------------------
 
+    function getSqlRelatorioUserDesab()
+    {
+        $sql = "SELECT * FROM `usuario` WHERE cadastro_fim_data is NOT NULL";
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $resultadoRelatorioLivroFavorito = mysqli_query($conn, $sql);
+            return $resultadoRelatorioLivroFavorito;
+        } else {
+            echo "erro no query da classe Livro (getSqlRelatorioLivroFavorito())!";
+        }
+    }
+
+    function getSelectRelatorioUserDesab()
+    {
+        $sql = "SELECT * FROM `usuario` WHERE cadastro_fim_data is NOT null";
+
+
+        if ($sql) {
+            return $sql;
+        } else {
+            echo "erro no query da classe Livro (getSelectRelatorioLivroFavorito())!";
+        }
+    }
 }

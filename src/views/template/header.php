@@ -56,7 +56,6 @@
             require_once(realpath(VIEW_PATH . '/template/header-adm.php'));
         }
         ?>
-
         <!------------------------------>
 
         <div class="spacer"></div>

@@ -23,6 +23,7 @@ require_once(realpath(dirname(__FILE__) . '/date_utils.php'));
 
 require_once(realpath(MODEL_PATH . '/Model.php'));
 require_once(realpath(MODEL_PATH . '/Usuario.php'));
+require_once(realpath(MODEL_PATH . '/Administrador.php'));
 require_once(realpath(MODEL_PATH . '/Livro.php'));
 require_once(realpath(MODEL_PATH . '/Pessoa.php'));
 

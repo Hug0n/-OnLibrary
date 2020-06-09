@@ -1,12 +1,6 @@
 <?php
 loadModel('Livro');
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "celke";
-// $conn = mysqli_connect($servername, $username, $password, $dbname);
-
 $conn = Database::getConnection();
 
 //Receber a requisão da pesquisa 
@@ -15,42 +9,36 @@ $requestData = $_REQUEST;
 
 //Indice da coluna na tabela visualizar resultado => nome da coluna no banco de dados
 $columns = array(
-	0 => 'id_livro',
-	1 => 'nome_livro',
-	2 => 'autor',
-	3 => 'categoria',
-	4 => 'fora_de_linha',
-	5 => 'idioma',
-	6 => 'numero_edicao',
-	7 => 'quantidade_paginas'
-
+	0 => 'id_usuario',
+	1 => 'nome',
+	2 => 'id_livro',
+	3 => 'nome_livro',
+	4 => 'comentario',
+	5 => 'data_comentario'
 );
 
 //Obtendo registros de número total sem qualquer pesquisa
 
 $Livro = new Livro([]);
-$resultado_user = $Livro->getResultSetFromSelect([], 'id_livro, nome_livro, autor, categoria, fora_de_linha, idioma, numero_edicao, quantidade_paginas, sinopse');
-// $result_user = "SELECT nome_livro, autor, sinopse FROM livro";
+$resultado_user = $Livro->getSqlRelatorioComentarioJoin();
+// $result_user = "SELECT * FROM comentario_livro INNER JOIN livro, usuario WHERE id_livro_comentado = livro.id_livro AND id_usuario_comentou = id_usuario";
 // $resultado_user = mysqli_query($conn, $result_user);
 $qnt_linhas = mysqli_num_rows($resultado_user);
 
 //Obter os dados a serem apresentados
-$result_usuarios = $Livro->getResultSetFromSelect([1 => 1], 'id_livro, nome_livro, autor, categoria, fora_de_linha, idioma, numero_edicao, quantidade_paginas, sinopse', '', 1);
+$result_usuarios = $Livro->getSelectRelatorioComentarioJoin();
 // echo $result_usuarios;
 // var_dump($result_usuarios);
-// $result_usuarios = "SELECT nome_livro, autor, categoria, fora_de_linha, idioma, numero_edicao, quantidade_paginas, sinopse FROM livro WHERE 1=1";
+// $result_usuarios = "SELECT * FROM comentario_livro INNER JOIN livro, usuario WHERE id_livro_comentado = livro.id_livro AND id_usuario_comentou = id_usuario";
 
 if (!empty($requestData['search']['value'])) {   // se houver um parâmetro de pesquisa, $requestData['search']['value'] contém o parâmetro de pesquisa
-	$result_usuarios .= " AND ( nome_livro LIKE '%" . $requestData['search']['value'] . "%' ";
-	$result_usuarios .= " OR autor LIKE '%" . $requestData['search']['value'] . "%' ";
-	$result_usuarios .= " OR categoria LIKE '%" . $requestData['search']['value'] . "%' ";
-	$result_usuarios .= " OR fora_de_linha LIKE '%" . $requestData['search']['value'] . "%' ";
-	$result_usuarios .= " OR idioma LIKE '%" . $requestData['search']['value'] . "%' ";
-	$result_usuarios .= " OR numero_edicao LIKE '%" . $requestData['search']['value'] . "%' ";
-	$result_usuarios .= " OR quantidade_paginas LIKE '%" . $requestData['search']['value'] . "%' ";
+	$result_usuarios .= " AND ( id_usuario LIKE '%" . $requestData['search']['value'] . "%' ";
+	$result_usuarios .= " OR nome LIKE '%" . $requestData['search']['value'] . "%' ";
+	$result_usuarios .= " OR id_livro LIKE '%" . $requestData['search']['value'] . "%' ";
+	$result_usuarios .= " OR nome_livro LIKE '%" . $requestData['search']['value'] . "%' ";
+	$result_usuarios .= " OR comentario LIKE '%" . $requestData['search']['value'] . "%' ";
 
-	$result_usuarios .= " OR id_livro LIKE '%" . $requestData['search']['value'] . "%' )";
-
+	$result_usuarios .= " OR data_comentario LIKE '%" . $requestData['search']['value'] . "%' )";
 }
 // echo $result_usuarios;
 // var_dump($result_usuarios);
@@ -66,14 +54,12 @@ $dados = array();
 while ($row_usuarios = mysqli_fetch_array($resultado_usuarios)) {
 	$dado = array();
 	$dado[] = $row_usuarios["id_livro"];
+	$dado[] = $row_usuarios["nome"];
+	$dado[] = $row_usuarios["id_livro"];
 	$dado[] = $row_usuarios["nome_livro"];
-	$dado[] = $row_usuarios["autor"];
-	$dado[] = $row_usuarios["categoria"];
-	$dado[] = $row_usuarios["fora_de_linha"];
-	$dado[] = $row_usuarios["idioma"];
-	$dado[] = $row_usuarios["numero_edicao"];
-	$dado[] = $row_usuarios["quantidade_paginas"];
-	$dado[] = $row_usuarios["sinopse"];
+	$dado[] = $row_usuarios["COMENTARIO"];
+	$dado[] = $row_usuarios["DATA_COMENTARIO"];
+
 
 	$dados[] = $dado;
 }

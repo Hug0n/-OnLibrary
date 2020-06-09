@@ -71,7 +71,7 @@ class Model
         return $objects;
     }
 
-    public static function  getResultSetFromSelect($filters = [], $columns = '*', $table = '')
+    public static function  getResultSetFromSelect($filters = [], $columns = '*', $table = '', $sql_return = 0)
     {
         if ($table == '') {
             $tableName = static::$tableName;
@@ -85,7 +85,11 @@ class Model
         $result = Database::getResultFromQuery($sql);
         if ($result->num_rows === 0) {
             return null;
-        } else {
+        } 
+        else if ($sql_return == 1) {
+            return $sql;
+        }
+        else {
             // return $sql;
             return $result;
         }
