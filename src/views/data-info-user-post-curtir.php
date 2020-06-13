@@ -10,7 +10,7 @@
 
         <div class="col-md-11 coluna-posts info-livro">
             <!-- tamanho da 1° coluna -->
-            <h2>Usuários</h2>
+            <h2>Posts</h2>
             <table id="tabela_livros" class="display">
                 <thead>
                     <tr>
@@ -19,8 +19,6 @@
                         <th>E-mail</th>
                         <th>Post</th>
                         <th>Data</th>
-                        <th>Curtidas</th>
-                        <!-- <th>Admin</th> -->
                     </tr>
                 </thead>
 

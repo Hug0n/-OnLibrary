@@ -111,9 +111,13 @@ function getInfoLivro() { //credo
         method: 'post',
         data: { id_livro: id_livro }, //credo
         success: function (data) {
+
             let response = JSON.parse(data);
+
             if (response.success === 1) {
+
                 let livro = response.livro;
+                
                 $('#nomeLivro').html(livro.nomeLivro);
                 $('#autorTitulo').html(livro.autor);
                 $('#descricao').html(livro.descricao);

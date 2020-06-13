@@ -11,28 +11,20 @@ $requestData = $_REQUEST;
 $columns = array(
 	0 => 'id_usuario',
 	1 => 'nome',
-	2 => 'sobrenome',
-	3 => 'email',
-	4 => 'data_nasc',
-	5 => 'sexo',
-	6 => 'cadastro_data',
-	7 => 'cadastro_fim_data',
-	8 => 'is_admin',
+	2 => 'email',
+	3 => 'post',
+	4 => 'data_inclusao'
 );
 
 //Obtendo registros de número total sem qualquer pesquisa
 
 $Administrador = new Administrador([]);
-$resultado_user = $Administrador->getSqlRelatorioUserDesab();
-// $result_user = "SELECT nome_livro, autor, sinopse FROM livro";
-// $resultado_user = mysqli_query($conn, $result_user);
+$resultado_user = $Administrador->getSqlRelatorioPosts();
 $qnt_linhas = mysqli_num_rows($resultado_user);
 
 //Obter os dados a serem apresentados
-$result_usuarios = $Administrador->getSelectRelatorioUserDesab();
-// echo $result_usuarios;
-// var_dump($result_usuarios);
-// $result_usuarios = "SELECT nome_livro, autor, categoria, fora_de_linha, idioma, numero_edicao, quantidade_paginas, sinopse FROM livro WHERE 1=1";
+$result_usuarios = $Administrador->getSelectRelatorioPosts();
+
 
 if (!empty($requestData['search']['value'])) {   // se houver um parâmetro de pesquisa, $requestData['search']['value'] contém o parâmetro de pesquisa
 	$result_usuarios .= " AND ( id_usuario LIKE '%" . $requestData['search']['value'] . "%' ";
@@ -62,13 +54,10 @@ while ($row_usuarios = mysqli_fetch_array($resultado_usuarios)) {
 	$dado = array();
 	$dado[] = $row_usuarios["id_usuario"];
 	$dado[] = $row_usuarios["nome"];
-	$dado[] = $row_usuarios["sobrenome"];
 	$dado[] = $row_usuarios["email"];
-	$dado[] = $row_usuarios["data_nasc"];
-	$dado[] = $row_usuarios["sexo"];
-	$dado[] = $row_usuarios["cadastro_data"];
-	$dado[] = $row_usuarios["cadastro_fim_data"];
-	$dado[] = $row_usuarios["is_admin"];
+	$dado[] = $row_usuarios["post"];
+	$dado[] = $row_usuarios["data_inclusao"];
+
 
 	$dados[] = $dado;
 }

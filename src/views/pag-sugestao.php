@@ -13,7 +13,7 @@
                 <div class="row">
                     <!-- ROW 1 - 1° coluna - Início !-->
                     <div class="col-md-12 form-group">
-                        <h5> Contribua para o nosso crescimento sugerindo livros.<br></h5>
+                        <h5> Contribua para o nosso crescimento sugerindo livros e melhorias.<br></h5>
                         <hr>
 
                         <span class="span-test"> Caso seja uma sugestão de livro, escreva-a no formato abaixo:<br>

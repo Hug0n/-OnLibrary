@@ -9,6 +9,10 @@
         <div class="col-md-7 coluna-posts ">
             <!-- tamanho da 1° coluna -->
             <h3 class="centro"> Títulos </h3>
+            
+            
+            <!-- Buscar -->
+
             <hr>
             <div id="div-livros">
                 <!--Informações do Livro serão colocadas aqui!-->

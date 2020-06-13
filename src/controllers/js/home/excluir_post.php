@@ -6,12 +6,20 @@ loadModel('Post');
 $idUsuario = $_SESSION['usuario']->id_usuario;
 $idPost = $_POST['id_post'];
 
+$Post = new Post();
+
+//caso seja adm
+if($_SESSION['usuario']->is_admin === '1'){
+    $Adm = new Administrador([]);
+    $idUsuario = $Adm->getUsuarioDoPost($Post, $idPost);
+}
+
+
 if ($idPost == '' || $idUsuario == '') {
     echo "die - exluir_post.php";
     die();
 }
 
-$Post = new Post();
 $Post->delete('curtir_post', ['id_curtir_post' => $idPost]);
 // $sql = "DELETE FROM curtir_post WHERE id_curtir_post = $idPost";
 

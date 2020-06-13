@@ -2,17 +2,17 @@
 
 class Livro extends Model
 {
-    public $nomeLivro;
-    public $autor;
-    public $ano;
-    public $descricao;
-    public $categoria;
-    public $dataPrazoAluguel;
-    public $foraDeLinha;
-    public $idioma;
-    public $numeroEdicao;
-    public $quantidadePaginas;
-    public $imagemLivro;
+    private $nomeLivro;
+    private $autor;
+    private $ano;
+    private $descricao;
+    private $categoria;
+    private $dataPrazoAluguel;
+    private $foraDeLinha;
+    private $idioma;
+    private $numeroEdicao;
+    private $quantidadePaginas;
+    private $imagemLivro;
 
 
     protected static $tableName = 'livro'; //usado pra pegar o nome da tabela no model
@@ -137,5 +137,225 @@ class Livro extends Model
         } else {
             echo "erro no query da classe Livro (getSelectRelatorioComentarioJoin())!";
         }
+    }
+
+    /**
+     * Get the value of nomeLivro
+     */ 
+    public function getNomeLivro()
+    {
+        return $this->nomeLivro;
+    }
+
+    /**
+     * Set the value of nomeLivro
+     *
+     * @return  self
+     */ 
+    public function setNomeLivro($nomeLivro)
+    {
+        $this->nomeLivro = $nomeLivro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of autor
+     */ 
+    public function getAutor()
+    {
+        return $this->autor;
+    }
+
+    /**
+     * Set the value of autor
+     *
+     * @return  self
+     */ 
+    public function setAutor($autor)
+    {
+        $this->autor = $autor;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ano
+     */ 
+    public function getAno()
+    {
+        return $this->ano;
+    }
+
+    /**
+     * Set the value of ano
+     *
+     * @return  self
+     */ 
+    public function setAno($ano)
+    {
+        $this->ano = $ano;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of categoria
+     */ 
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
+    /**
+     * Set the value of categoria
+     *
+     * @return  self
+     */ 
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of descricao
+     */ 
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * Set the value of descricao
+     *
+     * @return  self
+     */ 
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dataPrazoAluguel
+     */ 
+    public function getDataPrazoAluguel()
+    {
+        return $this->dataPrazoAluguel;
+    }
+
+    /**
+     * Set the value of dataPrazoAluguel
+     *
+     * @return  self
+     */ 
+    public function setDataPrazoAluguel($dataPrazoAluguel)
+    {
+        $this->dataPrazoAluguel = $dataPrazoAluguel;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of foraDeLinha
+     */ 
+    public function getForaDeLinha()
+    {
+        return $this->foraDeLinha;
+    }
+
+    /**
+     * Set the value of foraDeLinha
+     *
+     * @return  self
+     */ 
+    public function setForaDeLinha($foraDeLinha)
+    {
+        $this->foraDeLinha = $foraDeLinha;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idioma
+     */ 
+    public function getIdioma()
+    {
+        return $this->idioma;
+    }
+
+    /**
+     * Set the value of idioma
+     *
+     * @return  self
+     */ 
+    public function setIdioma($idioma)
+    {
+        $this->idioma = $idioma;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of numeroEdicao
+     */ 
+    public function getNumeroEdicao()
+    {
+        return $this->numeroEdicao;
+    }
+
+    /**
+     * Set the value of numeroEdicao
+     *
+     * @return  self
+     */ 
+    public function setNumeroEdicao($numeroEdicao)
+    {
+        $this->numeroEdicao = $numeroEdicao;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of quantidadePaginas
+     */ 
+    public function getQuantidadePaginas()
+    {
+        return $this->quantidadePaginas;
+    }
+
+    /**
+     * Set the value of quantidadePaginas
+     *
+     * @return  self
+     */ 
+    public function setQuantidadePaginas($quantidadePaginas)
+    {
+        $this->quantidadePaginas = $quantidadePaginas;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagemLivro
+     */ 
+    public function getImagemLivro()
+    {
+        return $this->imagemLivro;
+    }
+
+    /**
+     * Set the value of imagemLivro
+     *
+     * @return  self
+     */ 
+    public function setImagemLivro($imagemLivro)
+    {
+        $this->imagemLivro = $imagemLivro;
+
+        return $this;
     }
 }

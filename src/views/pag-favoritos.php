@@ -38,7 +38,11 @@
             <!-- tamanho da 1° coluna -->
 
             <div>
-                <h2>Favoritos de <?= $_SESSION['usuario']->nome ?></h2>
+                <div class="imagem-logo-pag-fav center">
+                    <img src="assets/css/imagens/livro-favorito.png" />
+                    <h2>Favoritos de <?= $_SESSION['usuario']->nome ?></h2>
+
+                </div>
             </div>
 
             <hr>

@@ -109,9 +109,16 @@ $(document).ready(function () {
                 // console.log(Object.values(objteste));
 
                 var response = JSON.parse(data);
+                // Takes a well-formed JSON string and returns the resulting JavaScript value.
+                // Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+
+
                 // alert(Object.values(data));
 
                 // var response = $.parseJSON(data);
+                // As of jQuery 3.0, $.parseJSON is deprecated. To parse JSON strings use the native JSON.parse method instead.
+
+
                 // alert(Object.values(response));
                 // console.log(Object.values(response));
 
@@ -119,20 +126,20 @@ $(document).ready(function () {
                 if (response.success == 1) {
                     // alert("entrou aqui NO LIVROwwwwwwwwwwwwwwww!!!!")
 
-                    livro = response.livro;
+                    // livro = response.livro;
 
-                    $('#nomeLivro').html(livro.nomeLivro);
-                    $('#autorTitulo').html(livro.autor);
-                    $('#descricao').html(livro.descricao);
-                    $('#author').html(`Autor: ${livro.autor}`);
-                    $('#lang').html(`Idioma: ${livro.idioma}`);
-                    $('#fdl').html(`Fora de linha: ${livro.foraDeLinha}`);
-                    $('#year').html(`Ano da edição: ${livro.ano}`);
-                    $('#pgNumber').html(`Número de Páginas: ${livro.quantidadePaginas}`);
-                    $('#edNumber').html(`Número da edição: ${livro.numeroEdicao}`);
-                    $('#category').html(`Categoria: ${livro.categoria}`);
+                    $('#nomeLivro').html(response.nomeLivro);
+                    $('#autorTitulo').html(response.autor);
+                    $('#descricao').html(response.descricao);
+                    $('#author').html(`Autor: ${response.autor}`);
+                    $('#lang').html(`Idioma: ${response.idioma}`);
+                    $('#fdl').html(`Fora de linha: ${response.foraDeLinha}`);
+                    $('#year').html(`Ano da edição: ${response.ano}`);
+                    $('#pgNumber').html(`Número de Páginas: ${response.quantidadePaginas}`);
+                    $('#edNumber').html(`Número da edição: ${response.numeroEdicao}`);
+                    $('#category').html(`Categoria: ${response.categoria}`);
 
-                    imagemLivro = livro.imagemLivro;
+                    var imagemLivro = response.imagemLivro;
 
                     atualizaBotoes();
 

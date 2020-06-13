@@ -29,7 +29,7 @@ $resultado_id = mysqli_query($link, $sql);
 if ($resultado_id) {
     $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
 
-    $livro = new Livro();
+    $livro = new Livro([]);
     $livro->setNomeLivro($registro['nome_livro']);
     $livro->setAutor($registro['autor']);
     $livro->setAno($registro['ano']);

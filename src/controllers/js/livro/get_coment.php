@@ -34,7 +34,7 @@ if ($resultado_id) {
         // echo '<a href="#" class="list-group-item" style= border-radius:20px 50px 30px >';
         echo '<div class="col-md-9">';
 
-        if ($id_usuario === $registro['id_usuario']) {
+        if ($id_usuario === $registro['id_usuario'] || $_SESSION['usuario']->is_admin === '1') {
             echo '<button type="button"  id="btn_excluir_coment_' . $registro['COD_COMENTARIO'] . '" class="btn btn-default btn_excluir_coment pull-right" data-cod_comentario="' . $registro['COD_COMENTARIO'] . '"> Excluir </button>';
         }
         echo '<a href="#" class="text">';

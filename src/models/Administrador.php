@@ -212,6 +212,8 @@ class Administrador extends Pessoa
     }
     // RELATÓRIOS---------------------------
 
+    // Relatório User Disable -------------
+
     function getSqlRelatorioUserDesab()
     {
         $sql = "SELECT * FROM `usuario` WHERE cadastro_fim_data is NOT NULL";
@@ -236,4 +238,62 @@ class Administrador extends Pessoa
             echo "erro no query da classe Livro (getSelectRelatorioLivroFavorito())!";
         }
     }
+
+    // Relatório Posts---------------------------
+
+    function getSqlRelatorioPosts()
+    {
+        $sql = "SELECT * FROM post INNER JOIN usuario where usuario.id_usuario = post.id_usuario_post";
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $getSqlRelatorioComentarioJoin = mysqli_query($conn, $sql);
+            return $getSqlRelatorioComentarioJoin;
+        } else {
+            echo "erro no query da classe Livro (getSqlRelatorioPosts())!";
+        }
+    }
+
+
+    function getSelectRelatorioPosts()
+    {
+        $sql = "SELECT * FROM post INNER JOIN usuario where usuario.id_usuario = post.id_usuario_post";
+
+
+        if ($sql) {
+            return $sql;
+        } else {
+            echo "erro no query da classe Livro (getSelectRelatorioPosts())!";
+        }
+    }
+
+    function getUsuarioDoPost($Post, $idPost){
+
+        // select id_usuario_post FROM post WHERE id_post = 110
+
+       $resultado_id = $Post->getResultSetFromSelect(['id_post' => $idPost], 'id_usuario_post');
+
+       $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+
+       $idUsuario = $registro['id_usuario_post'];
+
+       return $idUsuario;
+    }
+
+    function getUsuarioDoComentario($Livro, $codComentario){
+        // public static function  getResultSetFromSelect($filters = [], $columns = '*', $table = '', $sql_return = 0)
+
+
+        // select id_usuario_post FROM post WHERE id_post = 110
+
+       $resultado_id = $Livro->getResultSetFromSelect(['COD_COMENTARIO' => $codComentario], 'ID_USUARIO_COMENTOU', 'comentario_livro');
+
+       $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+
+       $idUsuarioComent = $registro['ID_USUARIO_COMENTOU'];
+
+       return $idUsuarioComent;
+    }
+
 }

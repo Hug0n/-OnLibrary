@@ -65,7 +65,12 @@ if ($resultado_posts) {
             echo '<button type="button" id="btn_curtir_' . $registroPosts['id_post'] . '" style="display: ' . $btn_curtir_display . '" class="btn btn-secondary btn_curtir pull-right" data-id_post="' . $registroPosts['id_post'] . '"> <input type=image src="assets/css/imagens/like_heart1.jpg" width="20" height="20"> ' . $qtd_curtidas . ' </button>';
 
             echo '<button type="button" id="btn_descurtir_' . $registroPosts['id_post'] . '" style="display: ' . $btn_descurtir_display . '" class="btn btn-success btn_descurtir pull-right" data-id_post="' . $registroPosts['id_post'] . '"> <input type=image src="assets/css/imagens/like_heart1.jpg" width="20" height="20"> ' . $qtd_curtidas . ' </button>';
-        } 
+
+            if ($_SESSION['usuario']->is_admin === '1') {
+                ////Botão Excluir, caso seja ADM
+                echo '<input type=image src="assets/css/imagens/remove_post.png" width="18" height="18" id="btn_excluir_' . $registroPosts['id_post'] . '" class="btn_excluir pull-right" style="margin-right: 25px" data-id_post="' . $registroPosts['id_post'] . '"></input>';
+            }
+        }
         echo '<a href="#" class="text">';
 
         //Nome - Data do Post e Post em si:
