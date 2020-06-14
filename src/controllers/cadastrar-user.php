@@ -1,7 +1,6 @@
  <?php
 
 	loadModel('Model');
-	loadView('cadastrar-user');
 
 	$nome = $_POST['nome'];
 	$sobrenome = $_POST['sobrenome'];
@@ -40,21 +39,37 @@
 	// $celular = 81999533121;
 
 
-	$Usuario = new Usuario([
-		'nome' => $nome,
-		'sobrenome' => $sobrenome,
-		'data_nasc' => $data_nasc,
-		'sexo' => $sexo,
-		'email' => $email,
-		'senha' => $senha,
-		'cidade' => $cidade,
-		'uf' => $uf,
-		'rua' => $rua,
-		'bairro' => $bairro,
-		'complemento' => $complemento,
-		'telefone' => $telefone,
-		'celular' => $celular,
-	]);
+	// $Usuario = new Usuario([
+	// 	'nome' => $nome,
+	// 	'sobrenome' => $sobrenome,
+	// 	'data_nasc' => $data_nasc,
+	// 	'sexo' => $sexo,
+	// 	'email' => $email,
+	// 	'senha' => $senha,
+	// 	'cidade' => $cidade,
+	// 	'uf' => $uf,
+	// 	'rua' => $rua,
+	// 	'bairro' => $bairro,
+	// 	'complemento' => $complemento,
+	// 	'telefone' => $telefone,
+	// 	'celular' => $celular,
+	// ]);
+
+	$Usuario = new Usuario([]);
+
+	$Usuario->setNome($nome);
+	$Usuario->setSobrenome($sobrenome);
+	$Usuario->setData_nasc($data_nasc);
+	$Usuario->setGenero($sexo);
+	$Usuario->setEmail($email);
+	$Usuario->setSenha($senha);
+	$Usuario->setCidade($cidade);
+	$Usuario->setUf($uf);
+	$Usuario->setRua($rua);
+	$Usuario->setBairro($bairro);
+	$Usuario->setComplemento($complemento);
+	$Usuario->setTelefone($telefone);
+	$Usuario->setCelular($celular);
 
 
 	////VALIDAÇÃO DA IMAGEM
@@ -83,16 +98,16 @@
 		move_uploaded_file($_FILES['img-perfil']['tmp_name'], $diretorio.$novo_nome);
 		echo "7 <br>";
 
-		$Usuario->imagem_usuario = $novo_nome;
+		$Usuario->setImg_usuario($novo_nome);
 
 		echo "8 <br>";
 	}else{
-		$Usuario->imagem_usuario  = 'sem_foto.png';
+		$Usuario->setImg_usuario('sem_foto.png');
 	}
 	
 
 	///////////////// Verificar se o e-mail já existe:
-	$resultadoEmailJaExiste = $Usuario->getResultSetFromSelect(['email' => $Usuario->email], '*', 'usuario');
+	$resultadoEmailJaExiste = $Usuario->getResultSetFromSelect(['email' => $Usuario->getEmail()], '*', 'usuario');
 	$sql = "select * from usuario where email = '$email'";
 
 	var_dump($resultadoEmailJaExiste);
@@ -129,7 +144,7 @@
 	}
 
 	$columns = ['nome', 'sobrenome', 'email', 'senha', 'data_nasc', 'sexo', 'imagem_usuario'];
-	$value = [$Usuario->nome, $Usuario->sobrenome, $Usuario->email, $Usuario->senha, $Usuario->data_nasc, $Usuario->sexo, $Usuario->imagem_usuario];
+	$value = [$Usuario->getNome(), $Usuario->getSobrenome(), $Usuario->getEmail(), $Usuario->getSenha(), $Usuario->getData_nasc(), $Usuario->getGenero(), $Usuario->getImg_usuario()];
 
 	$connInsertUsuario = $Usuario->insert($columns, $value, 1);
 
@@ -143,11 +158,11 @@
 		$retorno_get_cadastro .= "erro_cadastro=1&";
 	}
 
-	$id = mysqli_insert_id($connInsertUsuario);
+	$Usuario->setId_usuario(mysqli_insert_id($connInsertUsuario));
 
 
 	$columns = ['id_usuario_end', 'cidade', 'uf', 'rua', 'bairro', 'complemento'];
-	$value = [$id, $Usuario->cidade, $Usuario->uf, $Usuario->rua, $Usuario->bairro, $Usuario->complemento];
+	$value = [$Usuario->getId_usuario(), $Usuario->getCidade(), $Usuario->getUf(), $Usuario->getRua(), $Usuario->getBairro(), $Usuario->getComplemento()];
 
 	$enderecoInsert = $Usuario->insert($columns, $value, 'endereco_usuario');
 
@@ -163,7 +178,7 @@
 
 
 	$columns = ['id_usuario_fone', 'telefone1', 'telefone2'];
-	$value = [$id, $Usuario->telefone, $Usuario->celular];
+	$value = [$Usuario->getId_usuario(), $Usuario->getTelefone(), $Usuario->getCelular()];
 
 	$telefoneInsert = $Usuario->insert($columns, $value, 'telefone_usuario');
 

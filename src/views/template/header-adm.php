@@ -58,7 +58,7 @@
             </li>
             <li class="nav-item">
             <a href="data-info-user-post-curtir.php">
-                    Posts e curtidas
+                    Posts
                 </a>
             </li>
         </ul>
