@@ -7,6 +7,8 @@ $erro_cadastro = isset($_GET['erro_cadastro']) ? $_GET['erro_cadastro'] : 0;
 
 ?>
 <link rel="stylesheet" type="text/css" href="assets/css/editar-perfil.css">
+<link rel="stylesheet" href="assets/css/button-ocultar-left.css">
+
 
 <div class="container ">
     </br>

@@ -2,16 +2,20 @@
 <link rel="stylesheet" href="assets/css/button-ocultar-left.css">
 
 
-<title>Home - Livros Disponíveis</title>
+<title>Livros Disponíveis</title>
 
 <div class="container ">
     <div class="row ">
         <div class="col-md-7 coluna-posts ">
             <!-- tamanho da 1° coluna -->
             <h3 class="centro"> Títulos </h3>
-            
-            
-            <!-- Buscar -->
+
+            <form id="form_procurar_livros" class="input-group">
+                <input type="text" id="nome_livro" name="nome_livro" class="form-control" placeholder="Qual livro você está procurando?" maxlength="140" name="tweet">
+                <span class="input-group-btn ">
+                    <button class="btn btn-info button-procurar " id="btn_procurar_livro" type="button"> <span class="icofont-search-2"></span></button>
+                </span>
+            </form>
 
             <hr>
             <div id="div-livros">

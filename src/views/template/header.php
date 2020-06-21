@@ -42,8 +42,8 @@
         <div class="logo">
             <a href="home.php">
                 <i class="icofont-book mr-2"></i>
-                <span class="font-weight-bold">ON</span>
-                <span class="font-weight-light mx-2">Library</span>
+                <span class="font-weight-bold ocultar-header ">ON</span>
+                <span class="font-weight-light mx-2 ocultar-header ">Library</span>
             </a>
         </div>
         <!-- //esconder o botão -->

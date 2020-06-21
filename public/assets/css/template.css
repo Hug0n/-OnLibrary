@@ -1,4 +1,80 @@
-body {
+@media(max-width: 800px) {
+    body {
+        display: grid;
+        grid-template-columns: 15% 1fr;
+        grid-template-rows: 64px 1fr 35px;
+        grid-template-areas: "header header" "sidebar content" "footer footer";
+        height: 100vh;
+        margin: 0;
+        background-color: #FBE2Add6;
+    }
+    header.header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(0, 0, 0, 0.822);
+        font-size: 2rem;
+        flex-basis: 17%;
+        height: 100%;
+    }
+    header.header .dropdown-largura {
+        align-content: center;
+        width: 20%;
+        margin: 10px;
+        height: 100%;
+    }
+
+
+    .logo .ocultar-header {
+        display: none;
+    }
+    .dropdown-button .ocultar-header-adm {
+        display: none;
+    }
+    .nav-list .ocultar-list {
+        display: none;
+    }
+    .body {
+        background-color: red;
+    }
+
+
+
+}
+
+@media(min-width: 801px) {
+    body {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: 64px 1fr 35px;
+        grid-template-areas: "header header" "sidebar content" "footer footer";
+        height: 100vh;
+        margin: 0;
+        background-color: #FBE2Add6;
+    }
+    header.header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(0, 0, 0, 0.822);
+        font-size: 2rem;
+        flex-basis: 250px;
+        height: 100%;
+    }
+
+    header.header .dropdown-largura {
+        align-content: center;
+        width: 12%;
+        margin: 10px;
+        height: 100%;
+    }
+
+    .body {
+        background-color: red;
+    }
+}
+
+/* body {
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 64px 1fr 35px;
@@ -6,7 +82,8 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #FBE2Add6;
-}
+} */
+
 a {
     text-decoration: none;
 }
@@ -16,13 +93,15 @@ a:hover {
 }
 
 /* fixar os elementos */
-aside.sidebar .sticky{
+
+aside.sidebar .sticky {
     position: sticky;
     /* background-color: pink; */
     /* bottom: 10px; */
 }
 
 /* //coloca os elementos pra direita */
+
 .pull-right {
     float: right;
     text-align: center;
@@ -58,7 +137,7 @@ header.header {
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 4px 0px rgba(0, 0, 0, .14), 0 1px 10px 0px rgba(0, 0, 0, .12);
 }
 
-header.header .logo {
+/* header.header .logo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +145,7 @@ header.header .logo {
     font-size: 2rem;
     flex-basis: 250px;
     height: 100%;
-}
+} */
 
 header.header .menu-toggle {
     color: rgba(0, 0, 0, 0.822);
@@ -89,19 +168,23 @@ header.header .dropdown-button {
     font-size: 1.1rem;
     color: rgba(0, 0, 0, 0.822);
     cursor: pointer;
+    
 }
 
-header.header .dropdown-largura {
-    width: 8%;
+/* header.header .dropdown-button:hover {
+    height: 100%;
+} */
+
+/* header.header .dropdown-largura {
+    align-content: center;
+    width: 20%;
     margin: 10px;
-    /* text-align: center; */
-    /* padding: 10px; */
-}
+    height: 100%;
+} */
 
 .menus-adm-header {
     width: 8%;
     text-align: center;
-
 }
 
 /* link "sair" */
@@ -147,7 +230,6 @@ header.header .avatar {
     height: 50px;
     border-radius: 80%;
     margin: 10px;
-
 }
 
 aside.sidebar {
@@ -175,7 +257,7 @@ aside.sidebar .menu li.nav-item {
     padding: 10px 0px 10px 25px;
 }
 
-aside.sidebar .menu a li.nav-item  {
+aside.sidebar .menu a li.nav-item {
     font-size: 1.2rem;
     color: #555;
     text-decoration: none;

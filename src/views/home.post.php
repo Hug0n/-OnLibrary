@@ -43,10 +43,13 @@ if ($resultado_posts) {
         if ($id_usuario === $registroPosts['id_usuario']) { //exibição do botão EXCLUIR caso o post seja "meu":
 
             ////exibição da quantidade de curtidas caso o post seja "meu"
-            echo '<span class="pull-right" style="margin-right: 15px"> <input type=image src="assets/css/imagens/like_heart1.jpg" width="15" height="15"> ' . $qtd_curtidas . '</span>';
+            echo '<span class="pull-right " style="margin-right: 15px"> <input type=image src="assets/css/imagens/like_heart1.jpg" width="15" height="15"> ' . $qtd_curtidas . '</span>';
 
-            ////Botão Excluir
-            echo '<input type=image src="assets/css/imagens/remove_post.png" width="18" height="18" id="btn_excluir_' . $registroPosts['id_post'] . '" class="btn_excluir pull-right" style="margin-right: 25px" data-id_post="' . $registroPosts['id_post'] . '"></input>';
+            ////Botão Excluir icofont-ui-delete
+            // echo '<input type=image src="assets/css/imagens/remove_post.png" width="18" height="18" id="btn_excluir_' . $registroPosts['id_post'] . '" class="btn_excluir pull-right " style="margin-right: 25px" data-id_post="' . $registroPosts['id_post'] . '"></input>';
+
+            echo '<span width="18" height="18" id="btn_excluir_' . $registroPosts['id_post'] . '" class="btn_excluir pull-right icofont-ui-delete" style="margin-right: 10px; margin-top: 3px; margin-left:30px; cursor: pointer" data-id_post="' . $registroPosts['id_post'] . '"></span>';
+
         } else { //exibição do botão curtir/descurtir -> Caso o usuário seja diferente do user da sessão (outros posts):
 
             $esta_seguindo_usuario_tf = $Post->getPostCurtido($id_usuario, $registroPosts['id_post']); //$SQL Curtidas
@@ -68,7 +71,8 @@ if ($resultado_posts) {
 
             if ($_SESSION['usuario']->is_admin === '1') {
                 ////Botão Excluir, caso seja ADM
-                echo '<input type=image src="assets/css/imagens/remove_post.png" width="18" height="18" id="btn_excluir_' . $registroPosts['id_post'] . '" class="btn_excluir pull-right" style="margin-right: 25px" data-id_post="' . $registroPosts['id_post'] . '"></input>';
+                echo '<span width="18" height="18" id="btn_excluir_' . $registroPosts['id_post'] . '" class="btn_excluir pull-right icofont-ui-delete" style="margin-right: 10px; margin-top: 3px; margin-left:30px; cursor: pointer" data-id_post="' . $registroPosts['id_post'] . '"></span>';
+
             }
         }
         echo '<a href="#" class="text">';

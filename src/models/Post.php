@@ -2,10 +2,10 @@
 
 class Post extends Model
 {
-    public $id_post;
-    public $id_usuario_post;
-    public $post;
-    public $data_inclusao;
+    private $id_post;
+    private $id_usuario_post;
+    private $post;
+    private $data_inclusao;
 
 
     protected static $tableName = 'post'; //usado pra pegar o nome da tabela no model
@@ -78,5 +78,85 @@ class Post extends Model
 
     function updatePost() {
             
+    }
+
+    /**
+     * Get the value of id_post
+     */ 
+    public function getId_post()
+    {
+        return $this->id_post;
+    }
+
+    /**
+     * Set the value of id_post
+     *
+     * @return  self
+     */ 
+    public function setId_post($id_post)
+    {
+        $this->id_post = $id_post;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_usuario_post
+     */ 
+    public function getId_usuario_post()
+    {
+        return $this->id_usuario_post;
+    }
+
+    /**
+     * Set the value of id_usuario_post
+     *
+     * @return  self
+     */ 
+    public function setId_usuario_post($id_usuario_post)
+    {
+        $this->id_usuario_post = $id_usuario_post;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of post
+     */ 
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    /**
+     * Set the value of post
+     *
+     * @return  self
+     */ 
+    public function setPost($post)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of data_inclusao
+     */ 
+    public function getData_inclusao()
+    {
+        return $this->data_inclusao;
+    }
+
+    /**
+     * Set the value of data_inclusao
+     *
+     * @return  self
+     */ 
+    public function setData_inclusao($data_inclusao)
+    {
+        $this->data_inclusao = $data_inclusao;
+
+        return $this;
     }
 }

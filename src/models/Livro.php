@@ -131,7 +131,6 @@ class Livro extends Model
     {
         $sql = "SELECT * FROM comentario_livro INNER JOIN livro, usuario WHERE ID_LIVRO_COMENTADO = livro.id_livro AND ID_USUARIO_COMENTOU = id_usuario";
 
-
         if ($sql) {
             return $sql;
         } else {
@@ -139,9 +138,28 @@ class Livro extends Model
         }
     }
 
+    // procurar livros 
+
+    function getLivros($nome_livro)
+    {
+        $sqlGetLivros = "SELECT * FROM livro WHERE nome_livro LIKE '%$nome_livro%'";
+
+        $conn = Database::executarSQL($sqlGetLivros);
+
+        if ($conn) {
+            $resultadoGetLivros = mysqli_query($conn, $sqlGetLivros);
+            return $resultadoGetLivros;
+        } else {
+            echo "erro no query da classe Livro (getLivros())!";
+        }
+    }
+
+
+
+
     /**
      * Get the value of nomeLivro
-     */ 
+     */
     public function getNomeLivro()
     {
         return $this->nomeLivro;
@@ -151,7 +169,7 @@ class Livro extends Model
      * Set the value of nomeLivro
      *
      * @return  self
-     */ 
+     */
     public function setNomeLivro($nomeLivro)
     {
         $this->nomeLivro = $nomeLivro;
@@ -161,7 +179,7 @@ class Livro extends Model
 
     /**
      * Get the value of autor
-     */ 
+     */
     public function getAutor()
     {
         return $this->autor;
@@ -171,7 +189,7 @@ class Livro extends Model
      * Set the value of autor
      *
      * @return  self
-     */ 
+     */
     public function setAutor($autor)
     {
         $this->autor = $autor;
@@ -181,7 +199,7 @@ class Livro extends Model
 
     /**
      * Get the value of ano
-     */ 
+     */
     public function getAno()
     {
         return $this->ano;
@@ -191,7 +209,7 @@ class Livro extends Model
      * Set the value of ano
      *
      * @return  self
-     */ 
+     */
     public function setAno($ano)
     {
         $this->ano = $ano;
@@ -201,7 +219,7 @@ class Livro extends Model
 
     /**
      * Get the value of categoria
-     */ 
+     */
     public function getCategoria()
     {
         return $this->categoria;
@@ -211,7 +229,7 @@ class Livro extends Model
      * Set the value of categoria
      *
      * @return  self
-     */ 
+     */
     public function setCategoria($categoria)
     {
         $this->categoria = $categoria;
@@ -221,7 +239,7 @@ class Livro extends Model
 
     /**
      * Get the value of descricao
-     */ 
+     */
     public function getDescricao()
     {
         return $this->descricao;
@@ -231,7 +249,7 @@ class Livro extends Model
      * Set the value of descricao
      *
      * @return  self
-     */ 
+     */
     public function setDescricao($descricao)
     {
         $this->descricao = $descricao;
@@ -241,7 +259,7 @@ class Livro extends Model
 
     /**
      * Get the value of dataPrazoAluguel
-     */ 
+     */
     public function getDataPrazoAluguel()
     {
         return $this->dataPrazoAluguel;
@@ -251,7 +269,7 @@ class Livro extends Model
      * Set the value of dataPrazoAluguel
      *
      * @return  self
-     */ 
+     */
     public function setDataPrazoAluguel($dataPrazoAluguel)
     {
         $this->dataPrazoAluguel = $dataPrazoAluguel;
@@ -261,7 +279,7 @@ class Livro extends Model
 
     /**
      * Get the value of foraDeLinha
-     */ 
+     */
     public function getForaDeLinha()
     {
         return $this->foraDeLinha;
@@ -271,7 +289,7 @@ class Livro extends Model
      * Set the value of foraDeLinha
      *
      * @return  self
-     */ 
+     */
     public function setForaDeLinha($foraDeLinha)
     {
         $this->foraDeLinha = $foraDeLinha;
@@ -281,7 +299,7 @@ class Livro extends Model
 
     /**
      * Get the value of idioma
-     */ 
+     */
     public function getIdioma()
     {
         return $this->idioma;
@@ -291,7 +309,7 @@ class Livro extends Model
      * Set the value of idioma
      *
      * @return  self
-     */ 
+     */
     public function setIdioma($idioma)
     {
         $this->idioma = $idioma;
@@ -301,7 +319,7 @@ class Livro extends Model
 
     /**
      * Get the value of numeroEdicao
-     */ 
+     */
     public function getNumeroEdicao()
     {
         return $this->numeroEdicao;
@@ -311,7 +329,7 @@ class Livro extends Model
      * Set the value of numeroEdicao
      *
      * @return  self
-     */ 
+     */
     public function setNumeroEdicao($numeroEdicao)
     {
         $this->numeroEdicao = $numeroEdicao;
@@ -321,7 +339,7 @@ class Livro extends Model
 
     /**
      * Get the value of quantidadePaginas
-     */ 
+     */
     public function getQuantidadePaginas()
     {
         return $this->quantidadePaginas;
@@ -331,7 +349,7 @@ class Livro extends Model
      * Set the value of quantidadePaginas
      *
      * @return  self
-     */ 
+     */
     public function setQuantidadePaginas($quantidadePaginas)
     {
         $this->quantidadePaginas = $quantidadePaginas;
@@ -341,7 +359,7 @@ class Livro extends Model
 
     /**
      * Get the value of imagemLivro
-     */ 
+     */
     public function getImagemLivro()
     {
         return $this->imagemLivro;
@@ -351,7 +369,7 @@ class Livro extends Model
      * Set the value of imagemLivro
      *
      * @return  self
-     */ 
+     */
     public function setImagemLivro($imagemLivro)
     {
         $this->imagemLivro = $imagemLivro;

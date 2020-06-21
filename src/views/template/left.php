@@ -9,33 +9,59 @@
                 <a href="home.php">
                     <li class="nav-item">
                         <i class="icofont-chart-histogram mr-2"></i>
-                        Meu Feed
+                        <span class="ocultar-list"> Meu Feed </span>
                     </li>
                 </a>
-                <a href="#">
+                <!-- ui-user
+            user-alt-3  -> face
+            user-alt-5 -> sorrindo
+            user
+            -->
+                <a href="pag-perfil-usuario.php?idUsuario=<?= $_SESSION['usuario']->id_usuario ?>">
                     <li class="nav-item">
-                        <i class="icofont-ui-calendar mr-2"></i>
-                        Meu Perfil
+                        <i class="icofont-user-alt-5 mr-2"></i>
+                        <span class="ocultar-list"> Meu Perfil </span>
+                       
                     </li>
                 </a>
                 <a href="pag-favoritos.php?idUsuario=<?= $_SESSION['usuario']->id_usuario ?>">
                     <li class="nav-item">
-                        <i class="icofont-ui-check mr-2"></i>
-                        Meus Favoritos
+                        <i class="icofont-star mr-2"></i>
+                        <span class="ocultar-list"> Meus Favoritos </span>
+                        
                     </li>
                 </a>
                 <a href="#">
                     <li class="nav-item">
                         <i class=" icofont-users  mr-2"></i>
-                        Meus seguidores
+                        <span class="ocultar-list"> Meus seguidores </span>
+
+                    </li>
+                </a>
+                <a href="#">
+                    <li class="nav-item">
+                        <i class=" icofont-ui-check  mr-2"></i>
+                        <span class="ocultar-list"> Seguindo </span>
+
                     </li>
                 </a>
                 <a href="C-editar-perfil.php?idUsuario=<?= $_SESSION['usuario']->id_usuario ?>">
                     <li class="nav-item">
-                        <i class="icofont-chart-histogram mr-2"></i>
-                        Editar perfil
+                        <i class="icofont-edit mr-2"></i>
+                        <span class="ocultar-list"> Editar perfil </span>
+
+                        
                     </li>
                 </a>
+
+                <!-- <a href="data-sugestao.php">
+                    <li class="nav-item">
+                        <i class="icofont-chart-histogram mr-2"></i>
+                        <span class="ocultar-list"> Ver Sugestões </span>
+
+                        
+                    </li>
+                </a> -->
             </ul>
         </nav>
 

@@ -15,7 +15,12 @@ require_once(realpath(CONTROLLER_PATH . '/QtdPosts.php'));
 			<!-- tamanho da 1° coluna -->
 			<form id="form_procurar_pessoas" class="input-group">
 				<input type="text" id="nome_pessoa" name="nome_pessoa" class="form-control" placeholder="Quem você está procurando?" maxlength="140" name="tweet"> <span class="input-group-btn ">
-					<button class="btn btn-default container-visual" id="btn_procurar_pessoa" type="button">Procurar</button>
+					<button class="btn btn-info container-visual " id="btn_procurar_pessoa" type="button">
+						Procurar
+						<span class="icofont-search-user">
+
+						</span>
+					</button>
 				</span>
 			</form>
 			<br>
@@ -34,15 +39,15 @@ require_once(realpath(CONTROLLER_PATH . '/QtdPosts.php'));
 				<!-- Início (row) da 2° coluna -->
 				<div class="col-md-4">
 					POSTS <br>
-                    <?php echo $qtd_posts ?>
+					<?php echo $qtd_posts ?>
 				</div>
 				<div class="col-md-4">
 					SEGUIDORES <br>
-                    <?php echo $qtd_seguidores ?>
+					<?php echo $qtd_seguidores ?>
 				</div>
 				<div class="col-md-4">
 					SEGUINDO <br>
-                    <?php echo $qtd_seguindo ?>
+					<?php echo $qtd_seguindo ?>
 				</div>
 			</div> <!-- Fim (row) da 2° coluna -->
 			<hr hr-size-caixa-1>

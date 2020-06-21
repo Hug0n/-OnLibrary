@@ -39,7 +39,7 @@ class Administrador extends Pessoa
         'imagem_usuario'
     ];
 
-   
+
 
     //Polimorfirmo - retorna todos os posts - Visão Geral
     function getQtdPosts($idAdm)
@@ -143,31 +143,60 @@ class Administrador extends Pessoa
         }
     }
 
-    function getUsuarioDoPost($Post, $idPost){
+    function getUsuarioDoPost($Post, $idPost)
+    {
 
         // select id_usuario_post FROM post WHERE id_post = 110
 
-       $resultado_id = $Post->getResultSetFromSelect(['id_post' => $idPost], 'id_usuario_post');
+        $resultado_id = $Post->getResultSetFromSelect(['id_post' => $idPost], 'id_usuario_post');
 
-       $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+        $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
 
-       $idUsuario = $registro['id_usuario_post'];
+        $idUsuario = $registro['id_usuario_post'];
 
-       return $idUsuario;
+        return $idUsuario;
     }
 
-    function getUsuarioDoComentario($Livro, $codComentario){
+    function getUsuarioDoComentario($Livro, $codComentario)
+    {
         // public static function  getResultSetFromSelect($filters = [], $columns = '*', $table = '', $sql_return = 0)
 
         // select id_usuario_post FROM post WHERE id_post = 110
 
-       $resultado_id = $Livro->getResultSetFromSelect(['COD_COMENTARIO' => $codComentario], 'ID_USUARIO_COMENTOU', 'comentario_livro');
+        $resultado_id = $Livro->getResultSetFromSelect(['COD_COMENTARIO' => $codComentario], 'ID_USUARIO_COMENTOU', 'comentario_livro');
 
-       $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+        $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
 
-       $idUsuarioComent = $registro['ID_USUARIO_COMENTOU'];
+        $idUsuarioComent = $registro['ID_USUARIO_COMENTOU'];
 
-       return $idUsuarioComent;
+        return $idUsuarioComent;
     }
 
+
+
+    function getSqlRelatorioSugestaoJoin()
+    {
+        $sql = "SELECT * FROM sugestao_livro INNER JOIN usuario WHERE id_usuario_sugestao = usuario.id_usuario";
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $getSqlRelatorioSugestaoJoin = mysqli_query($conn, $sql);
+            return $getSqlRelatorioSugestaoJoin;
+        } else {
+            echo "erro no query da classe Livro (getSqlRelatorioSugestaoJoin())!";
+        }
+    }
+
+
+    function getSelectRelatorioSugestaoJoin()
+    {
+        $sql = "SELECT * FROM sugestao_livro INNER JOIN usuario WHERE id_usuario_sugestao = usuario.id_usuario";
+
+        if ($sql) {
+            return $sql;
+        } else {
+            echo "erro no query da classe Livro (getSelectRelatorioComentarioJoin())!";
+        }
+    }
 }
