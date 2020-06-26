@@ -7,31 +7,31 @@ var id_livro = 0;
 $(document).ready(function () {
 
     var livro; //objeto livro
-    var imagemLivro;
+    var imagemUsuario;
 
-    getInfoLivro();
-    atualizaComent();
+    getInfoUsuario();
+    // atualizaComent();
 
 
     //associar o evento de clique
-    $('#btn_post').click(function () {
+    $('#btn_post_mensagem').click(function () {
 
-        if ($('#texto_post').val().length > 0) { //condição para analisar se o post está vazio na hora da submissão. Caso sim, não posta!
-            // alert($('#texto_post').val());
+        if ($('#texto_mensagem').val().length > 0) { //condição para analisar se o post está vazio na hora da submissão. Caso sim, não posta!
+            // alert($('#texto_mensagem').val());
 
             var data = $('#form_post').serializeArray();
             data.push({
-                name: "id_livro",
-                value: id_livro
+                name: "id_usuario",
+                value: id_usuario
             });
 
             $.ajax({
-                url: 'js/livro/inclui_coment.php',
+                url: 'js/pag-perfil-usuario/inclui_mensagem.php',
                 method: 'post',
                 data: $.param(data),
                 success: function (data) {
-                    $('#texto_post').val('');
-                    atualizaComent();
+                    $('#texto_mensagem').val('');
+                    atualizaMensagem();
                 }
             });
         }
@@ -39,71 +39,72 @@ $(document).ready(function () {
 
     // getFavoritos aqui, dps chamo os buttons
 
-    function atualizaBotoes() {
+    // function atualizaBotoes() {
 
-        // var livros = JSON.parse(livro);
-        // alert(livros);
-        // alert(Object.values(livros));
+    //     // var livros = JSON.parse(livro);
+    //     // alert(livros);
+    //     // alert(Object.values(livros));
 
-        $.ajax({
-            url: '/js/livro/livro-favorito/livro-botoes.php',
-            method: 'post',
-            data: { id_livro: id_livro },
-            success: function (data) {
-                $('#botoes-livro').html(data);
-                // alert(Object.values(livro));
+    //     $.ajax({
+    //         url: '/js/livro/livro-favorito/livro-botoes.php',
+    //         method: 'post',
+    //         data: { id_livro: id_livro },
+    //         success: function (data) {
+    //             $('#botoes-livro').html(data);
+    //             // alert(Object.values(livro));
 
-                $('#btn_addfavorito').click(function () {
+    //             $('#btn_addfavorito').click(function () {
 
-                    $.ajax({
+    //                 $.ajax({
 
-                        url: '/js/livro/livro-favorito/inclui_favorito.php',
-                        method: 'post',
-                        data: { id_livro: id_livro },
-                        success: function (data) {
-                            // Aqui posso mudar a estrutura do botão selecionando-o pela classe
+    //                     url: '/js/livro/livro-favorito/inclui_favorito.php',
+    //                     method: 'post',
+    //                     data: { id_livro: id_livro },
+    //                     success: function (data) {
+    //                         // Aqui posso mudar a estrutura do botão selecionando-o pela classe
 
-                            // ADICIONAR AOS FAVORITOS
-                            $('#btn_addfavorito').hide();
-                            $('#btn_removerfavorito').show();
-                        }
-                    });
-                });
+    //                         // ADICIONAR AOS FAVORITOS
+    //                         $('#btn_addfavorito').hide();
+    //                         $('#btn_removerfavorito').show();
+    //                     }
+    //                 });
+    //             });
 
-                // REMOVER DOS FAVORITOS
-                $('#btn_removerfavorito').click(function () {
+    //             // REMOVER DOS FAVORITOS
+    //             $('#btn_removerfavorito').click(function () {
 
-                    $.ajax({
-                        url: '/js/livro/livro-favorito/excluir_favorito.php',
-                        method: 'post',
-                        data: { id_livro: id_livro },
-                        success: function (data) {
-                            // Aqui posso mudar a estrutura do botão selecionando-o pela classe
+    //                 $.ajax({
+    //                     url: '/js/livro/livro-favorito/excluir_favorito.php',
+    //                     method: 'post',
+    //                     data: { id_livro: id_livro },
+    //                     success: function (data) {
+    //                         // Aqui posso mudar a estrutura do botão selecionando-o pela classe
 
-                            // ADICIONAR AOS FAVORITOS
-                            $('#btn_removerfavorito').hide();
-                            $('#btn_addfavorito').show();
-                        }
-                    });
-                });
-            }
-        });
-    }
+    //                         // ADICIONAR AOS FAVORITOS
+    //                         $('#btn_removerfavorito').hide();
+    //                         $('#btn_addfavorito').show();
+    //                     }
+    //                 });
+    //             });
+    //         }
+    //     });
+    // }
 
-    function getInfoLivro() { //credo
-        var id_livro_local = window.location.search.substring(1).split("=")[1]; //credo
-        id_livro = id_livro_local; //credo
+    function getInfoUsuario() {
+        var id_usuario_local = window.location.search.substring(1).split("=")[1];
+        id_usuario = id_usuario_local;
 
         // alert ("ready livrooooo");
-        //  alert ( id_livro_local);
-        // alert ( id_livro);
+        // alert(id_usuario_local);
+        // alert(id_usuario);
+        // alert('oi');
 
         $.ajax({
-            url: 'js/livro/getLivro.php',
+            url: 'js/pag-perfil-usuario/getUsuario.php',
             method: 'post',
-            data: { id_livro: id_livro }, //credo
+            data: { id_usuario: id_usuario },
             success: function (data) {
-                // alert(id_livro)
+                // alert(id_usuario);
 
                 // var objteste = { fdfdfoo: "bar", baz: 42 };
                 // console.log(Object.values(objteste));
@@ -120,59 +121,131 @@ $(document).ready(function () {
 
 
                 // alert(Object.values(response));
-                // console.log(Object.values(response));
+                console.log(Object.values(response));
 
 
-                if (response.success == 1) {
-                    // alert("entrou aqui NO LIVROwwwwwwwwwwwwwwww!!!!")
+                // if (response.success == 1) {
+                //     // alert("entrou aqui NO LIVROwwwwwwwwwwwwwwww!!!!")
 
-                    // livro = response.livro;
+                //     // livro = response.livro;
 
-                    $('#nomeLivro').html(response.nomeLivro);
-                    $('#autorTitulo').html(response.autor);
-                    $('#descricao').html(response.descricao);
-                    $('#author').html(`Autor: ${response.autor}`);
-                    $('#lang').html(`Idioma: ${response.idioma}`);
-                    $('#fdl').html(`Fora de linha: ${response.foraDeLinha}`);
-                    $('#year').html(`Ano da edição: ${response.ano}`);
-                    $('#pgNumber').html(`Número de Páginas: ${response.quantidadePaginas}`);
-                    $('#edNumber').html(`Número da edição: ${response.numeroEdicao}`);
-                    $('#category').html(`Categoria: ${response.categoria}`);
+                $('#nomeUsuario').html(response.nomeUsuario);
+                $('#sobrenome').html(response.sobrenome);
+                $('#dataNasc').html(response.dataNasc);
+                $('#sexo').html(`Autor: ${response.sexo}`);
+                $('#email').html(`Idioma: ${response.email}`);
+                $('#cidade').html(`${response.cidade},`);
+                $('#uf').html(`${response.uf}`);
+                $('#rua').html(response.rua);
+                $('#bairro').html(response.bairro);
+                $('#complemento').html(response.complemento);
 
-                    var imagemLivro = response.imagemLivro;
-
-                    atualizaBotoes();
-
-
-                    $.ajax({
-
-                        url: 'js/livro/imagem-livro.php',
-                        method: 'post',
-                        data: { imagemLivro: imagemLivro }, //credo
-                        success: function (data) {
-                            $('#imagemLivro').html(data);
-                        }
-
-                    });
+                $('#telefone').html(response.telefone);
+                $('#celular').html(response.celular);
+                // $('#imagemUsuario').html(response.imagemUsuario);
 
 
-                } else {
-                    alert(response.msg);
-                }
+
+                var imagemUsuario = response.imagemUsuario;
+
+                // atualizaBotoes();
+
+
+                $.ajax({
+
+                    url: 'js/pag-perfil-usuario/imagem-usuario.php',
+                    method: 'post',
+                    data: { imagemUsuario: imagemUsuario },
+                    success: function (data) {
+                        $('#imagemUsuario').html(data);
+                    }
+
+                });
+
+
+                // } else {
+                //     alert(response.msg);
+                // }
             }
         });
 
     }
 
 
+    function atualizaPost() {
+
+        $.ajax({
+            url: 'js/pag-perfil-usuario/get_posts_perfil.php',
+            method: 'post',
+            data: { id_usuario: id_usuario },
+            success: function (data) {
+                $('#posts').html(data);
+
+                // Excluir Post
+                $('.btn_excluir').click(function () {
+                    var id_post = $(this).data('id_post');
+
+                    $.ajax({
+                        url: 'js/home/excluir_post.php',
+                        method: 'post',
+                        data: {
+                            id_post: id_post
+                        },
+                        success: function (data) {
+                            alert("Post excluído");
+                            atualizaPost();
+                        }
+                    });
+                });
+
+                // Curtir Post
+                $('.btn_curtir').click(function () {
+                    var id_post = $(this).data('id_post');
+
+                    $.ajax({
+                        url: 'js/home/curtir_post.php',
+                        method: 'post',
+                        data: {
+                            id_post: id_post
+                        },
+                        success: function (data) {
+                            // alert("Curtida incluída");
+                            atualizaPost();
+                        }
+                    });
+                });
+
+                // DESCurtir Post
+                $('.btn_descurtir').click(function () {
+                    var id_post = $(this).data('id_post');
+
+                    $.ajax({
+                        url: 'js/home/excluir_curtida.php',
+                        method: 'post',
+                        data: {
+                            id_post: id_post
+                        },
+                        success: function (data) {
+                            // alert("Post descurtido!");
+                            atualizaPost();
+                        }
+                    });
+                });
+            }
+        });
+    }
+
+    atualizaPost()
+
+    
     function atualizaComent() {
 
         $.ajax({
-            url: 'js/livro/get_coment.php',
+            url: 'js/pag-perfil-usuario/get_coments_perfil.php',
             method: 'post',
-            data: { id_livro: id_livro },
+            data: { id_usuario: id_usuario },
             success: function (data) {
-                $('#posts').html(data);
+                $('#coments').html(data);
 
                 // Excluir Post
                 $('.btn_excluir_coment').click(function () {
@@ -193,10 +266,42 @@ $(document).ready(function () {
                 });
             }
         });
-
-        // alert("livro.js ready fim do arquivo");
-
     }
+    atualizaComent()
+
+
+
+    function atualizaMensagem() {
+
+        $.ajax({
+            url: 'js/pag-perfil-usuario/get_mensagens_perfil.php',
+            method: 'post',
+            data: { id_usuario: id_usuario },
+            success: function (data) {
+                $('#mensagens').html(data);
+
+                // Excluir Post
+                $('.btn_excluir').click(function () {
+                    var cod_mensagem = $(this).data('id_mensagem');
+
+                    $.ajax({
+                        url: 'js/pag-perfil-usuario/excluir_mensagem.php',
+                        method: 'post',
+                        data: {
+                            cod_mensagem: cod_mensagem
+                        },
+                        success: function (data) {
+                            atualizaComent();
+                            alert("Mensagem excluída");
+                            atualizaMensagem()
+
+                        }
+                    });
+                });
+            }
+        });
+    }
+    atualizaMensagem()
 
 
 });

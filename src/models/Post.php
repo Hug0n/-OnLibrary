@@ -42,6 +42,25 @@ class Post extends Model
         }
     }
 
+    
+    static function getUserPostsPerfil($id_usuario)
+    {
+
+        $sql = " SELECT p.data_inclusao, p.post, p.id_post, u.nome, u.id_usuario, u.imagem_usuario FROM post AS p JOIN usuario AS u ON (p.id_usuario_post = u.id_usuario) WHERE id_usuario_post = $id_usuario ORDER BY data_inclusao DESC LIMIT 5   ";
+      
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $resultado_posts_perfil = mysqli_query($conn, $sql);
+            return $resultado_posts_perfil;
+            // return $sql;
+
+        } else {
+            echo "erro no query da classe Posts (getUserPostsPerfil())!";
+        }
+    }
+
     function getQtdCurtidas($id_post)
     {
         $sqlQtdCurtidas = "SELECT COUNT(*) AS qtd_curtidas FROM curtir_post WHERE id_curtir_post = " . $id_post;

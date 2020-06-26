@@ -193,9 +193,6 @@ $(document).ready(function () {
                 });
             }
         });
-
-        // alert("livro.js ready fim do arquivo");
-
     }
 
 

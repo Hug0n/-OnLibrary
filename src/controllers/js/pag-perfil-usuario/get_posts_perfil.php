@@ -1,6 +1,27 @@
 <?php
+session_start();
 
-echo "<br>";
+loadModel('Post');
+
+
+$id_usuario_session = $_SESSION['usuario']->id_usuario;
+
+$id_usuario = $_POST['id_usuario'];
+
+
+
+$Post = new Post();
+$Usuario = new Usuario([]);
+
+$diretorio = $Usuario->getDiretorioImagemUser();
+
+
+$resultado_posts = $Post->getUserPostsPerfil($id_usuario);
+
+
+$qnt_linhas = mysqli_num_rows($resultado_posts);
+
+// echo "<br>";
 
 if ($resultado_posts) {
     if ($qnt_linhas > 0) {
@@ -13,7 +34,7 @@ if ($resultado_posts) {
             $mysqlDate = date($formatoData, $dataInclusao);
             //echo $mysqlDate;
 
-            // $diretorioimg = $diretorio . $registroPosts['imagem_usuario'];
+            // $diretorioimg = $diretorio    . $registroPosts['imagem_usuario'];
             echo '<div class="row list-group-users">';
             echo '<div class="col-md-3">';
             echo '<a href="pag-perfil-usuario.php?idUsuario=' . $registroPosts['id_usuario'] . '" class="text">';
@@ -40,7 +61,7 @@ if ($resultado_posts) {
             }
 
             ///////////////////////////////////
-            if ($id_usuario === $registroPosts['id_usuario']) { //exibição do botão EXCLUIR caso o post seja "meu":
+            if ($id_usuario === $id_usuario_session) { //exibição do botão EXCLUIR caso o post seja "meu":
 
                 ////exibição da quantidade de curtidas caso o post seja "meu"
                 echo '<span class="pull-right " style="margin-right: 15px"> <input type=image src="assets/css/imagens/like_heart1.jpg" width="15" height="15"> ' . $qtd_curtidas . '</span>';
@@ -51,7 +72,7 @@ if ($resultado_posts) {
                 echo '<span width="18" height="18" id="btn_excluir_' . $registroPosts['id_post'] . '" class="btn_excluir pull-right icofont-ui-delete" style="margin-right: 10px; margin-top: 3px; margin-left:30px; cursor: pointer" data-id_post="' . $registroPosts['id_post'] . '"></span>';
             } else { //exibição do botão curtir/descurtir -> Caso o usuário seja diferente do user da sessão (outros posts):
 
-                $esta_seguindo_usuario_tf = $Post->getPostCurtido($id_usuario, $registroPosts['id_post']); //$SQL Curtidas
+                $esta_seguindo_usuario_tf = $Post->getPostCurtido($id_usuario_session, $registroPosts['id_post']); //$SQL Curtidas
 
                 $registroPostCurtido = mysqli_fetch_array($esta_seguindo_usuario_tf, MYSQLI_ASSOC);
 
@@ -83,23 +104,11 @@ if ($resultado_posts) {
             echo '</div>'; //Fim row
 
         }
-    } else {
+    } else { //caso o user n tenha posts
         echo '<br>';
-
-        echo '<b>Comece a explorar o OnLibrary!</b>';
-        echo '<br>';
-
-        echo '-> Faça postagens e ganhe corações!';
-        echo '<br>';
-
-        echo '-> Siga outros leitores e veja as postagens deles aqui!';
-        echo '<br>';
-
-        echo '-> Deixe sua opinião nas páginas dos livros e adicione-os aos favoritos!';
+        echo 'O usuário ainda não postou nada =(';
         echo '<br>';
         echo '<br>';
-
-
     }
 } else {
     echo 'Erro na consulta dos posts no banco de dados. Por favor, tente novamente.';

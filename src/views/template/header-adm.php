@@ -10,6 +10,12 @@
     <div class="dropdown-content">
         <ul class="list">
             <li class="nav-item">
+                <a href="pag-cadastrar-livro.php">
+                    Cadastrar Livro
+                </a>
+            </li>
+            <hr>
+            <li class="nav-item">
                 <a href="data-info-livro.php">
                     Todos os Livros
                 </a>
@@ -43,7 +49,7 @@ icofont-people
 
 <div class="dropdown dropdown-largura">
     <div class="dropdown-button">
-    <span class="icofont-users-social" style="margin-right: 8%;"></span>
+        <span class="icofont-users-social" style="margin-right: 8%;"></span>
         <span class="ocultar-header-adm">
             Usuários
         </span>

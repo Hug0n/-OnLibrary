@@ -24,7 +24,7 @@ if ($resultado_id) {
 
         echo '<div class="row list-group-users">';
         echo '<div class="col-md-3">';
-        echo '<a href="#" class="text">';
+        echo '<a href="pag-perfil-usuario.php?idUsuario='. $registro['id_usuario'] .'" class="text">';
 
         echo '<div class="imagem-user-peq">';
         echo '<img src="' . $diretorio . $registro['imagem_usuario'] . '">';
@@ -37,7 +37,7 @@ if ($resultado_id) {
         if ($id_usuario === $registro['id_usuario'] || $_SESSION['usuario']->is_admin === '1') {
             echo '<button type="button"  id="btn_excluir_coment_' . $registro['COD_COMENTARIO'] . '" class="btn btn-default btn_excluir_coment pull-right icofont-ui-delete" data-cod_comentario="' . $registro['COD_COMENTARIO'] . '"> </button>';
         }
-        echo '<a href="#" class="text">';
+        echo '<a href="pag-perfil-usuario.php?idUsuario='. $registro['id_usuario'] .'" class="text">';
         echo '<h4 class="list-group-item-heading"> ' . $registro['nome'] . ' <small> - ' . date('d \d\e M \d\e Y', strtotime($registro['DATA_COMENTARIO']))  . '</small> </h4>';
         echo '<p class = list-group-item-text>' . $registro['COMENTARIO'] . '</p>';
         echo '</a>';

@@ -1,0 +1,62 @@
+.color-nav {
+	background-color: #F7D358;
+}
+
+.back-color {
+	background-color: rgb(235, 46, 46);
+}
+
+hr {
+	border-color: #F4A460;
+	width: 92%;
+}
+
+/*------------------------------*/
+
+.coluna-posts {
+	border: 1px solid #f9c76c;
+	border-radius: 10px;
+	background: #fef2dd;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 4px 0px rgba(0, 0, 0, .14), 0 1px 10px 0px rgba(0, 0, 0, .12);
+	margin: 15px 15px 20px 20px;
+	padding: 15px 10px 20px 20px;
+	align-items: center;
+	align-content: center;
+	text-align: center;
+
+}
+
+.coluna-perfil {
+	align-items: center;
+	align-content: center;
+	text-align: center;
+	border: 1px solid #f9c76c;
+	border-radius: 10px;
+	background: #fef2dd;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 4px 0px rgba(0, 0, 0, .14), 0 1px 10px 0px rgba(0, 0, 0, .12);
+	margin: 15px 15px 20px 20px;
+	padding: 0PX;
+}
+
+.coluna-seguidor-btn {
+	text-align: center;
+	margin: 0px 10px 10px 10px;
+	padding: 0px;
+}
+
+/*------------------------------*/
+
+.back-teste {
+	background: red;
+	color: green;
+}
+
+.back-teste2 {
+	background: green;
+	color: yellow;
+}
+
+.hr-size-caixa-1 {
+	width: 100px;
+	border-radius: 10px;
+}

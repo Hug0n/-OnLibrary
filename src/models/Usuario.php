@@ -211,10 +211,57 @@ class Usuario extends Pessoa
         }
     }
 
+    //Perfil do Usuário
+
+
+
+    function getUsuarios($idUsuario)
+    {
+        $sqlgetUsuario = "SELECT * FROM usuario INNER JOIN endereco_usuario, telefone_usuario WHERE endereco_usuario.id_usuario_end = $idUsuario AND telefone_usuario.id_usuario_fone = $idUsuario AND id_usuario = $idUsuario";
+
+        $conn = Database::executarSQL($sqlgetUsuario);
+
+        if ($conn) {
+            $resultadoGetUsuario = mysqli_query($conn, $sqlgetUsuario);
+            return $resultadoGetUsuario;
+        } else {
+            echo "erro no query da classe Usuario (getUsuario())!";
+        }
+    }
+
+
+    function getComentariosPerfil($id_usuario)
+    {
+        $sql = " SELECT * FROM comentario_livro INNER JOIN usuario ON ID_USUARIO_COMENTOU = usuario.id_usuario WHERE usuario.id_usuario = $id_usuario ORDER BY DATA_COMENTARIO DESC LIMIT 5";
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $resultado_comments_perfil = mysqli_query($conn, $sql);
+            return $resultado_comments_perfil;
+        } else {
+            echo "erro no query da classe Usuario (getComentariosPerfil())!";
+        }
+    }
+
+
+    function getMensagensPerfil($id_usuario)
+    {
+        $sql = "SELECT * FROM mensagens_user_perfil AS m JOIN usuario AS u ON (m.id_usuario_comentou = u.id_usuario) WHERE id_usuario_comentado = $id_usuario ORDER BY data_mensagem DESC";
+
+        $conn = Database::executarSQL($sql);
+
+        if ($conn) {
+            $resultado_mensagens_Perfil = mysqli_query($conn, $sql);
+            return $resultado_mensagens_Perfil;
+        } else {
+            echo "erro no query da classe Usuario (getMensagensPerfil())!";
+        }
+    }
 
     /**
      * Get the value of nome
-     */ 
+     */
     public function getNome()
     {
         return $this->nome;
@@ -224,7 +271,7 @@ class Usuario extends Pessoa
      * Set the value of nome
      *
      * @return  self
-     */ 
+     */
     public function setNome($nome)
     {
         $this->nome = $nome;
@@ -234,7 +281,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of sobrenome
-     */ 
+     */
     public function getSobrenome()
     {
         return $this->sobrenome;
@@ -244,7 +291,7 @@ class Usuario extends Pessoa
      * Set the value of sobrenome
      *
      * @return  self
-     */ 
+     */
     public function setSobrenome($sobrenome)
     {
         $this->sobrenome = $sobrenome;
@@ -254,7 +301,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of data_nasc
-     */ 
+     */
     public function getData_nasc()
     {
         return $this->data_nasc;
@@ -264,7 +311,7 @@ class Usuario extends Pessoa
      * Set the value of data_nasc
      *
      * @return  self
-     */ 
+     */
     public function setData_nasc($data_nasc)
     {
         $this->data_nasc = $data_nasc;
@@ -274,7 +321,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of genero
-     */ 
+     */
     public function getGenero()
     {
         return $this->genero;
@@ -284,7 +331,7 @@ class Usuario extends Pessoa
      * Set the value of genero
      *
      * @return  self
-     */ 
+     */
     public function setGenero($genero)
     {
         $this->genero = $genero;
@@ -294,7 +341,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of email
-     */ 
+     */
     public function getEmail()
     {
         return $this->email;
@@ -304,7 +351,7 @@ class Usuario extends Pessoa
      * Set the value of email
      *
      * @return  self
-     */ 
+     */
     public function setEmail($email)
     {
         $this->email = $email;
@@ -314,7 +361,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of senha
-     */ 
+     */
     public function getSenha()
     {
         return $this->senha;
@@ -324,7 +371,7 @@ class Usuario extends Pessoa
      * Set the value of senha
      *
      * @return  self
-     */ 
+     */
     public function setSenha($senha)
     {
         $this->senha = $senha;
@@ -334,7 +381,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of cidade
-     */ 
+     */
     public function getCidade()
     {
         return $this->cidade;
@@ -344,7 +391,7 @@ class Usuario extends Pessoa
      * Set the value of cidade
      *
      * @return  self
-     */ 
+     */
     public function setCidade($cidade)
     {
         $this->cidade = $cidade;
@@ -354,7 +401,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of uf
-     */ 
+     */
     public function getUf()
     {
         return $this->uf;
@@ -364,7 +411,7 @@ class Usuario extends Pessoa
      * Set the value of uf
      *
      * @return  self
-     */ 
+     */
     public function setUf($uf)
     {
         $this->uf = $uf;
@@ -374,7 +421,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of rua
-     */ 
+     */
     public function getRua()
     {
         return $this->rua;
@@ -384,7 +431,7 @@ class Usuario extends Pessoa
      * Set the value of rua
      *
      * @return  self
-     */ 
+     */
     public function setRua($rua)
     {
         $this->rua = $rua;
@@ -394,7 +441,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of bairro
-     */ 
+     */
     public function getBairro()
     {
         return $this->bairro;
@@ -404,7 +451,7 @@ class Usuario extends Pessoa
      * Set the value of bairro
      *
      * @return  self
-     */ 
+     */
     public function setBairro($bairro)
     {
         $this->bairro = $bairro;
@@ -414,7 +461,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of complemento
-     */ 
+     */
     public function getComplemento()
     {
         return $this->complemento;
@@ -424,7 +471,7 @@ class Usuario extends Pessoa
      * Set the value of complemento
      *
      * @return  self
-     */ 
+     */
     public function setComplemento($complemento)
     {
         $this->complemento = $complemento;
@@ -434,7 +481,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of telefone
-     */ 
+     */
     public function getTelefone()
     {
         return $this->telefone;
@@ -444,7 +491,7 @@ class Usuario extends Pessoa
      * Set the value of telefone
      *
      * @return  self
-     */ 
+     */
     public function setTelefone($telefone)
     {
         $this->telefone = $telefone;
@@ -454,7 +501,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of celular
-     */ 
+     */
     public function getCelular()
     {
         return $this->celular;
@@ -464,7 +511,7 @@ class Usuario extends Pessoa
      * Set the value of celular
      *
      * @return  self
-     */ 
+     */
     public function setCelular($celular)
     {
         $this->celular = $celular;
@@ -474,7 +521,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of id_usuario
-     */ 
+     */
     public function getId_usuario()
     {
         return $this->id_usuario;
@@ -484,7 +531,7 @@ class Usuario extends Pessoa
      * Set the value of id_usuario
      *
      * @return  self
-     */ 
+     */
     public function setId_usuario($id_usuario)
     {
         $this->id_usuario = $id_usuario;
@@ -494,7 +541,7 @@ class Usuario extends Pessoa
 
     /**
      * Get the value of img_usuario
-     */ 
+     */
     public function getImg_usuario()
     {
         return $this->img_usuario;
@@ -504,7 +551,7 @@ class Usuario extends Pessoa
      * Set the value of img_usuario
      *
      * @return  self
-     */ 
+     */
     public function setImg_usuario($img_usuario)
     {
         $this->img_usuario = $img_usuario;

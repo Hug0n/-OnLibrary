@@ -18,6 +18,9 @@ $Post->id_usuario_post = $id_usuario;
 
 $resultado_posts = $Post->getUserPosts($id_usuario);
 
+$qnt_linhas = mysqli_num_rows($resultado_posts);
+
+
 
 // $conn = Database::executarSQL($resultado_posts);
 // $resultado_posts = mysqli_query($conn, $sqlPosts);
@@ -27,7 +30,8 @@ loadView('home.post', [
     'resultado_posts' => $resultado_posts,
     'id_usuario' => $id_usuario,
     'Post' => $Post,
-    'diretorio' => $diretorio
+    'diretorio' => $diretorio,
+    'qnt_linhas' => $qnt_linhas
 ]);
 
 // Pra testar:

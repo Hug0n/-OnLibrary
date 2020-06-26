@@ -173,7 +173,6 @@ class Administrador extends Pessoa
     }
 
 
-
     function getSqlRelatorioSugestaoJoin()
     {
         $sql = "SELECT * FROM sugestao_livro INNER JOIN usuario WHERE id_usuario_sugestao = usuario.id_usuario";
@@ -197,6 +196,21 @@ class Administrador extends Pessoa
             return $sql;
         } else {
             echo "erro no query da classe Livro (getSelectRelatorioComentarioJoin())!";
+        }
+    }
+
+    function getUsuarios($idUsuario = 'id_usuario')
+    {
+        
+        $sqlgetUsuario = "SELECT * FROM usuario INNER JOIN endereco_usuario, telefone_usuario WHERE endereco_usuario.id_usuario_end = $idUsuario AND telefone_usuario.id_usuario_fone = $idUsuario AND id_usuario = $idUsuario";
+
+        $conn = Database::executarSQL($sqlgetUsuario);
+
+        if ($conn) {
+            $resultadoGetUsuario = mysqli_query($conn, $sqlgetUsuario);
+            return $resultadoGetUsuario;
+        } else {
+            echo "erro no query da classe Usuario (getUsuario())!";
         }
     }
 }

@@ -6,14 +6,16 @@ class Livro extends Model
     private $autor;
     private $ano;
     private $descricao;
+    private $linkComprar;
     private $categoria;
-    private $dataPrazoAluguel;
     private $foraDeLinha;
     private $idioma;
     private $numeroEdicao;
     private $quantidadePaginas;
     private $imagemLivro;
 
+    
+    // private $dataPrazoAluguel;
 
     protected static $tableName = 'livro'; //usado pra pegar o nome da tabela no model
     protected static $columns = [
@@ -373,6 +375,26 @@ class Livro extends Model
     public function setImagemLivro($imagemLivro)
     {
         $this->imagemLivro = $imagemLivro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of linkComprar
+     */ 
+    public function getLinkComprar()
+    {
+        return $this->linkComprar;
+    }
+
+    /**
+     * Set the value of linkComprar
+     *
+     * @return  self
+     */ 
+    public function setLinkComprar($linkComprar)
+    {
+        $this->linkComprar = $linkComprar;
 
         return $this;
     }
