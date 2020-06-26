@@ -25,8 +25,7 @@
         </div>
         <div class="col-md-4 coluna-seguidor">
             <!-- tamanho da 2° coluna -->
-            <div class="row">
-                <!-- Início (row) da 2° coluna -->
+            <!-- <div class="row">
                 <div class="col-md-6">
                     LIVROS <br>
                     <?php echo "5" ?>
@@ -35,15 +34,18 @@
                     FAVORITOS <br>
                     <?php echo "2" ?>
                 </div>
-            </div> <!-- Fim (row) da 2° coluna -->
+            </div> < -->
 
-            <hr hr-size-caixa-1>
-
+            <!-- <hr hr-size-caixa-1> -->
+            <br>
             <div class="row coluna-seguidor-btn">
+
                 <div class="col-md-12 ">
-                    <a href="pag-sugestao.php" type="button" id="btn_sugestao" class="btn btn-primary btn-block">
-                        <span>SUGESTÃO</span>
-                    </a>
+                    <h4><a href="pag-sugestao.php"> <button type="button" id="btn_sugestao" class="btn btn-primary btn-block ">SUGESTÃO </button></h4> </a>
+                </div>
+                
+                <div class="col-md-12 ">
+                    <h4><a href="home.procurar-pessoas.php"> <button type="button" class="btn btn-info btn-block ">Procurar Pessoas</button></h4>
                 </div>
             </div>
         </div><!-- Fim da 2° coluna -->

@@ -259,6 +259,22 @@ class Usuario extends Pessoa
         }
     }
 
+    
+
+    // function getusuariosSeguidores($id_usuario)
+    // {
+    //     $sql = "SELECT * FROM mensagens_user_perfil AS m JOIN usuario AS u ON (m.id_usuario_comentou = u.id_usuario) WHERE id_usuario_comentado = $id_usuario ORDER BY data_mensagem DESC";
+
+    //     $conn = Database::executarSQL($sql);
+
+    //     if ($conn) {
+    //         $resultado_mensagens_Perfil = mysqli_query($conn, $sql);
+    //         return $resultado_mensagens_Perfil;
+    //     } else {
+    //         echo "erro no query da classe Usuario (getMensagensPerfil())!";
+    //     }
+    // }
+
     /**
      * Get the value of nome
      */

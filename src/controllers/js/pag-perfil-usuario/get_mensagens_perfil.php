@@ -17,8 +17,6 @@ $resultado_mensagens = $Usuario->getMensagensPerfil($id_usuario);
 $qnt_linhas = mysqli_num_rows($resultado_mensagens);
 
 
-echo "<br>";
-
 if ($resultado_mensagens) {
     if ($qnt_linhas > 0) {
         while ($registroPosts = mysqli_fetch_array($resultado_mensagens, MYSQLI_ASSOC)) {
@@ -65,7 +63,7 @@ if ($resultado_mensagens) {
                 // ////Botão Excluir icofont-ui-delete
                 // // echo '<input type=image src="assets/css/imagens/remove_post.png" width="18" height="18" id="btn_excluir_' . $registroPosts['id_mensagem'] . '" class="btn_excluir pull-right " style="margin-right: 25px" data-id_mensagem="' . $registroPosts['id_mensagem'] . '"></input>';
 
-                echo '<button width="18" height="18" id="btn_excluir_' . $registroPosts['id_mensagem'] . '" class="btn btn_excluir pull-right icofont-ui-delete" style="margin-right: 10px; margin-top: 3px; margin-left:30px; cursor: pointer" data-id_mensagem="' . $registroPosts['id_mensagem'] . '"></button>';
+                echo '<button width="18" height="18" id="btn_excluir_' . $registroPosts['id_mensagem'] . '" class="btn btn_excluir_msg pull-right icofont-ui-delete" style="margin-right: 10px; margin-top: 3px; margin-left:30px; cursor: pointer" data-id_mensagem="' . $registroPosts['id_mensagem'] . '"></button>';
             } else { //exibição do botão curtir/descurtir -> Caso o usuário seja diferente do user da sessão (outros posts):
 
                 // $esta_seguindo_usuario_tf = $Post->getPostCurtido($id_usuario, $registroPosts['id_mensagem']); //$SQL Curtidas
@@ -87,7 +85,7 @@ if ($resultado_mensagens) {
                     
                 if ($_SESSION['usuario']->is_admin === '1') {
                     ////Botão Excluir, caso seja ADM
-                    echo '<button width="18" height="18" id="btn_excluir_' . $registroPosts['id_mensagem'] . '" class="btn_excluir pull-right icofont-ui-delete" style="margin-right: 10px; margin-top: 3px; margin-left:30px; cursor: pointer" data-id_mensagem="' . $registroPosts['id_mensagem'] . '"></button>';
+                    echo '<button width="18" height="18" id="btn_excluir_' . $registroPosts['id_mensagem'] . '" class="btn_excluir_msg pull-right icofont-ui-delete" style="margin-right: 10px; margin-top: 3px; margin-left:30px; cursor: pointer" data-id_mensagem="' . $registroPosts['id_mensagem'] . '"></button>';
                 }
             }
             echo '<a href="pag-perfil-usuario.php?idUsuario=' . $registroPosts['id_usuario'] . '" class="text">';

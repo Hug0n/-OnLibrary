@@ -31,17 +31,17 @@
                         
                     </li>
                 </a>
-                <a href="#">
+                <a href="home.procurar-pessoas.php?>">
                     <li class="nav-item">
                         <i class=" icofont-users  mr-2"></i>
-                        <span class="ocultar-list"> Meus seguidores </span>
+                        <span class="ocultar-list"> Procurar pessoas </span>
 
                     </li>
                 </a>
-                <a href="#">
+                <a href="pag-livros.php">
                     <li class="nav-item">
-                        <i class=" icofont-ui-check  mr-2"></i>
-                        <span class="ocultar-list"> Seguindo </span>
+                        <i class=" icofont-book  mr-2"></i>
+                        <span class="ocultar-list"> Explorar Livros </span>
 
                     </li>
                 </a>
