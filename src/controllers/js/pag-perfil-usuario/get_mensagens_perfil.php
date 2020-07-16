@@ -55,7 +55,7 @@ if ($resultado_mensagens) {
             // }
 
             // ///////////////////////////////////
-            if ($id_usuario === $registroPosts['id_usuario_comentado']) { //exibição do botão EXCLUIR caso o post seja "meu":
+            if ($id_usuario_session === $registroPosts['id_usuario_comentado'] || $id_usuario_session === $registroPosts['id_usuario_comentou']) { //exibição do botão EXCLUIR caso o post seja "meu":
 
                 // ////exibição da quantidade de curtidas caso o post seja "meu"
                 // echo '<span class="pull-right " style="margin-right: 15px"> <input type=image src="assets/css/imagens/like_heart1.jpg" width="15" height="15"> ' . $qtd_curtidas . '</span>';

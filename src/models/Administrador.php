@@ -4,24 +4,6 @@ loadModel('Pessoa');
 
 class Administrador extends Pessoa
 {
-    private $id_usuario;
-
-    private $nome;
-    private $sobrenome;
-    private $data_nasc;
-    private $genero;
-    private $email;
-    private $senha;
-    private $img_usuario;
-
-    private $cidade;
-    private $uf;
-    private $rua;
-    private $bairro;
-    private $complemento;
-
-    private $telefone;
-    private $celular;
 
 
     protected static $tableName = 'usuario'; //usado pra pegar o nome da tabela no model
