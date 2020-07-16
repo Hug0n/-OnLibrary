@@ -1,0 +1,3 @@
+<?php
+
+loadView('pag-inscrevase');

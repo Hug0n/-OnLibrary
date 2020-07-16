@@ -1,0 +1,32 @@
+/* /pag-inscrev-sucesso.php */
+
+.imagem-login {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-login img {
+    width: 99%;
+    height: 99%;
+    max-width: 10rem;
+    max-height: 20rem;
+}
+
+.ajustar-tamanho {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    flex-basis: 750px;
+}
+
+.row {
+    margin: auto;
+}
+
+.bordercolor {
+    border: 1px solid rgb(127, 212, 127);
+}
